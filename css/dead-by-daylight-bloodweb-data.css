@@ -1,0 +1,340 @@
+/* Global box-sizing for consistent border and padding management */
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+/* Body styles */
+body {
+	background-color: #1F2424;
+	color: #fff;
+	font-family: "Fira Sans", sans-serif;
+}
+
+a {
+	color: #fff;
+}
+
+a:hover {
+	color: #fff;
+	text-shadow: 0 0 10px #fff;
+	/* Glowing text effect */
+}
+
+/* Banner styles */
+.banner {
+	background-color: #375A7F;
+	padding: 25px;
+	text-align: center;
+	width: 100%;
+}
+
+/* Container styles */
+.container {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	margin: 20px auto;
+	/* Add vertical space between banner and content below it and center horizontally */
+	width: 100%;
+}
+
+/* Active tab styles */
+.tab-title {
+	text-align: center;
+}
+
+.tab-update-date {
+	margin-bottom: 15px;
+	/* Add vertical space between tab update date and content below it */
+	text-align: center;
+}
+
+.tab-subheading {
+	font-size: 18px;
+}
+
+.tab-subsubheading {
+	font-size: 15px;
+}
+
+/* Resource notes styles */
+.bloodweb-progression-resource-notes {
+	cursor: pointer;
+	font-size: 18px;
+	text-align: center;
+}
+
+.bloodweb-progression-resource-notes:hover {
+	text-decoration: underline;
+}
+
+.content-distribution-resource-notes {
+	cursor: pointer;
+	font-size: 18px;
+	text-align: center;
+}
+
+.content-distribution-resource-notes:hover {
+	text-decoration: underline;
+}
+
+
+.prestige-modifiers-resource-notes {
+	cursor: pointer;
+	font-size: 18px;
+	text-align: center;
+}
+
+.prestige-modifiers-resource-notes:hover {
+	text-decoration: underline;
+}
+
+/* Table styles */
+.bloodweb-progression-table {
+	border-collapse: collapse;
+	margin-bottom: 50px;
+	/* Add vertical space between table and content below it */
+	text-align: center;
+	width: 100%;
+}
+
+.bloodweb-progression-table th {
+	background-color: #141818;
+}
+
+.bloodweb-progression-table th,
+.bloodweb-progression-table td {
+	border: 1px solid #ddd;
+	padding: 15px;
+}
+
+.content-distribution-table {
+	border-collapse: collapse;
+	margin-bottom: 50px;
+	/* Add vertical space between table and content below it */
+	text-align: center;
+	width: 100%;
+}
+
+.content-distribution-table th {
+	background-color: #141818;
+}
+
+.content-distribution-table th,
+.content-distribution-table td {
+	border: 1px solid #ddd;
+	padding: 15px;
+}
+
+.prestige-modifiers-table {
+	border-collapse: collapse;
+	margin-bottom: 50px;
+	/* Add vertical space between table and content below it */
+	text-align: center;
+	width: 100%;
+}
+
+.prestige-modifiers-table th {
+	background-color: #141818;
+}
+
+.prestige-modifiers-table th,
+.prestige-modifiers-table td {
+	border: 1px solid #ddd;
+	padding: 15px;
+}
+
+.mystery-box-probabilities-table {
+	border-collapse: collapse;
+	margin-bottom: 50px;
+	/* Add vertical space between table and content below it */
+	text-align: center;
+	width: 100%;
+}
+
+.mystery-box-probabilities-table th {
+	background-color: #141818;
+}
+
+.mystery-box-probabilities-table th,
+.mystery-box-probabilities-table td {
+	border: 1px solid #ddd;
+	padding: 15px;
+}
+
+/* Dim overlay styles */
+.overlay {
+	align-items: center;
+	/* Vertically centers modal within overlay */
+	background: rgba(0, 0, 0, 0.5);
+	/* Dim background */
+	display: none;
+	height: 100%;
+	justify-content: center;
+	/* Horizontally centers modal within overlay */
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 1;
+	/* Ensure that overlay sits above other elements */
+}
+
+/* Modal box styles */
+.modal-box {
+	background-color: #292929;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	display: none;
+	left: 50%;
+	max-width: 600px;
+	/* Ensure that ".modal-box" will never be wider than 600 pixels */
+	padding: 10px;
+	position: fixed;
+	text-align: center;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	/* Center modal with respect to left and top */
+	width: 80%;
+	z-index: 2;
+	/* Ensure that modal box sits above both overlay and elements below overlay */
+}
+
+/* Modal box close button styles */
+.close-button {
+	color: #808080;
+	cursor: pointer;
+	font-size: 36px;
+	position: absolute;
+	right: 10px;
+	top: -10px;
+}
+
+.close-button:hover {
+	color: #fff;
+}
+
+/* Tab navigation container styles */
+.tab-container {
+	background-color: #1F2424;
+	bottom: 0;
+	display: flex;
+	justify-content: center;
+	padding: 10px;
+	position: fixed;
+	width: 100%;
+}
+
+/* Tab button styles */
+.tab-button {
+	background-color: #1F2424;
+	border: none;
+	color: #fff;
+	cursor: pointer;
+	padding: 10px 20px;
+}
+
+.tab-button:hover {
+	text-decoration: underline;
+}
+
+/* Tab content styles */
+.tab-content {
+	display: none;
+}
+
+.tab-content.active {
+	display: block;
+}
+
+/* Media queries */
+/* Extra small device styles */
+@media screen and (max-width: 575.98px) {
+	.modal-description {
+		font-size: 13px;
+	}
+
+	.bloodweb-progression-table {
+		font-size: 11px;
+	}
+
+	.bloodweb-progression-table th,
+	.bloodweb-progression-table td {
+		padding: 5px;
+	}
+
+	.content-distribution-table {
+		font-size: 11px;
+	}
+
+	.content-distribution-table th,
+	.content-distribution-table td {
+		padding: 5px;
+	}
+
+	.prestige-modifiers-table {
+		font-size: 11px;
+	}
+
+	.prestige-modifiers-table th,
+	.prestige-modifiers-table td {
+		padding: 5px;
+	}
+
+	.mystery-box-probabilities-table {
+		font-size: 11px;
+	}
+
+	.mystery-box-probabilities-table th,
+	.mystery-box-probabilities-table td {
+		padding: 5px;
+	}
+
+	.tab-button {
+		font-size: 7px;
+	}
+}
+
+/* Small device styles */
+@media screen and (min-width: 576px) and (max-width: 767.98px) {
+	.tab-button {
+		font-size: 10px;
+	}
+}
+
+@media screen and (min-width: 576px) and (max-width: 767.98px) and (orientation: landscape) {
+	.modal-title {
+		font-size: 14px;
+	}
+
+	.modal-description {
+		font-size: 12px;
+	}
+
+	.tab-button {
+		font-size: 10px;
+	}
+}
+
+/* Medium device styles */
+@media screen and (min-width: 768px) and (max-width: 991.98px) {
+	.tab-button {
+		font-size: 11px;
+	}
+}
+
+@media screen and (min-width: 768px) and (max-width: 991.98px) and (orientation: landscape) {
+	.modal-title {
+		font-size: 14px;
+	}
+
+	.modal-description {
+		font-size: 11.5px;
+	}
+
+	.tab-button {
+		font-size: 12px;
+	}
+}

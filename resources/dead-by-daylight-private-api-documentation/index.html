@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="theme-color" content="#15171E">
+      <title>Dead by Daylight Private API Documentation - Index | Eigenvoid</title>
+      <meta name="description" content="View the Dead by Daylight private API documentation of Eigenvoid&mdash;the data miner, programmer, and reverse engineer.">
+      <!-- Canonical URL -->
+      <link rel="canonical" href="https://www.eigenvoid.dev/resources/dead-by-daylight-private-api-documentation/index">
+      <!-- Open Graph Meta Tags -->
+      <meta property="og:url" content="https://www.eigenvoid.dev/resources/dead-by-daylight-private-api-documentation/index">
+      <meta property="og:type" content="website">
+      <meta property="og:title" content="Dead by Daylight Private API Documentation - Index | Eigenvoid">
+      <meta property="og:description" content="View the Dead by Daylight private API documentation of Eigenvoid&mdash;the data miner, programmer, and reverse engineer.">
+      <meta property="og:image" content="https://www.eigenvoid.dev/img/og/favicon-1200x628.png">
+      <meta property="og:site_name" content="Eigenvoid">
+      <meta property="og:locale" content="en_US">
+      <!-- Twitter Card Meta Tags -->
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Dead by Daylight Private API Documentation - Index | Eigenvoid">
+      <meta name="twitter:description" content="View the Dead by Daylight private API documentation of Eigenvoid&mdash;the data miner, programmer, and reverse engineer.">
+      <meta name="twitter:image" content="https://www.eigenvoid.dev/img/twitter/favicon-1200x670.png">
+      <!-- Apple Touch Icon -->
+      <link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png">
+      <!-- Favicons -->
+      <link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16x16.png">
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="../../css/bootstrap.min.css">
+      <!-- Custom CSS -->
+      <link rel="stylesheet" href="../../css/dead-by-daylight-private-api-documentation.css">
+      <!-- Font -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+      <!-- Font Awesome CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-E7GC202X7V"></script>
+      <script>
+         window.dataLayer = window.dataLayer || [];
+         function gtag(){dataLayer.push(arguments);}
+         gtag('js', new Date());
+         
+         gtag('config', 'G-E7GC202X7V');
+      </script>
+   </head>
+   <body>
+      <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+      <div class="container-flex">
+         <!-- Sidebar -->
+         <div class="sidebar">
+            <!-- Sidebar Header -->
+            <div class="sidebar-header">
+               <img src="../../img/profile-img.png" alt="Favicon" class="favicon">
+               <a href="../../">Eigenvoid</a>
+            </div>
+            <!-- Sidebar List Items -->
+            <ul>
+               <li class="active"><a href="#">Overview</a></li>
+               <li class="section"><a href="#introduction" onclick="scrollToSection('#introduction'); return false;">Introduction</a></li>
+               <li class="section"><a href="#host-names" onclick="scrollToSection('#host-names'); return false;">Host Names</a></li>
+               <li class="section"><a href="#server-certificate" onclick="scrollToSection('#server-certificate'); return false;">Server Certificate</a></li>
+               <li class="section"><a href="#errors" onclick="scrollToSection('#errors'); return false;">Errors</a></li>
+               <li class="inactive"><a href="authorization">Authorization</a></li>
+               <li class="inactive"><a href="api-reference">API Reference</a></li>
+               <li class="inactive"><a href="changelog">Changelog</a></li>
+            </ul>
+            <!-- Footer -->
+            <footer class="footer">
+               <p>
+                  Copyright &copy;
+                  <script type="text/javascript">
+                     document.write(new Date().getFullYear());
+                  </script>
+                  Eigenvoid. All rights reserved.
+               </p>
+            </footer>
+         </div>
+         <!-- Main Content -->
+         <div class="main-content">
+            <img src="../../img/dead-by-daylight/logo/DBD_Logo.png" alt="Dead by Daylight Logo" class="dbd-logo">
+            <h4 id="introduction">Introduction</h4>
+            <p>This resource provides comprehensive documentation for the private API used in <a href="https://deadbydaylight.com/">Dead by Daylight</a>. Note that the endpoints included here have been specifically captured from the Epic Games version of the game. Availability and functionality may vary in other versions.</p>
+            <p>The endpoints described here are not officially supported by <a href="https://www.bhvr.com/">Behaviour Interactive</a>. This means that they can be changed, disabled, or removed without notice.</p>
+            <p>Attempting to use these endpoints in live game environments may violate Behaviour Interactive's <a href="https://www.bhvr.com/terms-of-use/">terms of use</a> agreement. As such, there is a risk of your account being suspended or permanently banned if detected by the game's anti-cheat or security systems.</p>
+            <p>This documentation is provided for educational purposes only. By using it, you acknowledge that you do so at your own risk and agree that I am not responsible for any consequences that may arise from your actions.</p>
+            <hr>
+            <h4 id="host-names">Host Names</h4>
+            <p>The API host name follows the format <code>{subdomain}.live.bhvrdbd.com</code>, where <b>{subdomain}</b> is <b>cdn</b>, <b>egs</b>, or <b>gamelogs</b>.</p>
+            <hr>
+            <h4 id="server-certificate">Server Certificate</h4>
+            <p>The API service uses a wildcard TLS 1.2 certificate to secure multiple subdomains. The certificate's primary domain is for all subdomains of <code>*.live.bhvrdbd.com</code>. Additionally, the certificate includes a Subject Alternative Names (SAN) extension that allows it to cover the subdomains of <code>*.stage.bhvrdbd.com</code>, <code>*.cert.bhvrdbd.com</code>, and <code>*.ptb.bhvrdbd.com</code> as well.</p>
+            <hr>
+            <h4 id="errors">Errors</h4>
+            <h5>HTTP Response Status Codes</h5>
+            <p>The API returns different HTTP status codes depending on whether or not the request was successful or resulted in some error.</p>
+            <table class="http-response-status-codes-table">
+               <tr>
+                  <th>Code</th>
+                  <th>Message</th>
+                  <th>Description</th>
+               </tr>
+               <tr>
+                  <td>200</td>
+                  <td>OK</td>
+                  <td>The request succeeded.</td>
+               </tr>
+               <tr>
+                  <td>201</td>
+                  <td>Created</td>
+                  <td>The request succeeded, and a new resource was created as a result.</td>
+               </tr>
+               <tr>
+                  <td>204</td>
+                  <td>No Content</td>
+                  <td>The server successfully processed the request and is not returning any content.</td>
+               </tr>
+               <tr>
+                  <td>400</td>
+                  <td>Bad Request</td>
+                  <td>The server cannot or will not process the request due to something that is perceived to be a client error.</td>
+               </tr>
+               <tr>
+                  <td>401</td>
+                  <td>Unauthorized</td>
+                  <td>The client must authenticate itself to get the requested response.</td>
+               </tr>
+               <tr>
+                  <td>404</td>
+                  <td>Not Found</td>
+                  <td>The server cannot find the requested resource.</td>
+               </tr>
+               <tr>
+                  <td>409</td>
+                  <td>Conflict</td>
+                  <td>This response is sent when a request conflicts with the current state of the server.</td>
+               </tr>
+            </table>
+            <h5>Error Messages</h5>
+            <p>Error responses contain a JSON object whose structure varies depending on the specific error that occured. Below are some examples.</p>
+            <h6>400 Bad Request</h6>
+            <pre>{<br>  <span class="json-key">"type"</span>: <span class="json-string-value">"BadRequestException"</span>,<br>  <span class="json-key">"localizationCode"</span>: <span class="json-string-value">"tokenExpired"</span>,<br>  <span class="json-key">"message"</span>: <span class="json-string-value">"Invalid input: [EGS] The token has expired"</span><br>}</pre>
+            <h6>401 Unauthorized</h6>
+            <pre>{<br>  <span class="json-key">"type"</span>: <span class="json-string-value">"UnauthorizedException"</span>,<br>  <span class="json-key">"localizationCode"</span>: <span class="json-string-value">"invalidToken"</span>,<br>  <span class="json-key">"message"</span>: <span class="json-string-value">"Unauthorized, invalid auth token"</span><br>}</pre>
+            <h6>404 Not Found</h6>
+            <pre>{<br>  <span class="json-key">"message"</span>: <span class="json-string-value">"Not Found"</span>,<br>  <span class="json-key">"localizationCode"</span>: <span class="json-string-value">"routeNotFound"</span><br>}</pre>
+            <h6>409 Conflict</h6>
+            <pre>{<br>  <span class="json-key">"type"</span>: <span class="json-string-value">"DataConflictException"</span>,<br>  <span class="json-key">"localizationCode"</span>: <span class="json-string-value">"redeemableCodeExpired"</span>,<br>  <span class="json-key">"message"</span>: <span class="json-string-value">"Conflict: [RedeemableCodeV2] Redeemable code has expired"</span><br>}</pre>
+            <br>
+         </div>
+      </div>
+      <!-- Custom JavaScript -->
+      <script src="../../js/dead-by-daylight-private-api-documentation.js"></script>
+   </body>
+</html>

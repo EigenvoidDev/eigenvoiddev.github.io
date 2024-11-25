@@ -1,0 +1,317 @@
+/* Global box-sizing for consistent border and padding management */
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+/* HTML and body styles */
+html,
+body {
+	height: 100%;
+	overflow-x: hidden;
+	/* Clip content if necessary to fit horizontally in elements' padding boxes on overflow */
+}
+
+/* Body styles */
+body {
+	background-color: #1F2424;
+	color: #fff;
+	font-family: "Fira Sans", sans-serif;
+}
+
+a {
+	color: #fff;
+}
+
+a:hover {
+	color: #fff;
+	text-shadow: 0 0 10px #fff;
+	/* Glowing text effect */
+}
+
+/* Banner styles */
+.banner {
+	background-color: #375A7F;
+	padding: 25px;
+	text-align: center;
+	width: 100%;
+}
+
+/* Container styles */
+.container {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	margin: 20px auto;
+	/* Add vertical space between banner and content below it and center horizontally */
+	width: 100%;
+}
+
+/* Active tab styles */
+.tab-title {
+	text-align: center;
+}
+
+.tab-update-date {
+	margin-bottom: 15px;
+	/* Add vertical space between tab update date and content below it */
+	text-align: center;
+}
+
+/* Resource notes styles */
+.dead-by-daylight-map-content-schedules-resource-notes {
+	cursor: pointer;
+	font-size: 18px;
+	text-align: center;
+}
+
+.dead-by-daylight-map-content-schedules-resource-notes:hover {
+	text-decoration: underline;
+}
+
+/* Grid styles */
+.grid-container {
+	display: grid;
+	gap: 100px;
+	grid-template-columns: repeat(3, 1fr);
+	/* Create 3 columns, each taking up 1 fraction of available space */
+	margin-bottom: 60px;
+	/* Add vertical space between grid and tab navigation container */
+	padding: 10px;
+}
+
+.grid-item {
+	align-items: center;
+	border: 1px solid #fff;
+	box-shadow: 0 2px 7.5px rgba(255, 255, 255, 0.1);
+	color: #fff;
+	display: flex;
+	flex-direction: column;
+	/* Stack grid item image and grid item text vertically */
+	padding-bottom: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.tier-1-probability {
+	border: 1px solid #2ECC71;
+}
+
+.tier-2-probability {
+	border: 1px solid #F1C40F;
+}
+
+.tier-3-probability {
+	border: 1px solid #E67E22;
+}
+
+.tier-4-probability {
+	border: 1px solid #E74C3C;
+}
+
+.grid-item-image {
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 100%;
+	height: 150px;
+	margin-bottom: 10px;
+	/* Add vertical space between grid item image and grid item text */
+	width: 155%;
+}
+
+.grid-item-subtitle {
+	color: #808080;
+	font-size: 14px;
+}
+
+/* Dim overlay styles */
+.overlay {
+	align-items: center;
+	/* Vertically centers modal within overlay */
+	background: rgba(0, 0, 0, 0.5);
+	/* Dim background */
+	display: none;
+	height: 100%;
+	justify-content: center;
+	/* Horizontally centers modal within overlay */
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 1;
+	/* Ensure that overlay sits above other elements */
+}
+
+/* Modal box styles */
+.modal-box {
+	background-color: #292929;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	display: none;
+	left: 50%;
+	max-width: 600px;
+	/* Ensure that ".modal-box" will never be wider than 600 pixels */
+	padding: 10px;
+	position: fixed;
+	text-align: center;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	/* Center modal with respect to left and top */
+	width: 80%;
+	z-index: 2;
+	/* Ensure that modal box sits above both overlay and elements below overlay */
+}
+
+/* Modal box close button styles */
+.close-button {
+	color: #808080;
+	cursor: pointer;
+	font-size: 36px;
+	position: absolute;
+	right: 10px;
+	top: -10px;
+}
+
+.close-button:hover {
+	color: #fff;
+}
+
+/* Tab navigation container styles */
+.tab-container {
+	background-color: #1F2424;
+	bottom: 0;
+	display: flex;
+	justify-content: center;
+	padding: 10px;
+	position: fixed;
+	width: 100%;
+}
+
+/* Tab button styles */
+.tab-button {
+	background-color: #1F2424;
+	border: none;
+	color: #fff;
+	cursor: pointer;
+	padding: 10px 20px;
+}
+
+.tab-button:hover {
+	text-decoration: underline;
+}
+
+/* Tab content styles */
+.tab-content {
+	display: none;
+}
+
+.tab-content.active {
+	display: block;
+}
+
+/* Media queries */
+/* Extra small device styles */
+@media screen and (max-width: 575.98px) {
+	.grid-container {
+		gap: 40px;
+		grid-template-columns: 1fr;
+		/* Create 1 column that takes up entire available space */
+		margin-bottom: 110px;
+		/* Add vertical space between grid and tab navigation container */
+	}
+
+	.grid-item {
+		padding-bottom: 10px;
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+
+	.grid-item-image {
+		height: 120px;
+		width: 140%;
+	}
+
+	.tab-button {
+		font-size: 14px;
+		padding: 10px 10px;
+	}
+}
+
+/* Small device styles */
+@media screen and (min-width: 576px) and (max-width: 767.98px) {
+	.grid-container {
+		gap: 40px;
+		grid-template-columns: 1fr;
+		/* Create 1 column that takes up entire available space */
+	}
+}
+
+@media screen and (min-width: 576px) and (max-width: 767.98px) and (orientation: landscape) {
+	.grid-container {
+		gap: 40px;
+		grid-template-columns: 1fr;
+		/* Create 1 column that takes up entire available space */
+	}
+}
+
+/* Medium device styles */
+@media screen and (min-width: 768px) and (max-width: 991.98px) {
+	.grid-container {
+		gap: 40px;
+		grid-template-columns: 1fr;
+		/* Create 1 column that takes up entire available space */
+	}
+}
+
+@media screen and (min-width: 768px) and (max-width: 991.98px) and (orientation: landscape) {
+	.grid-container {
+		gap: 40px;
+		grid-template-columns: 1fr;
+		/* Create 1 column that takes up entire available space */
+	}
+}
+
+/* Large device styles */
+@media screen and (min-width: 992px) and (max-width: 1199.98px) {
+	.grid-item-title {
+		font-size: 11px;
+	}
+
+	.grid-item-subtitle {
+		font-size: 9px;
+	}
+
+	.grid-item-map-selection-probability {
+		font-size: 11px;
+	}
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199.98px) and (orientation: landscape) {
+	.grid-item-title {
+		font-size: 11px;
+	}
+
+	.grid-item-subtitle {
+		font-size: 9px;
+	}
+
+	.grid-item-map-selection-probability {
+		font-size: 11px;
+	}
+}
+
+/* Extra large device styles */
+@media screen and (min-width: 1200px) and (max-width: 1399.98px) and (orientation: landscape) {
+	.grid-item-title {
+		font-size: 14px;
+	}
+
+	.grid-item-subtitle {
+		font-size: 12px;
+	}
+
+	.grid-item-map-selection-probability {
+		font-size: 14px;
+	}
+}

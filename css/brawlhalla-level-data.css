@@ -1,0 +1,226 @@
+/* Global box-sizing for consistent border and padding management */
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+/* Body styles */
+body {
+	background-color: #1F2424;
+	color: #fff;
+	font-family: "Fira Sans", sans-serif;
+}
+
+a {
+	color: #fff;
+}
+
+a:hover {
+	color: #fff;
+	text-shadow: 0 0 10px #fff;
+	/* Glowing text effect */
+}
+
+/* Banner styles */
+.banner {
+	background-color: #375A7F;
+	padding: 25px;
+	text-align: center;
+	width: 100%;
+}
+
+/* Container styles */
+.container {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	margin: 20px auto;
+	/* Add vertical space between banner and content below it and center horizontally */
+	width: 100%;
+}
+
+/* Active tab styles */
+.tab-title {
+	text-align: center;
+}
+
+.tab-update-date {
+	margin-bottom: 15px;
+	/* Add vertical space between tab update date and content below it */
+	text-align: center;
+}
+
+/* Resource notes styles */
+.brawlhalla-level-data-resource-notes {
+	cursor: pointer;
+	font-size: 18px;
+	text-align: center;
+}
+
+.brawlhalla-level-data-resource-notes:hover {
+	text-decoration: underline;
+}
+
+/* Table styles */
+.brawlhalla-level-data-table {
+	border-collapse: collapse;
+	margin-bottom: 50px;
+	/* Add vertical space between table and content below it */
+	text-align: center;
+	width: 100%;
+}
+
+.brawlhalla-level-data-table th {
+	background-color: #141818;
+	position: sticky;
+	top: 0;
+}
+
+.brawlhalla-level-data-table th,
+.brawlhalla-level-data-table td {
+	border: 1px solid #ddd;
+	padding: 15px;
+}
+
+/* Dim overlay styles */
+.overlay {
+	align-items: center;
+	/* Vertically centers modal within overlay */
+	background: rgba(0, 0, 0, 0.5);
+	/* Dim background */
+	display: none;
+	height: 100%;
+	justify-content: center;
+	/* Horizontally centers modal within overlay */
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 1;
+	/* Ensure that overlay sits above other elements */
+}
+
+/* Modal box styles */
+.modal-box {
+	background-color: #292929;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	display: none;
+	left: 50%;
+	max-width: 600px;
+	/* Ensure that ".modal-box" will never be wider than 600 pixels */
+	padding: 10px;
+	position: fixed;
+	text-align: center;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	/* Center modal with respect to left and top */
+	width: 80%;
+	z-index: 2;
+	/* Ensure that modal box sits above both overlay and elements below overlay */
+}
+
+/* Modal box close button styles */
+.close-button {
+	color: #808080;
+	cursor: pointer;
+	font-size: 36px;
+	position: absolute;
+	right: 10px;
+	top: -10px;
+}
+
+.close-button:hover {
+	color: #fff;
+}
+
+/* Tab navigation container styles */
+.tab-container {
+	background-color: #1F2424;
+	bottom: 0;
+	display: flex;
+	justify-content: center;
+	padding: 10px;
+	position: fixed;
+	width: 100%;
+}
+
+/* Tab button styles */
+.tab-button {
+	background-color: #1F2424;
+	border: none;
+	color: #fff;
+	cursor: pointer;
+	padding: 10px 20px;
+}
+
+.tab-button:hover {
+	text-decoration: underline;
+}
+
+/* Tab content styles */
+.tab-content {
+	display: none;
+}
+
+.tab-content.active {
+	display: block;
+}
+
+/* Media queries */
+/* Extra small device styles */
+@media screen and (max-width: 575.98px) {
+	.brawlhalla-level-data-table {
+		font-size: 6.5px;
+	}
+
+	.brawlhalla-level-data-table th,
+	.brawlhalla-level-data-table td {
+		padding: 5px;
+	}
+
+	.hide-on-extra-small {
+		display: none;
+		/* Hide on extra small devices */
+	}
+}
+
+/* Small device styles */
+@media screen and (min-width: 576px) and (max-width: 767.98px) {
+	.hide-on-small {
+		display: none;
+		/* Hide on small devices */
+	}
+}
+
+@media screen and (min-width: 576px) and (max-width: 767.98px) and (orientation: landscape) {
+	.brawlhalla-level-data-table {
+		font-size: 11px;
+	}
+}
+
+/* Medium device styles */
+@media screen and (min-width: 768px) and (max-width: 991.98px) {
+	.brawlhalla-level-data-table {
+		font-size: 14px;
+	}
+
+	.hide-on-medium {
+		display: none;
+		/* Hide on medium devices */
+	}
+}
+
+/* Large device styles */
+@media screen and (min-width: 992px) and (max-width: 1199.98px) {
+	.brawlhalla-level-data-table {
+		font-size: 12px;
+	}
+
+	.shrink-on-large {
+		height: 30%;
+		width: 30%;
+		/* Shrink on large devices */
+	}
+}

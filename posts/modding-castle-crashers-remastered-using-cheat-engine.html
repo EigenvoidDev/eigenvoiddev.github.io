@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="theme-color" content="#15171E">
+      <title>Modding Castle Crashers Remastered Using Cheat Engine - Eigenvoid</title>
+      <meta name="description" content="The following is a list of instructions required to modify Castle Crashers Remastered using Cheat Engine.">
+      <!-- Canonical URL -->
+      <link rel="canonical" href="https://www.eigenvoid.dev/posts/modding-castle-crashers-remastered-using-cheat-engine">
+      <!-- Open Graph Meta Tags -->
+      <meta property="og:url" content="https://www.eigenvoid.dev/posts/modding-castle-crashers-remastered-using-cheat-engine">
+      <meta property="og:type" content="article">
+      <meta property="og:title" content="Modding Castle Crashers Remastered Using Cheat Engine - Eigenvoid">
+      <meta property="og:description" content="The following is a list of instructions required to modify Castle Crashers Remastered using Cheat Engine.">
+      <meta property="og:image" content="https://www.eigenvoid.dev/img/og/favicon-1200x628.png">
+      <meta property="og:site_name" content="Eigenvoid">
+      <meta property="og:locale" content="en_US">
+      <!-- Twitter Card Meta Tags -->
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Modding Castle Crashers Remastered Using Cheat Engine - Eigenvoid">
+      <meta name="twitter:description" content="The following is a list of instructions required to modify Castle Crashers Remastered using Cheat Engine.">
+      <meta name="twitter:image" content="https://www.eigenvoid.dev/img/twitter/favicon-1200x670.png">
+      <!-- Apple Touch Icon -->
+      <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
+      <!-- Favicons -->
+      <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="../css/bootstrap.min.css">
+      <!-- Custom CSS -->
+      <link rel="stylesheet" href="../css/secondary.css">
+      <!-- Font -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+      <!-- Font Awesome CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-E7GC202X7V"></script>
+      <script>
+         window.dataLayer = window.dataLayer || [];
+         function gtag(){dataLayer.push(arguments);}
+         gtag('js', new Date());
+         
+         gtag('config', 'G-E7GC202X7V');
+      </script>
+   </head>
+   <body>
+      <!-- Navbar Container -->
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+         <div class="container-fluid">
+            <!-- Navbar Toggler Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Navbar Items -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+               <ul class="navbar-nav mx-auto">
+                  <a href="../">Home</a>
+                  <a href="../achievements">Achievements</a>
+                  <a href="../posts">Posts</a>
+                  <a href="../software-and-resources">Software & Resources</a>
+                  <a href="../media">Media</a>
+               </ul>
+            </div>
+         </div>
+      </nav>
+      <!-- Main Content -->
+      <div class="container post-container">
+         <h2 class="post-title">Modding Castle Crashers Remastered Using Cheat Engine</h2>
+         <h6 class="post-date">September 6, 2024</h6>
+         <hr>
+         <h5>Disclaimer</h5>
+         <p>The information included in this post is for educational purposes only. Any material on this webpage may not be reproduced, retransmitted, or redisplayed other than for personal or educational use.</p>
+         <h5>Introduction</h5>
+         <p>Video game modding is the process of modifying aspects of a video game so that it functions differently than originally intended. You can use <a href="https://www.cheatengine.org/">Cheat Engine</a> to do this. To perform any of the modifications included in this post, you will need to follow the following instructions:</p>
+         <p>1. Launch Castle Crashers Remastered.</p>
+         <p>2. Open Cheat Engine.</p>
+         <p>3. In Cheat Engine, left-click on "File", and then left-click on "Open Process". Select the process that reads, "Castle Crashers".</p>
+         <p>Ensure that both Castle Crashers Remastered and Cheat Engine are running as you follow any of the below instructions. If Castle Crashers Remastered is closed at any point throughout this process, then you will need to re-launch the game and re-attach Cheat Engine to that new process instance of the game. If Cheat Engine is closed at any point throughout this process, then you will need to re-open Cheat Engine and re-attach it to the already-running "Castle Crashers" process.</p>
+         <h5>Cheat Engine Default View</h5>
+         <p>This section concerns cases where it makes the most sense to modify values using the default view of Cheat Engine.</p>
+         <h6>Unlock Any Character</h6>
+         <p>1. While in the main menu, select "Local Game". Then, select "Castle Crashers" so that you are taken to the character selection screen.</p>
+         <p>2. The default character selection target is Green Knight. Green Knight has the character ID "1", so head to Cheat Engine and type "1" into the "Value" text field. Ensure that "Scan Type" is set to "Exact Value" and that "Value Type" is set to "4 Bytes". Left-click on "First Scan". Cheat Engine will return a list of addresses and their associated values.</p>
+         <p>3. Return to Castle Crashers Remastered and scroll once so that your character selection target is Red Knight. Red Knight has the character ID "2", so return to Cheat Engine, type "2" into the "Value" text field, and left-click on "Next Scan". Cheat Engine will return a significantly reduced list of addresses and their associated values.</p>
+         <p>4. Return to Castle Crashers Remastered and scroll once again so that your character selection target is Blue Knight. Blue Knight has the character ID "3", so return to Cheat Engine and type "3" into the "Value" text field and left-click on "Next Scan". Cheat Engine will return an even more significantly reduced list of addresses and their associated values. There should be fewer than five entries in this list, so you can assume that at least one of these addresses is responsible for the ID of the character that you have selected.</p>
+         <p>5. Refer to <a href="../resources/castle-crashers-remastered-character-weapon-and-animal-orb-data">this</a> resource to determine which character that you would like to unlock. For example, say that you wanted to unlock Necromancer. Necromancer has the character ID "20", so highlight the addresses in your list, right-click them, and left-click on "Change value of selected addresses". Type "20" into the text field that you are presented with, and left-click on "OK".</p>
+         <p>6. Return to Castle Crashers Remastered and, without scrolling, select the character that you had left active before you made the modification (in this case, it would be Blue Knight).</p>
+         <p>7. When you load into Home Castle, you will see that you are Necromancer, rather than Blue Knight. Pause the game and select "Exit To Map" to head to the World Map.</p>
+         <p>8. At the bottom of the World Map screen, you will see "Saving...". After that transition has completed, then you will have unlocked Necromancer.</p>
+         <p>9. To verify that the instructions have been performed successfully, return to the main menu, select "Local Game", and select "Castle Crashers" so that you are taken to the character selection screen again.</p>
+         <p>10. You will see that you can scroll to Necromancer in your character selection screen and select him as you would any other character that you already have unlocked.</p>
+         <h6>Modify Character Experience</h6>
+         <p>1. Head to the character selection screen and select any character. I am going to assume that you selected a character that you have not made any progress on yet, so that character will be level 1 and have 0 experience points.</p>
+         <p>2. Load into Home Castle and progress to the second area in that level. That will be the first area where enemies spawn.</p>
+         <p>3. Each successful attack on an enemy yields 1 experience point.</p>
+         <p>4. Hit one enemy once, pause your game, and then exit to the world map. Head to your "Stats" screen, and you will see that you have 1 experience point.</p>
+         <p>5. Head to Cheat Engine and type "1" into the "Value" text field. Ensure that "Scan Type" is set to "Exact Value" and that "Value Type" is set to "4 Bytes". Left-click on "First Scan". Cheat Engine will return a list of addresses and their associated values.</p>
+         <p>6. Load back into Home Castle and, again, hit one enemy once. Exit to the world map. In your "Stats" screen, you will see that you now have 2 experience points. Return to Cheat Engine, type "2" into the "Value" text field, and left-click on "Next Scan". Cheat Engine will return a significantly reduced list of addresses and their associated values.</p>
+         <p>7. Load back into Home Castle and, again, hit one enemy once. Exit to the world map. In your "Stats" screen, you will see that you now have 3 experience points. Return to Cheat Engine, type "3" into the "Value" text field, and left-click on "Next Scan". Cheat Engine will return an even more significantly reduced list of addresses and their associated values. There should be fewer than five entries in this list, so you can assume that at least one of these addresses is responsible for the selected character's experience points.</p>
+         <p>8. Refer to <a href="https://castlecrashers.fandom.com/wiki/XP_Per_Level">this</a> resource to determine how many experience points you would like to give the selected character. For example, say that you wanted to give the selected character enough experience points to reach level 99. You would then give the selected character 113,681 experience points. Highlight the addresses in your list, right-click them, and left-click on "Change value of selected addresses". Type "113681" into the text field that you are presented with, and left-click on "OK".</p>
+         <p>9. Return to your Castle Crashers Remastered character's "Stats" screen and select "Continue" to return to the World Map screen.</p>
+         <p>10. At the bottom of the World Map screen, you will see "Saving...". After that transition has completed, then the selected character will have 113,681 experience points.</p>
+         <p>11. To verify that the instructions have been performed successfully, return to the "Stats" screen. You will see that the selected character has 113,681 experience points.</p>
+         <h6>Modify Character Level</h6>
+         <p>1. Follow the instructions pertaining to "Modify Character Experience". The selected character will be level 1 and have 113,681 points.</p>
+         <p>2. Head to Cheat Engine and type "1" into the "Value" text field. Ensure that "Scan Type" is set to "Exact Value" and that "Value Type" is set to "4 Bytes". Left-click on "First Scan". Cheat Engine will return a list of addresses and their associated values.</p>
+         <p>3. Because you have enough experience points to level past level 1, each successful attack on an enemy will yield 1 level (until you reach level 99).</p>
+         <p>4. Load into Home Castle and hit one enemy once. Then, exit to the world map. You will be taken to your "Stats" screen immediately because you have unspent skill points, but disregard those. You will see that the selected character is now level 2.</p>
+         <p>5. Return to Cheat Engine, type "2" into the "Value" text field, and left-click on "Next Scan". Cheat Engine will return a significantly reduced list of addresses and their associated values.</p>
+         <p>6. Load back into Home Castle and, again, hit one enemy once. Exit to the world map. In your "Stats" screen, you will see that the selected character is now level 3.</p>
+         <p>7. Return to Cheat Engine, type "3" into the "Value" text field, and left-click on "Next Scan". Cheat Engine will return an even more significantly reduced list of addresses and their associated values. There should be fewer than ten entries in this list, so you can assume that at least one of these addresses is responsible for the selected character's level.</p>
+         <p>8. Highlight the addresses in your list, right-click them, and left-click on "Change value of selected addresses". The level of a character is stored as an unsigned byte (range: 0 through 255 decimal), so type "256" or any positive value less than that into the text field that you are presented with, and left-click on "OK". Note that, while the maximum value an unsigned byte can represent is technically 255, because the index of a character's level begins at 1, the range of values that this unsigned byte takes on is offset by +1. If you set the value of a character's level such that it is greater than 256, then an integer overflow with respect to the character's level will occur, making its value wrap around to the least significant value that it can represent (typically, that would be 0, but here it is 1 due to the offset of +1).</p>
+         <p>9. Select "Continue" to return to the World Map screen.</p>
+         <p>10. At the bottom of the World Map screen, you will see "Saving...". After that transition has completed, then the selected character will be the level that you indicated in step 8.</p>
+         <p>11. To verify that the instructions have been performed successfully, return to the "Stats" screen. You will see that the selected character is the level that you indicated in step 8. Note that the selected character will not be able to level up if you set their level to a value greater than or equal to 99 as level 99 is the maximum level that any character can legitimately be. Additionally, note that the selected character will not gain skill points for any level past level 78, so if you set the selected character's level to a value that is greater than or equal to 78, then you will not receive skill points for the levels that you bypassed.</p>
+         <h6>Unlock Any Weapon</h6>
+         <p>1. Ensure that you have at least 32 gold. You can do this by either eliminating enemies until you have accumulated that amount of gold or by following the instructions pertaining to "Modify Character Gold".</p>
+         <p>2. Ensure that you have unlocked the "Castle Keep" level.</p>
+         <p>3. Load into Castle Keep and eliminate all the enemies in the area so that the level transforms into a store.</p>
+         <p>4. Before you purchase the Skinny Sword from the store, it is important to note what weapon your character is currently holding. I am going to assume that your character is currently holding the Thin Sword, the starting weapon of Green Knight.</p>
+         <p>5. Refer to <a href="../resources/castle-crashers-remastered-character-weapon-and-animal-orb-data">this</a> resource to determine the weapon IDs of both your current weapon and the weapon that you would like to unlock. For example, say that you wanted to unlock the NG Golden Sword. The NG Golden Sword has the weapon ID "65".</p>
+         <p>6. The weapon ID of the Thin Sword is "3". Since your character is currently holding that weapon, then head to Cheat Engine and type "3" into the "Value" text field. Ensure that "Scan Type" is set to "Exact Value" and that "Value Type" is set to "4 Bytes". Left-click on "First Scan". Cheat Engine will return a list of addresses and their associated values.</p>
+         <p>7. Return to Castle Crashers Remastered and purchase the Skinny Sword by pressing the light attack button while standing in front of the Skinny Sword purchase prompt.</p>
+         <p>8. Your character will now be holding the Skinny Sword. According to the resource mentioned in step 5, its weapon ID is "2".</p>
+         <p>9. Return to Cheat Engine, type "2" into the "Value" text field, and left-click on "Next Scan". Cheat Engine will return a significantly reduced list of addresses and their associated values.</p>
+         <p>10. Return to Castle Crashers Remastered and pick up the dropped Thin Sword.</p>
+         <p>11. Return to Cheat Engine, type "3" into the "Value" text field, and left-click on "Next Scan". Cheat Engine will return an even more significantly reduced list of addresses and their associated values. There should be fewer than five entries in this list, so you can assume that at least one of these addresses is responsible for the weapon ID of the weapon that your character is currently holding.</p>
+         <p>12. Recall that you wanted to unlock the NG Golden Sword and that its weapon ID is "65". Highlight the addresses in your list, right-click them, and left-click on "Change value of selected addresses". Type "65" into the text field that you are presented with, and left-click on "OK".</p>
+         <p>13. You will see that your character is currently holding the NG Golden Sword. Although you are holding the desired weapon, it will not be stored in and equippable from the Weapons Frog until you pick up the dropped Skinny Sword and then pick up the dropped NG Golden Sword because picking up a weapon is what stores it in the Weapons Frog. After doing this, at the bottom of your screen Blacksmith will say, "Visit me for weapon info." with an image of the weapon below that text. That is your indicator that the weapon is actually unlocked.</p>
+         <p>14. You can repeat steps 6 through 13 to unlock any additional weapons. Note that if the Skinny Sword despawns or if you exit the area after purchasing it, then you will need to find a new weapon to pickup in order to repeat this process because you are not allowed to purchase the Skinny Sword if you already have unlocked it.</p>
+         <h6>Modify Character Gold</h6>
+         <p>1. Head to the character selection screen and select any character. I am going to assume that you selected a character that you have not made any progress on yet, so that character will have 0 gold.</p>
+         <p>2. Load into Home Castle. You will see three gold coins above your character.</p>
+         <p>3. Head to Cheat Engine and type "0" into the "Value" text field. Ensure that "Scan Type" is set to "Exact Value" and that "Value Type" is set to "4 Bytes". Left-click on "First Scan". Cheat Engine will return a list of addresses and their associated values.</p>
+         <p>4. Return to Castle Crashers Remastered and pick up one gold coin so that your character has 1 gold coin.</p>
+         <p>5. Return to Cheat Engine, type "1" into the "Value" text field, and left-click on "Next Scan". Cheat Engine will return a significantly reduced list of addresses and their associated values.</p>
+         <p>6. Return to Castle Crashers Remastered and pick up another gold coin so that your character has 2 gold coins.</p>
+         <p>7. Return to Cheat Engine, type "2" into the "Value" text field, and left-click on "Next Scan". Cheat Engine will return an even more significantly reduced list of addresses and their associated values.</p>
+         <p>8. Return to Castle Crashers Remastered and pick up another gold coin so that your character has 3 gold coins.</p>
+         <p>9. Return to Cheat Engine, type "3" into the "Value" text field, and left-click on "Next Scan". Cheat Engine will return an even more significantly reduced list of addresses and their associated values. There should be fewer than five entries in this list, so you can assume that at least one of these addresses is responsible for the amount of gold that your character currently has.</p>
+         <p>10. Highlight the addresses in your list, right-click them, and left-click on "Change value of selected addresses". The amount of gold a character has is stored as a 32-bit signed integer (range: −2,147,483,648 through 2,147,483,647 decimal), so type "2147483647" or any positive value less than that into the text field that you are presented with, and left-click on "OK". Note that, if you pick up any gold while having 2,147,483,647 gold, then an integer overflow with respect to the amount of gold that you have will occur, making its value wrap around to the least significant value that it can represent. If you have a negative amount of gold, then you will be unable to purchase any in-game items.</p>
+         <h5>Cheat Engine Memory View</h5>
+         <p>This section concerns cases where it makes the most sense to modify values using the memory view of Cheat Engine.</p>
+         <p>1. In order to modify values using the memory view of Cheat Engine, you will need to find your character data.</p>
+         <p>2. Left-click on "Memory View" under the address scanner.</p>
+         <p>3. In Memory Viewer, left-click on "Search" and then left-click on "Find memory".</p>
+         <p>4. Select (Array of) byte as your type and leave the "Array to scan" configuration unchanged.</p>
+         <p>5. Personally, I find that the easiest method to find character data is to follow the instructions pertaining to "Modify Character Experience" such that the character has enough experience points to reach level 99 and then have the character attack enemies until it reaches level 99 (recall that, because the character has enough experience points to level past level 1, each successful attack on an enemy will yield 1 level (until it reaches level 99)).</p>
+         <p>6. After doing this, maximize each attribute.</p>
+         <p>7. Determine the hexadecimal values of both the character's currently equipped weapon and animal orb. In the case of a character that is currently holding the Thin Sword and has no animal orb, their IDs' hexadecimal values are <code>03</code> and <code>00</code>, respectively.</p>
+         <p>8. So, in consideration of steps 5 through 7, type "<code>03 00 19 19 19 19</code>" in the "Find memory" search text field.</p>
+         <p>9. If you did this correctly, then the top line of your search result will display most of your character data (the character data begins six bytes before the weapon ID's hexadecimal value, so you can go up one line to see the rest of it).</p>
+         <h5>Character Data Memory Structure</h5>
+         <p>Save data for a particular character is structured in memory as follows:</p>
+         <p>• Boolean "f_IsCharacterUnlocked": Character unlock flag (Locked: 0x00; Unlocked: 0x80).</p>
+         <p>• Byte "level": Value associated with the character's level. The range of this variable is 0x00 through 0xFF, where 0x00 = level 1 and 0xFF = level 256 (and not level 0 and level 255, respectively, due to the offset of +1).</p>
+         <p>• Int32 "exp": Value associated with the character's experience points.</p>
+         <p>• Byte "weapon": Value associated with the weapon ID of the character's currently equipped weapon.</p>
+         <p>• Byte "animal_type": Value associated with the animal orb ID of the character's current animal orb.</p>
+         <p>• Byte "strength": Value associated with the character's strength attribute.</p>
+         <p>• Byte "defense": Value associated with the character's defense attribute.</p>
+         <p>• Byte "magic": Value associated with the character's magic attribute.</p>
+         <p>• Byte "agility": Value associated with the character's agility attribute.</p>
+         <p>• Byte "normal_level_unlocks[0]": Value associated with the character's level unlock progress on the left side of the dock in Normal Mode.</p>
+         <p>• Byte "normal_level_unlocks[1]": Value associated with the character's level unlock progress on the right side of the dock in Normal Mode.</p>
+         <p>• Byte "normal_level_unlocks[2]": Value associated with the character's level unlock progress pertaining to Wizard Castle Takeoff, Wizard Castle Interior, and Final Battle in Normal Mode.</p>
+         <p>• Byte "healthpots": Value associated with the number of health potions in the character's inventory.</p>
+         <p>• Byte "bombs": Value associated with the number of bombs in the character's inventory.</p>
+         <p>• Byte "beefies": Value associated with the number of sandwiches in the character's inventory.</p>
+         <p>• Byte "relic_unlocks": Value associated with the character's relic unlock progress.</p>
+         <p>• Int32 "gold": Value associated with the character's gold.</p>
+         <p>• Byte "insane_mode": Value associated with whether or not Insane Mode is unlocked for the character (Locked: 0x00; Unlocked: 0x01).</p>
+         <p>• Byte "insane_level_unlocks[0]": Value associated with the character's level unlock progress on the left side of the dock in Insane Mode.</p>
+         <p>• Byte "insane_level_unlocks[1]": Value associated with the character's level unlock progress on the right side of the dock in Insane Mode.</p>
+         <p>• Byte "insane_level_unlocks[2]": Value associated with the character's level unlock progress pertaining to Wizard Castle Takeoff, Wizard Castle Interior, and Final Battle in Insane Mode.</p>
+         <p>• Byte Skull: Value associated with the character's skull (No Skull: 0x00; White Skull: 0x01; Golden Skull: 0x02).</p>
+         <p>You can edit your character data while in Castle Crashers Remastered's main menu and then load into the game as the character to see how your modifications have been applied.</p>
+         <h6>"f_LoadLevelUnlocks" Array Values</h6>
+         <p>Note that level unlock progress is handled in the same way for both Normal Mode and Insane Mode. Additionally, note that any level that precedes an unlocked level is both unlocked and completed.</p>
+         <p>First level_unlocks Array Values:</p>
+         <table class="modding-castle-crashers-remastered-using-cheat-engine-level-unlocks-table">
+            <tr>
+               <th>Array Value</th>
+               <th>Description</th>
+            </tr>
+            <tr>
+               <td>0x00</td>
+               <td>Unlocks Home Castle</td>
+            </tr>
+            <tr>
+               <td>0x01</td>
+               <td>Unlocks Blacksmith and Barbarian War</td>
+            </tr>
+            <tr>
+               <td>0x03</td>
+               <td>Unlocks Forest Entrance and Dock</td>
+            </tr>
+            <tr>
+               <td>0x07</td>
+               <td>Unlocks Abandoned Mill</td>
+            </tr>
+            <tr>
+               <td>0x0F</td>
+               <td>Unlocks Tall Grass Field</td>
+            </tr>
+            <tr>
+               <td>0x1F</td>
+               <td>Unlocks Industrial Castle and Flowery Field</td>
+            </tr>
+            <tr>
+               <td>0x3F</td>
+               <td>Unlocks Cyclops' Cave</td>
+            </tr>
+            <tr>
+               <td>0x7F</td>
+               <td>Unlocks Lava World</td>
+            </tr>
+            <tr>
+               <td>0xFF</td>
+               <td>Lava World Completed</td>
+            </tr>
+         </table>
+         <p>Second level_unlocks Array Values:</p>
+         <table class="modding-castle-crashers-remastered-using-cheat-engine-level-unlocks-table">
+            <tr>
+               <th>Array Value</th>
+               <th>Description</th>
+            </tr>
+            <tr>
+               <td>0x01</td>
+               <td>Industrial Castle Completed</td>
+            </tr>
+            <tr>
+               <td>0x03</td>
+               <td>Unlocks Desert</td>
+            </tr>
+            <tr>
+               <td>0x07</td>
+               <td>Unlocks Sand Castle Interior</td>
+            </tr>
+            <tr>
+               <td>0x0F</td>
+               <td>Unlocks Flooded Temple. Additionally, adds the map to the character's inventory.</td>
+            </tr>
+            <tr>
+               <td>0x1F</td>
+               <td>Marsh and Corn Boss Completed</td>
+            </tr>
+            <tr>
+               <td>0x3F</td>
+               <td>Unlocks Full Moon</td>
+            </tr>
+            <tr>
+               <td>0x7F</td>
+               <td>Unlocks Snow World</td>
+            </tr>
+            <tr>
+               <td>0xFF</td>
+               <td>Unlocks Wizard Castle Takeoff</td>
+            </tr>
+         </table>
+         <p>Third level_unlocks Array Values:</p>
+         <table class="modding-castle-crashers-remastered-using-cheat-engine-level-unlocks-table">
+            <tr>
+               <th>Array Value</th>
+               <th>Description</th>
+            </tr>
+            <tr>
+               <td>0x01</td>
+               <td>Wizard Castle Takeoff, Wizard Castle Interior, and Final Battle Completed</td>
+            </tr>
+         </table>
+         <h6>relic_unlocks Array Values</h6>
+         <p>Normal Mode:</p>
+         <table class="modding-castle-crashers-remastered-using-cheat-engine-relic-unlocks-table">
+            <tr>
+               <th>Array Value</th>
+               <th>Description</th>
+            </tr>
+            <tr>
+               <td>0x00</td>
+               <td>No Relics</td>
+            </tr>
+            <tr>
+               <td>0x01</td>
+               <td>Compass</td>
+            </tr>
+            <tr>
+               <td>0x02</td>
+               <td>Wheel</td>
+            </tr>
+            <tr>
+               <td>0x03</td>
+               <td>Compass + Wheel</td>
+            </tr>
+            <tr>
+               <td>0x04</td>
+               <td>Telescope</td>
+            </tr>
+            <tr>
+               <td>0x05</td>
+               <td>Compass + Telescope</td>
+            </tr>
+            <tr>
+               <td>0x06</td>
+               <td>Wheel + Telescope</td>
+            </tr>
+            <tr>
+               <td>0x07</td>
+               <td>Compass + Wheel + Telescope</td>
+            </tr>
+            <tr>
+               <td>0x08</td>
+               <td>Horn</td>
+            </tr>
+            <tr>
+               <td>0x09</td>
+               <td>Compass + Horn</td>
+            </tr>
+            <tr>
+               <td>0x0A</td>
+               <td>Wheel + Horn</td>
+            </tr>
+            <tr>
+               <td>0x0B</td>
+               <td>Compass + Wheel + Horn</td>
+            </tr>
+            <tr>
+               <td>0x0C</td>
+               <td>Telescope + Horn</td>
+            </tr>
+            <tr>
+               <td>0x0D</td>
+               <td>Compass + Telescope + Horn</td>
+            </tr>
+            <tr>
+               <td>0x0E</td>
+               <td>Wheel + Telescope + Horn</td>
+            </tr>
+            <tr>
+               <td>0x0F</td>
+               <td>Compass + Wheel + Telescope + Horn</td>
+            </tr>
+         </table>
+         <p>Insane Mode (Includes Compass, Wheel, Telescope, and Horn for Normal Mode):</p>
+         <table class="modding-castle-crashers-remastered-using-cheat-engine-relic-unlocks-table">
+            <tr>
+               <th>Array Value</th>
+               <th>Description</th>
+            </tr>
+            <tr>
+               <td>0x1F</td>
+               <td>Compass</td>
+            </tr>
+            <tr>
+               <td>0x2F</td>
+               <td>Wheel</td>
+            </tr>
+            <tr>
+               <td>0x3F</td>
+               <td>Compass + Wheel</td>
+            </tr>
+            <tr>
+               <td>0x4F</td>
+               <td>Telescope</td>
+            </tr>
+            <tr>
+               <td>0x5F</td>
+               <td>Compass + Telescope</td>
+            </tr>
+            <tr>
+               <td>0x6F</td>
+               <td>Wheel + Telescope</td>
+            </tr>
+            <tr>
+               <td>0x7F</td>
+               <td>Compass + Wheel + Telescope</td>
+            </tr>
+            <tr>
+               <td>0x8F</td>
+               <td>Horn</td>
+            </tr>
+            <tr>
+               <td>0x9F</td>
+               <td>Compass + Horn</td>
+            </tr>
+            <tr>
+               <td>0xAF</td>
+               <td>Wheel + Horn</td>
+            </tr>
+            <tr>
+               <td>0xBF</td>
+               <td>Compass + Wheel + Horn</td>
+            </tr>
+            <tr>
+               <td>0xCF</td>
+               <td>Telescope + Horn</td>
+            </tr>
+            <tr>
+               <td>0xDF</td>
+               <td>Compass + Telescope + Horn</td>
+            </tr>
+            <tr>
+               <td>0xEF</td>
+               <td>Wheel + Telescope + Horn</td>
+            </tr>
+            <tr>
+               <td>0xFF</td>
+               <td>Compass + Wheel + Telescope + Horn</td>
+            </tr>
+         </table>
+         <h5>Character Data Memory Structure Example</h5>
+         <p>The following byte sequence is an example of a character who is unlocked; is level 99; has 113,681 experience points; currently has the NG Golden Sword equipped; whose current animal orb is Snoot; has maximized attributes; completed Normal Mode; has seven health potions; has eight bombs; has nine sandwiches; has all the relics in both Normal Mode and Insane Mode; has 9,999,999 gold; has Insane Mode unlocked; completed Insane Mode; and has a golden skull:</p>
+         <p><span class="codebox-1">80</span> <span class="codebox-2">62</span> <span class="codebox-1">00 01 BC 11</span> <span class="codebox-2">41 11</span> <span class="codebox-1">19 19 19 19</span> <span class="codebox-2">FF FF 01</span> <span class="codebox-1">07 08 09</span> <span class="codebox-2">FF</span> <span class="codebox-1">00 98 96 7F</span> <span class="codebox-2">01</span> <span class="codebox-1">FF FF 01</span> <span class="codebox-2">02</span>,</p>
+         <p>where <span class="codebox-1">80</span> is the byte representing the character unlock flag; <span class="codebox-2">62</span> is the byte representing the character's level; <span class="codebox-1">00 01 BC 11</span> is the sequence of bytes representing the character's experience points; <span class="codebox-2">41 11</span> is the sequence of bytes representing both the character's weapon and animal orb IDs; <span class="codebox-1">19 19 19 19</span> is the sequence of bytes representing the character's attributes; <span class="codebox-2">FF FF 01</span> is the sequence of bytes representing the character's level unlock progress in Normal Mode; <span class="codebox-1">07 08 09</span> is the sequence of bytes representing the character's health potions, bombs, and sandwiches; <span class="codebox-2">FF</span> is the byte representing the character's relic unlock progress; <span class="codebox-1">00 98 96 7F</span> is the sequence of bytes representing the character's gold; <span class="codebox-2">01</span> is the byte representing whether or not Insane Mode is unlocked for the character; <span class="codebox-1">FF FF 01</span> is the sequence of bytes representing the character's level unlock progress in Insane Mode; and <span class="codebox-2">02</span> is the byte representing the character's skull.</p>
+         <p>You can use this example to aid in your character data modifications pertaining to unlocking any animal orb; modifying character attributes; modifying Normal Mode level progress; modifying health potion, bomb, and sandwich counts; modifying relic progress; unlocking Insane Mode; modifying Insane Mode level progress; and modifying a character's skull. Note that any animal orbs you unlock using this method will not be stored in and equippable from the Animal Ark. If you exchange the animal orb you unlocked using this method for a different animal orb, then you will not be able to re-equip the animal orb that you unequipped. Refer to <a href="../resources/castle-crashers-remastered-character-weapon-and-animal-orb-data">this</a> resource to determine the animal orb ID of the animal orb that you would like to unlock.</p>
+         <h5>Additional Resources</h5>
+         <p>Visit <a href="https://www.rapidtables.com/convert/number/decimal-to-hex.html">this</a> resource to convert decimal numbers into their hex equivalents. Visit <a href="https://www.rapidtables.com/convert/number/hex-to-decimal.html">this</a> resource to convert hex numbers into their decimal equivalents. Visit <a href="https://kb.iu.edu/d/afdl">https://kb.iu.edu/d/afdl</a> to access a decimal-hexadecimal-binary conversion table pertaining to numbers 0 to 255 decimal.</p>
+         <!-- Footer -->
+         <footer class="footer">
+            <p>
+               Copyright &copy;
+               <script type="text/javascript">
+                  document.write(new Date().getFullYear());
+               </script>
+               Eigenvoid. All rights reserved.
+            </p>
+         </footer>
+      </div>
+      <!-- JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="../js/jquery-3.7.1.min.js"></script>
+      <script src="../js/popper.min.js"></script>
+      <script src="../js/bootstrap.min.js"></script>     
+   </body>
+</html>

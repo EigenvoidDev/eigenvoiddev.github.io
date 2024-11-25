@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="theme-color" content="#15171E">
+      <title>Random Number Generation in Warframe - Eigenvoid</title>
+      <meta name="description" content="Random number generation is a process by which, often by means of a random number generator (RNG), a sequence of numbers or symbols that cannot be reasonably predicted better than by random chance is generated. Warframe uses Donald Knuth's variation of a linear congruential generator (LCG) with respect to obtaining in-game items, scaling off rarity weights that influence the drop chances of items in DropTables (enemy drop tables) and MissionDecks (mission reward tables).">
+      <!-- Canonical URL -->
+      <link rel="canonical" href="https://www.eigenvoid.dev/posts/random-number-generation-in-warframe">
+      <!-- Open Graph Meta Tags -->
+      <meta property="og:url" content="https://www.eigenvoid.dev/posts/random-number-generation-in-warframe">
+      <meta property="og:type" content="article">
+      <meta property="og:title" content="Random Number Generation in Warframe - Eigenvoid">
+      <meta property="og:description" content="Random number generation is a process by which, often by means of a random number generator (RNG), a sequence of numbers or symbols that cannot be reasonably predicted better than by random chance is generated. Warframe uses Donald Knuth's variation of a linear congruential generator (LCG) with respect to obtaining in-game items, scaling off rarity weights that influence the drop chances of items in DropTables (enemy drop tables) and MissionDecks (mission reward tables).">
+      <meta property="og:image" content="https://www.eigenvoid.dev/img/og/favicon-1200x628.png">
+      <meta property="og:site_name" content="Eigenvoid">
+      <meta property="og:locale" content="en_US">
+      <!-- Twitter Card Meta Tags -->
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Random Number Generation in Warframe - Eigenvoid">
+      <meta name="twitter:description" content="Random number generation is a process by which, often by means of a random number generator (RNG), a sequence of numbers or symbols that cannot be reasonably predicted better than by random chance is generated. Warframe uses Donald Knuth's variation of a linear congruential generator (LCG) with respect to obtaining in-game items, scaling off rarity weights that influence the drop chances of items in DropTables (enemy drop tables) and MissionDecks (mission reward tables).">
+      <meta name="twitter:image" content="https://www.eigenvoid.dev/img/twitter/favicon-1200x670.png">
+      <!-- Apple Touch Icon -->
+      <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
+      <!-- Favicons -->
+      <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="../css/bootstrap.min.css">
+      <!-- Custom CSS -->
+      <link rel="stylesheet" href="../css/secondary.css">
+      <!-- Font -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+      <!-- Font Awesome CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-E7GC202X7V"></script>
+      <script>
+         window.dataLayer = window.dataLayer || [];
+         function gtag(){dataLayer.push(arguments);}
+         gtag('js', new Date());
+         
+         gtag('config', 'G-E7GC202X7V');
+      </script>
+   </head>
+   <body>
+      <!-- Navbar Container -->
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+         <div class="container-fluid">
+            <!-- Navbar Toggler Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Navbar Items -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+               <ul class="navbar-nav mx-auto">
+                  <a href="../">Home</a>
+                  <a href="../achievements">Achievements</a>
+                  <a href="../posts">Posts</a>
+                  <a href="../software-and-resources">Software & Resources</a>
+                  <a href="../media">Media</a>
+               </ul>
+            </div>
+         </div>
+      </nav>
+      <!-- Main Content -->
+      <div class="container post-container">
+         <h2 class="post-title">Random Number Generation in Warframe</h2>
+         <h6 class="post-date">Last Updated on September 1, 2024</h6>
+         <h6 class="post-date">April 17, 2016</h6>
+         <hr>
+         <h5>Disclaimer</h5>
+         <p>The information included in this post is for educational purposes only. Any material on this webpage may not be reproduced, retransmitted, or redisplayed other than for personal or educational use.</p>
+         <h5>Introduction</h5>
+         <p>Random number generation is a process by which, often by means of a random number generator (RNG), a sequence of numbers or symbols that cannot be reasonably predicted better than by random chance is generated. Warframe uses Donald Knuth's variation of a <a href="https://en.wikipedia.org/wiki/Linear_congruential_generator">linear congruential generator (LCG)</a> with respect to obtaining in-game items, scaling off rarity weights that influence the drop chances of items in <code>DropTables</code> (enemy drop tables) and <code>MissionDecks</code> (mission reward tables). Note that the LCG formula only applies to mission types where players receive rewards over time, such as Defense and Survival. Mission types where players receive a reward upon completion of the mission, such as Capture and Exterminate, adhere to the process explained below and do not rely on the LCG for random number generation.</p>
+         <h5>Rarity Weights</h5>
+         <p>Warframe uses four rarity weights in its random number generation algorithm. These weights are uniform across <code>DropTables</code> and <code>MissionDecks</code>, except for any table that uses <code>FixedWeights</code> (weights that are manually assigned by the developers).</p>
+         <table class="rng-warframe-rarity-weights-table">
+            <tr>
+               <th>Rarity</th>
+               <th>Weight</th>
+               <th>Percentage</th>
+            </tr>
+            <tr>
+               <td>COMMON</td>
+               <td>0.755</td>
+               <td>75.50%</td>
+            </tr>
+            <tr>
+               <td>UNCOMMON</td>
+               <td>0.22</td>
+               <td>22.00%</td>
+            </tr>
+            <tr>
+               <td>RARE</td>
+               <td>0.02</td>
+               <td>2.00%</td>
+            </tr>
+            <tr>
+               <td>LEGENDARY</td>
+               <td>0.005</td>
+               <td>0.50%</td>
+            </tr>
+         </table>
+         <h5>Item Drop Chance Formula</h5>
+         <p>The base drop chance of an item can be computed through the following equation, where rarity is COMMON, UNCOMMON, RARE, or LEGENDARY:</p>
+         <pre>Rarity Drop Chance Per Item = Base Rarity Drop Chance / Number of Rarity Items</pre>
+         <p><b>Exercise 1</b>. This exercise demonstrates the formula with a test case of 8 COMMON, 6 UNCOMMON, 4 RARE, and 2 LEGENDARY items.</p>
+         <pre class="rng-warframe-item-drop-chance-formula-exercise-1-pre">Data Selection: 8 COMMON, 6 UNCOMMON, 4 RARE, 2 LEGENDARY<br><br>COMMON: 0.755 / 8 = 0.094375 ≈ 9.44%<br>UNCOMMON: 0.22 / 6 = 0.0366666667 ≈ 3.67%<br>RARE: 0.02 / 4 = 0.005 = 0.5%<br>LEGENDARY: 0.005 / 2 = 0.0025 = 0.25%<br><br>Reversing the operation to determine the drop chance of an item from a particular rarity tier:<br><br>COMMON: 0.094375 * 8 = 0.755 = 75.5%<br>UNCOMMON: 0.0366666667 * 6 = 0.2200000002 ≈ 22%<br>RARE: 0.005 * 4 = 0.02 = 2%<br>LEGENDARY: 0.0025 * 2 = 0.005 = 0.5%</pre>
+         <h5>Normalization</h5>
+         <p>Normalization refers to the division of available values such that the rarity weights of all items within a table fall between zero and one and amount to one. Normalization occurs when at least one of the rarity weights is absent from a <code>DropTable</code> or <code>MissionDeck</code>.</p>
+         <p><b>Exercise 1</b>. This exercise demonstrates the normalization procedure with a test case of 1 COMMON, 1 UNCOMMON, 1 RARE, and 0 LEGENDARY items. The value of any rarity weight that applies to no items within a table is zero.</p>
+         <pre class="rng-warframe-normalization-exercise-1-pre">Data Selection: 1 COMMON, 1 UNCOMMON, 1 RARE, 0 LEGENDARY<br><br>COMMON: 0.755 / (0.755 + 0.22 + 0.02) = 0.7587939698 ≈ 75.88%<br>UNCOMMON: 0.22 / (0.755 + 0.22 + 0.02) = 0.2211055276 ≈ 22.11%<br>RARE: 0.02 / (0.755 + 0.22 + 0.02) = 0.0201005025 ≈ 2.01%<br><br>Adding up the normalized rarity weights:<br><br>0.7587939698 + 0.2211055276 + 0.0201005025 = 0.9999999999 ≈ 1</pre>
+         <h5>Bias</h5>
+         <p>Bias is a variable exclusive to <code>DropTables</code> that unequally weighs items within <code>DropTables</code>, even if the relevant items have identical rarity weights. Bias can be applied to specific items within a particular <code>DropTable</code> but is not globally applied across any. The more bias an item has (larger value), the lower its drop chance. Conversely, the less bias an item has (smaller value), the higher its drop chance. Additionally, because bias scales off the rarity weight the item it is impacting has, the drop chance of items with rarity weights that hold more weight will be reduced more drastically than the drop chance of items with rarity weights that hold less weight. However, items with rarity weights that hold more weight will still tend to drop more often than items with rarity weights that hold less weight, depending on the amount of bias that is present.</p>
+         <table class="rng-warframe-bias-specter-table">
+            <tr>
+               <th>Specter</th>
+               <th>Mod</th>
+               <th>Drop Chance</th>
+               <th>Bias</th>
+               <th>Count</th>
+               <th>Observed</th>
+            </tr>
+            <tr>
+               <td>Feyarch Specter</td>
+               <td>Shotgun Amp</td>
+               <td>45.83%</td>
+               <td>0.05</td>
+               <td>22</td>
+               <td>52.38%</td>
+            </tr>
+            <tr>
+               <td>Feyarch Specter</td>
+               <td>Empowered Blades</td>
+               <td>4.17%</td>
+               <td>0</td>
+               <td>3</td>
+               <td>7.14%</td>
+            </tr>
+            <tr>
+               <td>Feyarch Specter</td>
+               <td>Final Harbinger</td>
+               <td>45.83%</td>
+               <td>0.1</td>
+               <td>14</td>
+               <td>33.33%</td>
+            </tr>
+            <tr>
+               <td>Feyarch Specter</td>
+               <td>High Noon</td>
+               <td>4.17%</td>
+               <td>0</td>
+               <td>3</td>
+               <td>7.14%</td>
+            </tr>
+         </table>
+         <table class="rng-warframe-bias-specter-table">
+            <tr>
+               <th>Specter</th>
+               <th>Mod</th>
+               <th>Drop Chance</th>
+               <th>Bias</th>
+               <th>Count</th>
+               <th>Observed</th>
+            </tr>
+            <tr>
+               <td>Knave Specter</td>
+               <td>Pistol Amp</td>
+               <td>45.83%</td>
+               <td>0.05</td>
+               <td>60</td>
+               <td>53.57%</td>
+            </tr>
+            <tr>
+               <td>Knave Specter</td>
+               <td>Growing Power</td>
+               <td>4.17%</td>
+               <td>0</td>
+               <td>4</td>
+               <td>3.57%</td>
+            </tr>
+            <tr>
+               <td>Knave Specter</td>
+               <td>Blind Justice</td>
+               <td>45.83%</td>
+               <td>0.1</td>
+               <td>43</td>
+               <td>38.39%</td>
+            </tr>
+            <tr>
+               <td>Knave Specter</td>
+               <td>Crimson Dervish</td>
+               <td>4.17%</td>
+               <td>0</td>
+               <td>5</td>
+               <td>4.46%</td>
+            </tr>
+         </table>
+         <table class="rng-warframe-bias-specter-table">
+            <tr>
+               <th>Specter</th>
+               <th>Mod</th>
+               <th>Drop Chance</th>
+               <th>Bias</th>
+               <th>Count</th>
+               <th>Observed</th>
+            </tr>
+            <tr>
+               <td>Orphid Specter</td>
+               <td>Stand United</td>
+               <td>30.56%</td>
+               <td>0.05</td>
+               <td>29</td>
+               <td>27.62%</td>
+            </tr>
+            <tr>
+               <td>Orphid Specter</td>
+               <td>Brief Respite</td>
+               <td>30.56%</td>
+               <td>0</td>
+               <td>51</td>
+               <td>48.57%</td>
+            </tr>
+            <tr>
+               <td>Orphid Specter</td>
+               <td>Atlantis Vulcan</td>
+               <td>30.56%</td>
+               <td>0.1</td>
+               <td>17</td>
+               <td>16.19%</td>
+            </tr>
+            <tr>
+               <td>Orphid Specter</td>
+               <td>Crossing Snakes</td>
+               <td>8.33%</td>
+               <td>0</td>
+               <td>8</td>
+               <td>7.62%</td>
+            </tr>
+         </table>
+         <h5>Attenuation</h5>
+         <p>Attenuation is a variable exclusive to <code>DropTables</code>. The boolean <code>OverrideLevelAdjustedBiasAtten</code> determines whether attenuation is present within a <code>DropTable</code> or not. As the value of attenuation increases, the drop chance of an item should decrease. However, due to the insignificance of its set value (0.5, which comes from one of the boolean's secondary variables, <code>RareAttenMax</code>) and the fact that it impacts <code>DropTables</code> globally rather than individually across items, it is impossible to determine if it has a noticeable effect at all.</p>
+         <h5>Reward Seeds</h5>
+         <p><code>rewardSeed</code> is a variable exclusive to <code>MissionDecks</code> that determines the <code>missionReward</code> players receive at the end of a mission. It is a 64-bit signed integer (range: −9,223,372,036,854,775,808 through 9,223,372,036,854,775,807 decimal). <code>rewardSeeds</code> are given to the host, and members of the host's group receive the <code>sessionId</code> in order to participate in the same matchmaking session. Players will only receive a <code>rewardSeed</code> when their client needs to distribute it to other players in a group (as the host). This means that players will receive a <code>rewardSeed</code> if they begin a Public, Friends Only, or Invite Only session, but if they begin a Solo session, then they will not be given a <code>rewardSeed</code>. Despite the <code>SRand</code> variable (the seeder for the pseudo-random number generator) differing across each player, each player will always receive the same <code>missionReward</code> as the host because of their identical <code>sessionIds</code>.</p>
+         <h5>Sample Code</h5>
+         <h6>Reward Seed Generator</h6>
+         <p>The following C++ code generates random 64-bit signed integers (corresponding to the fixed-width integer type of <code>rewardSeeds</code>). For randomness, it uses the 64-bit version of the <a href="https://en.wikipedia.org/wiki/Mersenne_Twister">Mersenne Twister</a> pseudo-random number generator initialized with a non-deterministic random number as a seed.</p>
+         <pre class="rng-warframe-reward-seed-generator-pre"><span class="cpp-preprocessor-directive">#include</span> <span class="cpp-library-header">&lt;cstdint&gt;</span>  <span class="cpp-comment">// Provide fixed-width integer types</span><br><span class="cpp-preprocessor-directive">#include</span> <span class="cpp-library-header">&lt;iostream&gt;</span> <span class="cpp-comment">// Provide input and output facilities</span><br><span class="cpp-preprocessor-directive">#include</span> <span class="cpp-library-header">&lt;limits&gt;</span>   <span class="cpp-comment">// Allow access to numeric limits of data types</span><br><span class="cpp-preprocessor-directive">#include</span> <span class="cpp-library-header">&lt;random&gt;</span>   <span class="cpp-comment">// Provide facilities for random number generation</span><br><br><span class="cpp-comment">// Function to generate list of random 64-bit signed integers</span><br><span class="cpp-data-type">void</span> generateRewardSeeds(<span class="cpp-data-type">int</span> numIntegers) {<br>  <span class="cpp-comment">// Create random device to obtain high-entropy 32-bit seed</span><br>  std::random_device rd;<br><br>  <span class="cpp-comment">// Combine two 32-bit seeds from random device into single 64-bit seed for improved randomness</span><br>  int64_t seed <span class="cpp-keyword">=</span> <span class="cpp-keyword">static_cast</span><span class="cpp-keyword">&lt;</span>int64_t<span class="cpp-keyword">&gt;</span>(rd()) <span class="cpp-keyword">&lt;&lt;</span> <span class="cpp-value">32</span> <span class="cpp-keyword">|</span> rd();<br><br>  <span class="cpp-comment">// Initialize Mersenne Twister random number engine with 64-bit seed from random device</span><br>  std::mt19937_64 rng(seed);<br><br>  <span class="cpp-comment">// Define uniform distribution range for 64-bit signed integers</span><br>  std::uniform_int_distribution<span class="cpp-keyword">&lt;</span>int64_t<span class="cpp-keyword">&gt;</span> dist(<br>    std::numeric_limits<span class="cpp-keyword">&lt;</span>int64_t<span class="cpp-keyword">&gt;</span>::min(),<br>    std::numeric_limits<span class="cpp-keyword">&lt;</span>int64_t<span class="cpp-keyword">&gt;</span>::max()<br>  );<br><br>  <span class="cpp-comment">// Display generated seed</span><br>  std::cout <span class="cpp-keyword">&lt;&lt;</span> <span class="cpp-string">"mt19937_64 seeded with: "</span> <span class="cpp-keyword">&lt;&lt;</span> seed <span class="cpp-keyword">&lt;&lt;</span> <span class="cpp-string">"</span><span class="cpp-value">\n\n</span><span class="cpp-string">"</span>;<br>  <span class="cpp-comment">// Display number of generated random 64-bit signed integers</span><br>  std::cout <span class="cpp-keyword">&lt;&lt;</span> <span class="cpp-string">"Generating "</span> <span class="cpp-keyword">&lt;&lt;</span> numIntegers <span class="cpp-keyword">&lt;&lt;</span> <span class="cpp-string">" random 64-bit signed integers:"</span> <span class="cpp-keyword">&lt;&lt;</span> <span class="cpp-string">"</span><span class="cpp-value">\n</span><span class="cpp-string">"</span>;<br><br>  <span class="cpp-comment">// Generate and print random integers</span><br>  <span class="cpp-keyword">for</span> (<span class="cpp-data-type">int</span> i <span class="cpp-keyword">=</span> <span class="cpp-value">0</span>; i <span class="cpp-keyword">&lt;</span> numIntegers; <span class="cpp-keyword">++</span>i) {<br>    <span class="cpp-comment">// Generate random number using distribution and random number engine</span><br>    int64_t rewardSeed <span class="cpp-keyword">=</span> dist(rng);<br>    std::cout <span class="cpp-keyword">&lt;&lt;</span> <span class="cpp-string">"rewardSeed="</span> <span class="cpp-keyword">&lt;&lt;</span> rewardSeed <span class="cpp-keyword">&lt;&lt;</span> <span class="cpp-string">"</span><span class="cpp-value">\n</span><span class="cpp-string">"</span>;<br>  }<br>}<br><br><span class="cpp-data-type">int</span> main() {<br>  <span class="cpp-comment">// Define number of random integers to generate</span><br>  <span class="cpp-data-type">int</span> numIntegers = <span class="cpp-value">5</span>;<br><br>  <span class="cpp-comment">// Call function to generate and print random integers</span><br>  generateRewardSeeds(numIntegers);<br><br>  <span class="cpp-keyword">return</span> <span class="cpp-value">0</span>;<br>}</pre>
+         <h6>Weighted Random Number Generator</h6>
+         <p>The following C++ code simulates the process of drawing items with different rarities according to their specified rarity weights. For randomness, it uses the 64-bit version of the <a href="https://en.wikipedia.org/wiki/Mersenne_Twister">Mersenne Twister</a> pseudo-random number generator initialized with a non-deterministic random number as a seed. The initial rarity weights set correspond to the rarity weights used in Warframe's random number generation algorithm.</p>
+         <pre class="rng-warframe-weighted-random-number-generator-pre"><span class="cpp-preprocessor-directive">#include</span> <span class="cpp-library-header">&lt;algorithm&gt;</span>     <span class="cpp-comment">// Provide functions for operations on ranges of elements</span><br><span class="cpp-preprocessor-directive">#include</span> <span class="cpp-library-header">&lt;cstdint&gt;</span>       <span class="cpp-comment">// Provide fixed-width integer types</span><br><span class="cpp-preprocessor-directive">#include</span> <span class="cpp-library-header">&lt;iostream&gt;</span>      <span class="cpp-comment">// Provide input and output facilities</span><br><span class="cpp-preprocessor-directive">#include</span> <span class="cpp-library-header">&lt;random&gt;</span>        <span class="cpp-comment">// Provide facilities for random number generation</span><br><span class="cpp-preprocessor-directive">#include</span> <span class="cpp-library-header">&lt;stdexcept&gt;</span>     <span class="cpp-comment">// Provide standard exception classes for error handling</span><br><span class="cpp-preprocessor-directive">#include</span> <span class="cpp-library-header">&lt;vector&gt;</span>        <span class="cpp-comment">// Define the std::vector container for encapsulating dynamic arrays</span><br><span class="cpp-preprocessor-directive">#include</span> <span class="cpp-library-header">&lt;unordered_map&gt;</span> <span class="cpp-comment">// Define the std::unordered_map container for fast key-value pair storage and retrieval</span><br><br><span class="cpp-comment">// Enum for rarities</span><br><span class="cpp-data-type">enum</span> Rarity {<br>  COMMON,<br>  UNCOMMON,<br>  RARE,<br>  LEGENDARY<br>};<br><br><span class="cpp-comment">// Structure to hold number, rarity, and rarity weight</span><br><span class="cpp-data-type">struct</span> RarityItem {<br>  <span class="cpp-data-type">int</span> number; <span class="cpp-comment">// Number representing item</span><br>  Rarity rarity; <span class="cpp-comment">// Rarity of item</span><br>  <span class="cpp-data-type">double</span> rarityWeight; <span class="cpp-comment">// Weight associated with rarity</span><br>};<br><br><span class="cpp-comment">// Function to generate weighted random number</span><br><span class="cpp-data-type">int</span> getWeightedRandomNumber(<span class="cpp-keyword">const</span> std::vector<span class="cpp-keyword">&lt;</span>RarityItem<span class="cpp-keyword">&gt;</span><span class="cpp-keyword">&</span> rarityItems) {<br>  <span class="cpp-keyword">if</span> (rarityItems.empty()) {<br>    <span class="cpp-keyword">throw</span> std::runtime_error(<span class="cpp-string">"Rarity items vector is empty."</span>);<br>  }<br><br>  <span class="cpp-comment">// Vector to store cumulative rarity weights</span><br>  std::vector<span class="cpp-keyword">&lt;</span><span class="cpp-data-type">double</span><span class="cpp-keyword">&gt;</span> cumulativeRarityWeights(rarityItems.size());<br>  cumulativeRarityWeights[<span class="cpp-value">0</span>] = rarityItems[<span class="cpp-value">0</span>].rarityWeight; <span class="cpp-comment">// Initialize first element</span><br><br>  <span class="cpp-comment">// Compute cumulative rarity weights</span><br>  <span class="cpp-keyword">for</span> (size_t i <span class="cpp-keyword">=</span> <span class="cpp-value">1</span>; i <span class="cpp-keyword">&lt;</span> rarityItems.size(); <span class="cpp-keyword">++</span>i) {<br>    cumulativeRarityWeights[i] <span class="cpp-keyword">=</span> cumulativeRarityWeights[i <span class="cpp-keyword">-</span> <span class="cpp-value">1</span>] <span class="cpp-keyword">+</span> rarityItems[i].rarityWeight;<br>  }<br><br>  <span class="cpp-data-type">double</span> totalWeight <span class="cpp-keyword">=</span> cumulativeRarityWeights.back(); <span class="cpp-comment">// Total weight is last cumulative weight</span><br>  std::random_device rd; <span class="cpp-comment">// Create random device to obtain high-entropy 32-bit seed</span><br>  int64_t seed <span class="cpp-keyword">=</span> <span class="cpp-keyword">static_cast</span><span class="cpp-keyword">&lt;</span>int64_t<span class="cpp-keyword">&gt;</span>(rd()) <span class="cpp-keyword">&lt;&lt;</span> <span class="cpp-value">32</span> <span class="cpp-keyword">|</span> rd(); <span class="cpp-comment">// Combine two 32-bit seeds from random device into single 64-bit seed for improved randomness</span><br>  std::mt19937_64 rng(seed); <span class="cpp-comment">// Initialize Mersenne Twister random number engine with 64-bit seed from random device</span><br>  std::uniform_real_distribution<span class="cpp-keyword">&lt;</span><span class="cpp-keyword">&gt;</span> dist(<span class="cpp-value">0.0</span>, totalWeight); <span class="cpp-comment">// Define uniform distribution from 0 to totalWeight</span><br>  <span class="cpp-data-type">double</span> randomNumber <span class="cpp-keyword">=</span> dist(rng); <span class="cpp-comment">// Generate random number using distribution and random number engine</span><br><br>  <span class="cpp-comment">// Find position of random number in cumulative rarity weights</span><br>  <span class="cpp-data-type">auto</span> it <span class="cpp-keyword">=</span> std::lower_bound(cumulativeRarityWeights.begin(), cumulativeRarityWeights.end(), randomNumber);<br>  <span class="cpp-keyword">return</span> rarityItems[std::distance(cumulativeRarityWeights.begin(), it)].number; <span class="cpp-comment">// Return corresponding number</span><br>}<br><br><span class="cpp-data-type">int</span> main() {<br>  <span class="cpp-comment">// Vector of rarity items with associated rarity weights</span><br>  std::vector<span class="cpp-keyword">&lt;</span>RarityItem<span class="cpp-keyword">&gt;</span> rarityItems <span class="cpp-keyword">=</span> {<br>    {<span class="cpp-value">1</span>, COMMON, <span class="cpp-value">0.755</span>},<br>    {<span class="cpp-value">2</span>, UNCOMMON, <span class="cpp-value">0.22</span>},<br>    {<span class="cpp-value">3</span>, RARE, <span class="cpp-value">0.02</span>},<br>    {<span class="cpp-value">4</span>, LEGENDARY, <span class="cpp-value">0.005</span>}<br>  };<br><br>  <span class="cpp-keyword">const</span> <span class="cpp-data-type">int</span> numTrials <span class="cpp-keyword">=</span> <span class="cpp-value">1000</span>; <span class="cpp-comment">// Number of trials to run</span><br>  <span class="cpp-comment">// Map to count occurrences of each rarity</span><br>  std::unordered_map<span class="cpp-keyword">&lt;</span>Rarity, <span class="cpp-data-type">int</span><span class="cpp-keyword">&gt;</span> rarityCounts <span class="cpp-keyword">=</span> {<br>    {COMMON, <span class="cpp-value">0</span>},<br>    {UNCOMMON, <span class="cpp-value">0</span>},<br>    {RARE, <span class="cpp-value">0</span>},<br>    {LEGENDARY, <span class="cpp-value">0</span>}<br>  };<br><br>  <span class="cpp-comment">// Run trials to generate random numbers and count rarities</span><br>  <span class="cpp-keyword">for</span> (<span class="cpp-data-type">int</span> i <span class="cpp-keyword">=</span> <span class="cpp-value">0</span>; i <span class="cpp-keyword">&lt;</span> numTrials; <span class="cpp-keyword">++</span>i) {<br>    <span class="cpp-data-type">int</span> number <span class="cpp-keyword">=</span> getWeightedRandomNumber(rarityItems); <span class="cpp-comment">// Generate weighted random number</span><br>    <span class="cpp-keyword">for</span> (<span class="cpp-keyword">const</span> <span class="cpp-data-type">auto</span><span class="cpp-keyword">&</span> item : rarityItems) { <span class="cpp-comment">// Find corresponding rarity</span><br>      <span class="cpp-keyword">if</span> (item.number <span class="cpp-keyword">==</span> number) {<br>        <span class="cpp-keyword">++</span>rarityCounts[item.rarity]; <span class="cpp-comment">// Increment count for that rarity</span><br>        <span class="cpp-keyword">break</span>;<br>      }<br>    }<br>  }<br><br>  <span class="cpp-comment">// Display number of trials and rarity counts for each rarity</span><br>  std::cout <span class="cpp-keyword">&lt;&lt;</span> <span class="cpp-string">"Number of trials: "</span> <span class="cpp-keyword">&lt;&lt;</span> numTrials <span class="cpp-keyword">&lt;&lt;</span> <span class="cpp-string">"</span><span class="cpp-value">\n\n</span><span class="cpp-string">"</span>;<br>  std::cout <span class="cpp-keyword">&lt;&lt;</span> <span class="cpp-string">"COMMON: "</span> <span class="cpp-keyword">&lt;&lt;</span> rarityCounts[COMMON] <span class="cpp-keyword">&lt;&lt;</span> <span class="cpp-string">"</span><span class="cpp-value">\n</span><span class="cpp-string">"</span>;<br>  std::cout <span class="cpp-keyword">&lt;&lt;</span> <span class="cpp-string">"UNCOMMON: "</span> <span class="cpp-keyword">&lt;&lt;</span> rarityCounts[UNCOMMON] <span class="cpp-keyword">&lt;&lt;</span> <span class="cpp-string">"</span><span class="cpp-value">\n</span><span class="cpp-string">"</span>;<br>  std::cout <span class="cpp-keyword">&lt;&lt;</span> <span class="cpp-string">"RARE: "</span> <span class="cpp-keyword">&lt;&lt;</span> rarityCounts[RARE] <span class="cpp-keyword">&lt;&lt;</span> <span class="cpp-string">"</span><span class="cpp-value">\n</span><span class="cpp-string">"</span>;<br>  std::cout <span class="cpp-keyword">&lt;&lt;</span> <span class="cpp-string">"LEGENDARY: "</span> <span class="cpp-keyword">&lt;&lt;</span> rarityCounts[LEGENDARY] <span class="cpp-keyword">&lt;&lt;</span> <span class="cpp-string">"</span><span class="cpp-value">\n</span><span class="cpp-string">"</span>;<br><br>  <span class="cpp-keyword">return</span> <span class="cpp-value">0</span>;<br>}</pre>
+         <!-- Footer -->
+         <footer class="footer">
+            <p>
+               Copyright &copy;
+               <script type="text/javascript">
+                  document.write(new Date().getFullYear());
+               </script>
+               Eigenvoid. All rights reserved.
+            </p>
+         </footer>
+      </div>
+      <!-- JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="../js/jquery-3.7.1.min.js"></script>
+      <script src="../js/popper.min.js"></script>
+      <script src="../js/bootstrap.min.js"></script>     
+   </body>
+</html>

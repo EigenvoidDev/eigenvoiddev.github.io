@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="theme-color" content="#15171E">
+      <title>Dumping Process Memory Using Scylla - Eigenvoid</title>
+      <meta name="description" content="The following is a list of instructions required to dump the memory of a process using Scylla.">
+      <!-- Canonical URL -->
+      <link rel="canonical" href="https://www.eigenvoid.dev/posts/dumping-process-memory-using-scylla">
+      <!-- Open Graph Meta Tags -->
+      <meta property="og:url" content="https://www.eigenvoid.dev/posts/dumping-process-memory-using-scylla">
+      <meta property="og:type" content="article">
+      <meta property="og:title" content="Dumping Process Memory Using Scylla - Eigenvoid">
+      <meta property="og:description" content="The following is a list of instructions required to dump the memory of a process using Scylla.">
+      <meta property="og:image" content="https://www.eigenvoid.dev/img/og/favicon-1200x628.png">
+      <meta property="og:site_name" content="Eigenvoid">
+      <meta property="og:locale" content="en_US">
+      <!-- Twitter Card Meta Tags -->
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Dumping Process Memory Using Scylla - Eigenvoid">
+      <meta name="twitter:description" content="The following is a list of instructions required to dump the memory of a process using Scylla.">
+      <meta name="twitter:image" content="https://www.eigenvoid.dev/img/twitter/favicon-1200x670.png">
+      <!-- Apple Touch Icon -->
+      <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
+      <!-- Favicons -->
+      <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="../css/bootstrap.min.css">
+      <!-- Custom CSS -->
+      <link rel="stylesheet" href="../css/secondary.css">
+      <!-- Font -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+      <!-- Font Awesome CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-E7GC202X7V"></script>
+      <script>
+         window.dataLayer = window.dataLayer || [];
+         function gtag(){dataLayer.push(arguments);}
+         gtag('js', new Date());
+         
+         gtag('config', 'G-E7GC202X7V');
+      </script>
+   </head>
+   <body>
+      <!-- Navbar Container -->
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+         <div class="container-fluid">
+            <!-- Navbar Toggler Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Navbar Items -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+               <ul class="navbar-nav mx-auto">
+                  <a href="../">Home</a>
+                  <a href="../achievements">Achievements</a>
+                  <a href="../posts">Posts</a>
+                  <a href="../software-and-resources">Software & Resources</a>
+                  <a href="../media">Media</a>
+               </ul>
+            </div>
+         </div>
+      </nav>
+      <!-- Main Content -->
+      <div class="container post-container">
+         <h2 class="post-title">Dumping Process Memory Using Scylla</h2>
+         <h6 class="post-date">September 26, 2024</h6>
+         <hr>
+         <h5>Disclaimer</h5>
+         <p>The information included in this post is for educational purposes only. Any material on this webpage may not be reproduced, retransmitted, or redisplayed other than for personal or educational use. While I aim to provide informative content, I cannot guarantee that following these instructions will not result in any consequences, including account bans or actions taken by third-party services. By using this information, you acknowledge that you do so at your own risk and agree that I am not responsible for any results that may arise from your actions.</p>
+         <h5>Introduction</h5>
+         <p>A memory dump is a file that captures all information in a device's RAM related to a specific program at a given moment. These dumps are valuable for digital forensics, debugging, and performance analysis. Process memory dumps, which focus on the memory of a particular running process, provide insights into variables, function calls, and other critical data. However, standard memory dumping techniques often fall short with packed executables or those protected by anti-cheat systems. Packed executables use compression and obfuscation methods to make it more difficult to retrieve their true file code. Additionally, anti-cheat systems actively monitor and restrict access to process memory, complicating traditional memory dumps. To address these challenges, analysts may use PE memory dumps, which specifically target the memory of processes associated with Portable Executable (PE) files to capture their unpacked state. I will be evaluating the "cod.exe" executable.</p>
+         <h5>cod.exe Executable Analysis</h5>
+         <p>The "cod.exe" executable refers to the executable file associated with the "Call of Duty" series; its file description is "Call of Duty® HQ". "cod.exe" is protected by <a href="https://www.callofduty.com/blog/2021/10/ricochet-anti-cheat-initiative-for-call-of-duty">RICOCHET Anti-Cheat</a>, an anti-cheat system that operates at the kernel level of an operating system, rather than at the application level. This allows RICOCHET Anti-Cheat to have deeper access to system resources and processes, enhancing its ability to detect and prevent cheating in online games. We can use <a href="https://github.com/horsicq/DIE-engine/releases">"Detect It Easy(DiE)"</a> to analyze the executable.</p>
+         <p>Once you have saved the compressed (zipped) folder of "Detect It Easy(DiE)" into the directory of your choice, extract its contents into that directory. Enter the directory of the extracted contents and open Detect It Easy(DiE).</p>
+         <p>Once you have Detect It Easy(DiE) opened, ensure that, in the "Signatures" section, you have "Heuristic scan" checked in addition to "Recursive scan", "Deep scan", and "Verbose". Then, left-click on the button that reads "..." in the "File name" section. In the File Explorer instance that opens, head to where you have the "cod.exe" executable installed. Left-click on the executable, and then left-click on "Open" to begin the scan.</p>
+         <p>After the scan has completed, you should see the following text under "PE64": "Packer: Packer detected(Heuristic)[Section names repeating + High entropy + Section 0 (".text") compressed]". This suggests that, although the specific protector was unable to be found on the basis of signature detection, the "cod.exe" executable is packed according to the following heuristics: 1&#41; section names are repeating, 2&#41; there is high entropy, and 3&#41; section 0 (".text") is compressed. In general, high entropy can indicate (note: not prove) that data has been encrypted. Although, non-encrypted data can also exhibit high entropy, especially if it is inherently random.</p>
+         <p>To examine the entropy of the "cod.exe" executable, check off the "Advanced" checkbox. Then, a selection of additional buttons will appear. Left-click on the "Entropy" button. A new window that details the entropy information pertaining to the "cod.exe" executable will open. You should see that 97% of the executable is packed, meaning that a significant portion of it has been compressed or obfuscated using a packing algorithm. Due to this, reverse engineering tools such as <a href="https://ghidra-sre.org/">Ghidra</a> and <a href="https://hex-rays.com/ida-pro/">IDA Pro</a> will not be able to properly analyze the "cod.exe" executable. Therefore, you will need to dump the unobfuscated code from the memory of a running game process. You can use <a href="https://github.com/NtQuery/Scylla">Scylla</a> to dump processes with their imports.</p>
+         <h5>Warning</h5>
+         <p>Attaching any tools that RICOCHET Anti-Cheat detects as unauthorized software or software that could be used to manipulate game data, such as Scylla, could cause Activision Publishing, Inc. to flag your account, and this could eventually lead to a game ban.</p>
+         <h5>Instructions</h5>
+         <p>The following is a list of instructions required to dump the memory of a process, "cod.exe" in this case, using Scylla:</p>
+         <p>1. Visit <a href="https://github.com/NtQuery/Scylla/releases">this</a> URL and left-click on "Scylla_v0.9.8.rar". Save the compressed (zipped) folder of "Scylla_v0.9.8" into the directory of your choice.</p>
+         <p>2. Head to the location of the completed download and extract the contents of the compressed (zipped) folder "Scylla_v0.9.8" into the directory of your choice.</p>
+         <p>3. Launch Call of Duty®.</p>
+         <p>4. Open Resource Monitor. You should see the "cod.exe" executable, along with its associated process identifier, in the list of processes. Right-click on it and left-click on "Suspend Process".</p>
+         <p>5. Open Scylla. Left-click on the drop-down in the "Attach to an active process" section. In this drop-down list, you will see a list of every process currently running on your device. You should see the "cod.exe" executable listed here, along with both an associated process identifier and a file path specifying where the executable is located. Left-click on the process of "cod.exe" that has the corresponding process identifier to the one that you suspended in step 4. After doing this, Scylla will analyze the "cod.exe" executable to parse and load the modules that it detects to be associated with it, and it will determine the address and size of its imagebase.</p>
+         <p>6. In Scylla, left-click on "Dump" to generate a PE memory dump. Save the resultant executable into the directory of your choice. You can now close Scylla, resume the "cod.exe" process in Resource Monitor, close Resource Monitor, and close Call of Duty®.</p>
+         <!-- Footer -->
+         <footer class="footer">
+            <p>
+               Copyright &copy;
+               <script type="text/javascript">
+                  document.write(new Date().getFullYear());
+               </script>
+               Eigenvoid. All rights reserved.
+            </p>
+         </footer>
+      </div>
+      <!-- JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="../js/jquery-3.7.1.min.js"></script>
+      <script src="../js/popper.min.js"></script>
+      <script src="../js/bootstrap.min.js"></script>     
+   </body>
+</html>

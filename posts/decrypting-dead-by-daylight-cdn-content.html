@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="theme-color" content="#15171E">
+      <title>Decrypting Dead by Daylight CDN Content - Eigenvoid</title>
+      <meta name="description" content="The following is a list of instructions required to decrypt content transmitted through the Dead by Daylight content delivery network (CDN).">
+      <!-- Canonical URL -->
+      <link rel="canonical" href="https://www.eigenvoid.dev/posts/decrypting-dead-by-daylight-cdn-content">
+      <!-- Open Graph Meta Tags -->
+      <meta property="og:url" content="https://www.eigenvoid.dev/posts/decrypting-dead-by-daylight-cdn-content">
+      <meta property="og:type" content="article">
+      <meta property="og:title" content="Decrypting Dead by Daylight CDN Content - Eigenvoid">
+      <meta property="og:description" content="The following is a list of instructions required to decrypt content transmitted through the Dead by Daylight content delivery network (CDN).">
+      <meta property="og:image" content="https://www.eigenvoid.dev/img/og/favicon-1200x628.png">
+      <meta property="og:site_name" content="Eigenvoid">
+      <meta property="og:locale" content="en_US">
+      <!-- Twitter Card Meta Tags -->
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Decrypting Dead by Daylight CDN Content - Eigenvoid">
+      <meta name="twitter:description" content="The following is a list of instructions required to decrypt content transmitted through the Dead by Daylight content delivery network (CDN).">
+      <meta name="twitter:image" content="https://www.eigenvoid.dev/img/twitter/favicon-1200x670.png">
+      <!-- Apple Touch Icon -->
+      <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
+      <!-- Favicons -->
+      <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="../css/bootstrap.min.css">
+      <!-- Custom CSS -->
+      <link rel="stylesheet" href="../css/secondary.css">
+      <!-- Font -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+      <!-- Font Awesome CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-E7GC202X7V"></script>
+      <script>
+         window.dataLayer = window.dataLayer || [];
+         function gtag(){dataLayer.push(arguments);}
+         gtag('js', new Date());
+         
+         gtag('config', 'G-E7GC202X7V');
+      </script>
+   </head>
+   <body>
+    <!-- Navbar Container -->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+       <div class="container-fluid">
+          <!-- Navbar Toggler Button -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+          <!-- Navbar Items -->
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+             <ul class="navbar-nav mx-auto">
+                <a href="../">Home</a>
+                <a href="../achievements">Achievements</a>
+                <a href="../posts">Posts</a>
+                <a href="../software-and-resources">Software & Resources</a>
+                <a href="../media">Media</a>
+             </ul>
+          </div>
+       </div>
+    </nav>
+    <!-- Main Content -->
+    <div class="container post-container">
+       <h2 class="post-title">Decrypting Dead by Daylight CDN Content</h2>
+       <h6 class="post-date">November 23, 2024</h6>
+       <hr>
+       <h5>Disclaimer</h5>
+       <p>The information included in this post is for educational purposes only. Any material on this webpage may not be reproduced, retransmitted, or redisplayed other than for personal or educational use.</p>
+       <h5>Introduction</h5>
+       <p>A content delivery network (CDN) is a network of distributed servers strategically positioned across various geographic locations to deliver web content to users more efficiently and reliably. By reducing the distance between users and the server, CDNs minimize latency, accelerate website load times, and enhance the overall user experience. Dead by Daylight serves <a href="../resources/dead-by-daylight-private-api-documentation/api-reference#client-data">client data</a> from its <a href="../resources/dead-by-daylight-private-api-documentation/index">private API</a> through its CDN. While it is possible to recover the client data by capturing Dead by Daylight's network traffic and passing the title screen (where Dead by Daylight prompts you to "PRESS SPACE TO CONTINUE"), any attempt to retrieve the client data results in a response encoded as a modified Base64-encoded string, adding layers of obfuscation to its contents.</p>
+       <h5>Dead by Daylight CDN Content Structure</h5>
+       <p>The Dead by Daylight client communicates with the game server via a <a href="https://en.wikipedia.org/wiki/REST">REST</a> API, with different endpoints employing various encoding methods. For example, content served from the CDN is prefixed with "DbdDAwAC", whereas save profiles (when they were still in use) used the "DbdDAgAC" prefix. Additionally, a "DbdDAQEB" prefix indicates that the modified Base64-encoded string is <a href="https://en.wikipedia.org/wiki/Zlib">zlib-compressed</a>. Based on my observations, only the <code>POST</code> request sent to <a href="https://egs.live.bhvrdbd.com/api/v1/players/me/states/binary?schemaVersion={schemaVersion}&stateName={stateName}&version={version}">this</a> URL incorporates the "DbdDAgAC" prefix. Therefore, it is most relevant to focus on the content served from the CDN.</p>
+       <h5>Decryption Process</h5>
+       <p>Content served from the CDN uses <a href="https://en.wikipedia.org/wiki/Base64">Base64</a> encoding, <a href="https://en.wikipedia.org/wiki/ASCII">ASCII</a> encoding, <a href="https://en.wikipedia.org/wiki/Advanced_Encryption_Standard">AES</a> encryption, <a href="https://en.wikipedia.org/wiki/Bit_manipulation">bit manipulation</a>, and potentially zlib compression. The decryption process is carried out as follows:</p>
+       <p>1. Check if the content begins with a specific encryption prefix. Decryption cannot proceed if it does not.</p>
+       <p>2. Remove the prefix from the content to isolate the encrypted payload. Base64-decode the remaining payload to get the raw binary data.</p>
+       <p>3. Determine the length of the key ID buffer slice based on the length of the branch (in the case of Dead by Daylight, this is either "qa", "stage", "cert", "ptb", or "live"), extract that slice from the beginning of the raw payload, and transform the slice by incrementing each byte's value modulo 256.</p>
+       <p>4. Decode the key ID buffer into an ASCII string, replacing any <code>"\u0001"</code> (Start of Heading) characters with <code>""</code> (empty strings). Then, use the resulting string to look up the required AES access key. You can use <a href="https://fmodel.app/">FModel</a> to obtain the required AES access key, provided that you have both a <a href="generating-mapping-file-for-dead-by-daylight">mapping file</a> and the <a href="extracting-aes-key-for-dead-by-daylight">AES key</a> associated with the Dead by Daylight client. Supply FModel with the relevant mapping file and AES key, navigate to <b>DeadbyDaylight > Config > DefaultGame.ini</b>, and search "[/Script/S3Command.AccessKeys]". You will see the list of AES access keys below that section header. If you do not see "DefaultGame.ini" in the "Config" folder while using FModel, then you will need to export the "Config" folder's packages raw data to the output directory of your choice and open it from there.</p>
+       <p>5. Base64-decode the AES access key to retrieve the actual decryption key.</p>
+       <p>6. Extract the remaining part of the raw payload after the key ID buffer (hereafter referred to as the decoded buffer).</p>
+       <p>7. To process the decoded buffer, first create a new AES cipher object using the decrypted key from before and specifying the <a href="https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Electronic_codebook_(ECB)">electronic codebook (ECB)</a> mode. The cipher is then used to decrypt the decoded buffer.</p>
+       <p>8. Convert the decrypted buffer into a mutable byte array to allow for in-place modifications to the bytes.</p>
+       <p>9. Loop through the byte array such that bytes with non-zero values are adjusted by adding 1 (modulo 256) and then stored back into the byte array. For each non-zero byte, increment a "valid non-padding bytes" counter; this is used to determine how much of the data is valid and how much is padding. When a byte with value 0 is encountered, terminate the loop; this is where the padding ends.</p>
+       <p>10. After the loop, slice the byte array such that only the valid non-padding bytes are kept. Convert this slice back to a byte string and decode it into an ASCII string.</p>
+       <p>11. If the content is zlib-compressed, then remove the prefix from it to isolate the compressed payload. Base64-decode the remaining payload to get the raw binary data.</p>
+       <p>12. The first 4 bytes of the raw payload are interpreted as a little-endian integer, which specifies the expected size of the decompressed data. Decompress the remaining part of the raw payload (after the first 4 bytes).</p>
+       <p>13. Once the data is decompressed, decode it from UTF-16 to a string.</p>
+       <p>14. Return the content.</p>
+       <p>15. If the content was not zlib-compressed, then return the content after following step 10.</p>
+       <h5>Instructions</h5>
+       <p>The following is a list of instructions required to decrypt content transmitted through the Dead by Daylight CDN:</p>
+       <p>1. Visit <a href="https://www.python.org/downloads/">https://www.python.org/downloads/</a> and left-click on the appropriate download link.</p>
+       <p>2. Head to the location of the completed download and run the Python Setup for whichever version of Python you downloaded. Ensure that you have "Add python.exe to PATH" checked. Left-click on "Install Now".</p>
+       <p>3. Once you have installed Python, open Windows PowerShell. Type the following into the terminal:</p>
+       <pre>pip install pycryptodome</pre>
+       <p>This will install the PyCryptodome Python package to your machine. You can verify that you have successfully installed it by typing the following into the terminal:</p>
+       <pre>pip list</pre>
+       <p>If you successfully followed the instructions, then you will see the "pycryptodome" package and the version of it that you installed in the list.</p>
+       <p>4. Visit <a href="https://github.com/EigenvoidDev/DeadByDaylightCDNDecryptor/blob/main/dbd_cdn_decryptor.py">this</a> URL and left-click on the "Download raw file" icon. Save the Python script into the directory of your choice.</p>
+       <p>5. Head to the location of the completed download, right-click inside the directory, and left-click on "Open in Terminal".</p>
+       <p>6. After Windows PowerShell launches, type the following into the terminal:</p>
+       <pre>python dbd_cdn_decryptor.py</pre>
+       <p>7. You should now be prompted to enter encrypted data. After doing this, you will be prompted to select a branch. After typing the key corresponding to the branch that you are selecting, press the "Enter" key.</p>
+       <p>8. For example, to decrypt "DynamicContent.json" from <a href="https://cdn.live.bhvrdbd.com/clientData/4fabea45-bce0-4461-8950-162659636437/content/8.3.2_2159052live/dynamicContent/DynamicContent.json">this</a> URL, you would do the following in the terminal, pressing the "Enter" key after each step:</p>
+       <pre>python dbd_cdn_decryptor.py<br>Enter the decrypted data: DbdDAwACNy0yLTFea2h1ZACpWD2xJgZ+OEu8LQwOzu9o+lubuGea7J2LocNGFk16/eb8Td94DmFX+BQK/3q492zpaSjCo1Ofsznj86OhLblonPSJrASea8MPdyIhmkShtw==<br>Select a branch (q: QA, s: Stage, c: Cert, p: PTB, l: live): l</pre>
+       <p>9. After you do this, the Python script will return the decrypted data to your terminal.</p>
+       <!-- Footer -->
+       <footer class="footer">
+          <p>
+             Copyright &copy;
+             <script type="text/javascript">
+                document.write(new Date().getFullYear());
+             </script>
+             Eigenvoid. All rights reserved.
+          </p>
+       </footer>
+    </div>
+    <!-- JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>     
+ </body>
+</html>

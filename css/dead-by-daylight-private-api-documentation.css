@@ -1,0 +1,763 @@
+/* Global box-sizing for consistent border and padding management */
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+/* HTML and body styles */
+html,
+body {
+	height: 100%;
+}
+
+/* Body styles */
+body {
+	background-color: #1A1C23;
+	color: #fff;
+	font-family: "Fira Sans", sans-serif;
+}
+
+a {
+	color: #1875F1;
+}
+
+a:hover {
+	color: #5CB3E6;
+}
+
+h4 {
+	margin-bottom: 15px;
+	/* Add vertical space between list item element and content below it */
+}
+
+li {
+	margin-bottom: 15px;
+	/* Add vertical space between list item element and content below it */
+}
+
+.indented {
+	margin-left: 29px;
+	/* Add horizontal space between container and content within it */
+	margin-top: 5px;
+	/* Add vertical space between table and content above it */
+}
+
+/* Sidebar toggle styles */
+.sidebar-toggle {
+	background-color: #15171E;
+	border: none;
+	color: #D3D3D3;
+	display: none;
+	font-size: 22px;
+	padding: 10px;
+	position: fixed;
+	z-index: 2;
+	/* Ensure that sidebar toggle sits above both sidebar and elements below sidebar */
+}
+
+/* Container styles */
+.container-flex {
+	display: flex;
+	height: 100%;
+}
+
+/* Sidebar styles */
+.sidebar {
+	background-color: #15171E;
+	display: flex;
+	flex-direction: column;
+	flex-shrink: 0;
+	height: 100%;
+	justify-content: space-between;
+	overflow-y: auto;
+	/* Enable vertical scroll on overflow */
+	position: fixed;
+	scrollbar-color: #606060 #15171E;
+	/* Set both scrollbar thumb and track colors */
+	scrollbar-width: thin;
+	z-index: 1;
+	/* Ensure that sidebar sits above other elements */
+}
+
+/* Sidebar header styles */
+.sidebar-header {
+	display: flex;
+	padding-top: 5px;
+	/* Add top padding to account for sidebar border */
+	width: 100%;
+}
+
+.sidebar-header a {
+	color: #fff;
+	display: block;
+	font-size: 28px;
+	padding-top: 5px;
+	/* Add top padding to account for favicon */
+	text-decoration: none;
+}
+
+.sidebar-header a:hover {
+	text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.2);
+}
+
+/* Favicon styles */
+.favicon {
+	height: 50px;
+	width: 50px;
+}
+
+/* Sidebar list item styles */
+.sidebar ul {
+	flex-grow: 1;
+	font-size: 18px;
+	list-style-type: none;
+	/* Remove bullet points from sidebar list items */
+	margin-top: 5px;
+	padding-left: 12.25px;
+	/* Add left padding to account for sidebar border */
+}
+
+.sidebar ul a {
+	color: #EDEDED;
+	text-decoration: none;
+}
+
+.sidebar ul a:hover {
+	text-decoration: underline;
+}
+
+.sidebar ul li {
+	margin-bottom: 8.75px;
+	/* Add vertical space between sidebar list item and content below it */
+}
+
+.sidebar ul li.active {
+	border-left: 4px solid #7C5C4D;
+	font-weight: bold;
+	padding-left: 8px;
+	/* Add left padding to prevent sidebar list item text from touching border */
+}
+
+.sidebar ul li.inactive {
+	border-left: 4px solid #8A7B6E;
+	font-weight: bold;
+	padding-left: 8px;
+	/* Add left padding to prevent sidebar list item text from touching border */
+}
+
+/* Sidebar list item section styles */
+.sidebar ul li.section {
+	font-size: 16px;
+	padding-left: 17px;
+	/* Add left padding to account for sidebar border */
+}
+
+/* Footer styles */
+.footer {
+	font-size: 10.5px;
+	margin: 10px 10px;
+}
+
+/* Main content styles */
+.main-content {
+	margin-left: 260px;
+	/* Add horizontal space between main content and sidebar */
+	width: 80%;
+}
+
+.dbd-logo {
+	display: block;
+	height: 250px;
+	margin: auto;
+	width: 250px;
+}
+
+/* Code block styles */
+pre {
+	background-color: #1E1E1E;
+	border: 1px solid #636363;
+	border-radius: 8px;
+	color: #fff;
+	font-size: 14px;
+	overflow-x: auto;
+	/* Enable horizontal scroll on overflow */
+	padding: 10px;
+	white-space: pre-wrap;
+	/* Ensure that long lines wrap */
+}
+
+code {
+	border: 1px solid #636363;
+	border-radius: 5px;
+	color: #FFB347;
+	padding: 4px;
+}
+
+.code-squeeze {
+	max-width: 450px;
+}
+
+/* Table styles */
+.http-response-status-codes-table {
+	border-collapse: collapse;
+	margin-bottom: 15px;
+	/* Add vertical space between table and content below it */
+	text-align: center;
+	width: 100%;
+}
+
+.http-response-status-codes-table th {
+	background-color: #141818;
+}
+
+.http-response-status-codes-table th,
+.http-response-status-codes-table td {
+	border: 1px solid #ddd;
+	padding: 10px;
+}
+
+.http-response-status-codes-table td:nth-child(3) {
+	text-align: left;
+	/* Left align data cells of third column */
+}
+
+.key-description-table {
+	border-collapse: collapse;
+	margin-bottom: 15px;
+	/* Add vertical space between table and content below it */
+	text-align: center;
+	width: 100%;
+}
+
+.key-description-table th {
+	background-color: #141818;
+}
+
+.key-description-table th,
+.key-description-table td {
+	border: 1px solid #ddd;
+	padding: 10px;
+}
+
+.key-description-table td:nth-child(3) {
+	text-align: left;
+	/* Left align data cells of third column */
+}
+
+.api-endpoints-table {
+	border-collapse: collapse;
+	margin-bottom: 15px;
+	/* Add vertical space between table and content below it */
+	width: 100%;
+}
+
+.api-endpoints-table th {
+	background-color: #36373F;
+	font-size: 20px;
+	padding: 15px;
+}
+
+.api-endpoints-table td {
+	background-color: #292B33;
+	border-bottom: 1px solid #555555;
+	cursor: pointer;
+	font-size: 16px;
+	padding: 10px;
+}
+
+.details td {
+	background-color: #25272E;
+	padding: 10px;
+}
+
+.expand-collapse-all-button {
+	background-color: #36373F;
+	border: none;
+	color: #1875F1;
+	cursor: pointer;
+	font-size: 18px;
+	float: right;
+}
+
+.expand-collapse-all-button:hover {
+	color: #5CB3E6;
+}
+
+.row-name {
+	display: block;
+	margin-bottom: -15px;
+	/* Reduce vertical space between row name and content below it */
+	margin-left: 70px;
+	/* Add horizontal space between row name and start of row */
+}
+
+.request-line {
+	align-items: center;
+}
+
+.request-method-delete {
+	background-color: #FF0000;
+	border-radius: 5px;
+	display: inline-block;
+	font-size: 14px;
+	padding: 4px 4.75px;
+}
+
+.request-method-get {
+	background-color: #135DC0;
+	border-radius: 5px;
+	display: inline-block;
+	font-size: 14px;
+	padding: 4px 16px;
+}
+
+.request-method-post {
+	background-color: #28A745;
+	border-radius: 5px;
+	display: inline-block;
+	font-size: 14px;
+	padding: 4px 11.5px;
+}
+
+.request-method-put {
+	background-color: #FF8C00;
+	border-radius: 5px;
+	display: inline-block;
+	font-size: 14px;
+	padding: 4px 16px;
+}
+
+.caret {
+	color: #1875F1;
+	float: right;
+	transition: transform 0.3s ease;
+	/* Add transition for smooth transformation */
+}
+
+.caret.up {
+	transform: rotate(180deg);
+	/* Rotate caret upward */
+}
+
+.url-path {
+	color: #C0C0C0;
+	display: block;
+	font-size: 15px;
+	margin-left: 70px;
+	/* Add horizontal space between URL path and start of row */
+	margin-top: -15px;
+	/* Reduce vertical space between URL path and content above it */
+}
+
+.hidden {
+	display: none;
+}
+
+.api-endpoints-nested-description {
+	margin-bottom: 30px;
+	/* Add vertical space between description and content below it */
+	margin-top: 15px;
+	/* Add vertical space between description and content above it */
+}
+
+.api-endpoints-nested-heading {
+	font-size: 18px;
+	font-weight: 500;
+}
+
+.api-endpoints-nested-table {
+	border-collapse: collapse;
+	margin-bottom: 20px;
+	/* Add vertical space between table and content below it */
+}
+
+.api-endpoints-nested-table th {
+	background-color: #2C2D33;
+	text-align: center;
+}
+
+.api-endpoints-nested-table th,
+.api-endpoints-nested-table td {
+	border: 1px solid #555555;
+	font-size: 16px;
+	padding: 10px;
+}
+
+.api-endpoints-nested-table td {
+	background-color: #212228;
+}
+
+.api-endpoints-nested-table td:nth-child(1),
+.api-endpoints-nested-table td:nth-child(2),
+.api-endpoints-nested-table td:nth-child(3) {
+	text-align: center;
+	/* Center align first three data cells */
+}
+
+ul.api-endpoints-request-headers li {
+	font-size: 14px;
+	margin-bottom: 10px;
+	/* Add vertical space between table and content below it */
+}
+
+ul.api-endpoints-request-headers li code {
+	font-size: 14px;
+}
+
+/* JSON syntax highlighting styles */
+.json-array-value {
+	color: #DA70D6;
+}
+
+.json-boolean-value {
+	color: #569CD6;
+}
+
+.json-deeply-nested-array-value {
+	color: #FFC107;
+}
+
+.json-key {
+	color: #68CDFE;
+}
+
+.json-nested-array-value {
+	color: #189FFF;
+}
+
+.json-number-value {
+	color: #B5CEA8;
+}
+
+.json-string-value {
+	color: #CE9178;
+}
+
+/* Media queries */
+/* Extra small device styles */
+@media screen and (max-width: 575.98px) {
+	body {
+		font-size: 13px;
+	}
+
+	.sidebar-toggle {
+		display: block;
+		/* Show sidebar toggle button on extra small devices */
+	}
+
+	.container-flex {
+		flex-direction: column;
+		/* Stack sidebar above main content */
+	}
+
+	.sidebar {
+		left: -250px;
+		/* Start sidebar off-screen on the left */
+		padding: 0;
+		transition: left 0.3s ease;
+		/* Add transition for smooth transformation */
+	}
+
+	.sidebar.active {
+		left: 0;
+		padding-left: 5px;
+		/* Add left padding to account for sidebar border */
+		padding-right: 10.5px;
+		/* Add right padding to account for sidebar border */
+		padding-top: 42px;
+		/* Add top padding to account for sidebar border */
+	}
+
+	.sidebar-header {
+		justify-content: center;
+	}
+
+	.sidebar ul {
+		padding-left: 0;
+		/* Add left padding to account for sidebar border */
+		text-align: center;
+	}
+
+	.sidebar ul li,
+	.sidebar ul li.active,
+	.sidebar ul li.inactive,
+	.sidebar ul li.section {
+		border-left: none;
+		padding-left: 0;
+		/* Add left padding to account for sidebar border */
+	}
+
+	.footer {
+		display: none;
+	}
+
+	.main-content {
+		margin: 0 auto;
+		width: 95%;
+	}
+
+	pre {
+		font-size: 12px;
+	}
+
+	.code-squeeze {
+		max-width: 75px;
+	}
+
+	.api-endpoints-table th {
+		font-size: 15px;
+	}
+
+	.api-endpoints-table td {
+		font-size: 15px;
+	}
+
+	.expand-collapse-all-button {
+		font-size: 13px;
+	}
+
+	.row-name {
+		margin-bottom: -24px;
+		/* Reduce vertical space between row name and content below it */
+		margin-left: 58px;
+		/* Add horizontal space between row name and start of row */
+	}
+
+	.request-method-delete {
+		font-size: 14px;
+		padding: 1px 1.75px;
+	}
+
+	.request-method-get {
+		font-size: 14px;
+		padding: 1px 13px;
+	}
+
+	.request-method-post {
+		font-size: 14px;
+		padding: 1px 8.5px;
+	}
+
+	.request-method-put {
+		font-size: 14px;
+		padding: 1px 13px;
+	}
+
+	.url-path {
+		display: none;
+		/* Hide URL path on extra small devices */
+	}
+
+	.api-endpoints-nested-table th,
+	.api-endpoints-nested-table td {
+		font-size: 11px;
+		padding: 5px;
+	}
+}
+
+/* Small device styles */
+@media screen and (min-width: 576px) and (max-width: 767.98px) {
+	.code-squeeze {
+		max-width: 75px;
+	}
+
+	.row-name {
+		margin-bottom: -25px;
+		/* Reduce vertical space between row name and content below it */
+		margin-left: 60px;
+		/* Add horizontal space between row name and start of row */
+	}
+
+	.request-method-delete {
+		font-size: 14px;
+		padding: 1px 1.75px;
+	}
+
+	.request-method-get {
+		font-size: 14px;
+		padding: 1px 13px;
+	}
+
+	.request-method-post {
+		font-size: 14px;
+		padding: 1px 8.5px;
+	}
+
+	.request-method-put {
+		font-size: 14px;
+		padding: 1px 13px;
+	}
+
+	.url-path {
+		display: none;
+		/* Hide URL path on small devices */
+	}
+
+	.api-endpoints-nested-table th,
+	.api-endpoints-nested-table td {
+		padding: 7px;
+	}
+}
+
+@media screen and (min-width: 576px) and (max-width: 767.98px) and (orientation: landscape) {
+	.code-squeeze {
+		max-width: 75px;
+	}
+
+	.row-name {
+		margin-bottom: -26px;
+		/* Reduce vertical space between row name and content below it */
+		margin-left: 58px;
+		/* Add horizontal space between row name and start of row */
+	}
+
+	.request-method-delete {
+		font-size: 14px;
+		padding: 1px 1.75px;
+	}
+
+	.request-method-get {
+		font-size: 14px;
+		padding: 1px 13px;
+	}
+
+	.request-method-post {
+		font-size: 14px;
+		padding: 1px 8.5px;
+	}
+
+	.request-method-put {
+		font-size: 14px;
+		padding: 1px 13px;
+	}
+
+	.url-path {
+		display: none;
+		/* Hide URL path on small devices */
+	}
+
+	.api-endpoints-nested-table th,
+	.api-endpoints-nested-table td {
+		padding: 7px;
+	}
+}
+
+/* Medium device styles */
+@media screen and (min-width: 768px) and (max-width: 991.98px) {
+	.code-squeeze {
+		max-width: 50px;
+	}
+
+	.row-name {
+		margin-bottom: -26px;
+		/* Reduce vertical space between row name and content below it */
+		margin-left: 58px;
+		/* Add horizontal space between row name and start of row */
+	}
+
+	.request-method-delete {
+		font-size: 14px;
+		padding: 1px 1.75px;
+	}
+
+	.request-method-get {
+		font-size: 14px;
+		padding: 1px 13px;
+	}
+
+	.request-method-post {
+		font-size: 14px;
+		padding: 1px 8.5px;
+	}
+
+	.request-method-put {
+		font-size: 14px;
+		padding: 1px 13px;
+	}
+
+	.url-path {
+		display: none;
+		/* Hide URL path on medium devices */
+	}
+}
+
+@media screen and (min-width: 768px) and (max-width: 991.98px) and (orientation: landscape) {
+	.code-squeeze {
+		max-width: 100px;
+	}
+
+	.row-name {
+		margin-bottom: -26px;
+		/* Reduce vertical space between row name and content below it */
+		margin-left: 58px;
+		/* Add horizontal space between row name and start of row */
+	}
+
+	.request-method-delete {
+		font-size: 14px;
+		padding: 1px 1.75px;
+	}
+
+	.request-method-get {
+		font-size: 14px;
+		padding: 1px 13px;
+	}
+
+	.request-method-post {
+		font-size: 14px;
+		padding: 1px 8.5px;
+	}
+
+	.request-method-put {
+		font-size: 14px;
+		padding: 1px 13px;
+	}
+
+	.url-path {
+		display: none;
+		/* Hide URL path on medium devices */
+	}
+}
+
+/* Large device styles */
+@media screen and (min-width: 992px) and (max-width: 1199.98px) {
+	.code-squeeze {
+		max-width: 250px;
+	}
+
+	.row-name {
+		font-size: 14px;
+		margin-bottom: -20px;
+		/* Reduce vertical space between row name and content below it */
+	}
+
+	.url-path {
+		font-size: 10px;
+		margin-top: -12px;
+		/* Reduce vertical space between URL path and content above it */
+	}
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199.98px) and (orientation: landscape) {
+	.row-name {
+		font-size: 14px;
+		margin-bottom: -20px;
+		/* Reduce vertical space between row name and content below it */
+	}
+
+	.url-path {
+		font-size: 10px;
+		margin-top: -12px;
+		/* Reduce vertical space between URL path and content above it */
+	}
+}
+
+/* Extra large device styles */
+@media screen and (min-width: 1200px) and (max-width: 1399.98px) and (orientation: landscape) {
+	.url-path {
+		font-size: 14px;
+		margin-top: -12px;
+		/* Reduce vertical space between URL path and content above it */
+	}
+}

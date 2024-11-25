@@ -1,0 +1,343 @@
+/* Global box-sizing for consistent border and padding management */
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+/* Body styles */
+body {
+	background-color: #000;
+	color: #fff;
+	font-family: "Fira Sans", sans-serif;
+}
+
+/* Animated background styles */
+.animated-background {
+	background-color: #000;
+	height: 100%;
+	overflow: hidden;
+	position: fixed;
+	width: 100%;
+	z-index: -1;
+	/* Ensure that animated background sits below other elements */
+}
+
+/* Star styles */
+.star {
+	animation: animateStars 10s linear infinite, twinkle 1s ease-in-out infinite alternate;
+	background-color: #fff;
+	border-radius: 50%;
+	box-shadow: 0 0 2px #fff;
+	height: 2px;
+	opacity: 0;
+	position: absolute;
+	width: 2px;
+}
+
+/* Generate stars dynamically */
+@keyframes animateStars {
+	0% {
+		transform: translateY(-10px);
+		opacity: 1;
+		/* At 0% (beginning), star will be generated above viewport and be fully opaque */
+	}
+
+	100% {
+		transform: translateY(100vh);
+		opacity: 0;
+		/* At 100% (end), star will move below viewport and become fully transparent */
+	}
+}
+
+@keyframes twinkle {
+
+	0%,
+	100% {
+		opacity: 1;
+		/* At 0% (beginning) and 100% (end), opacity of star will be 1 (fully opaque) */
+	}
+
+	50% {
+		opacity: 0.6;
+		/* At 50%, opacity of star will be 0.6 (partially transparent) */
+	}
+}
+
+/* Navbar styles */
+.navbar-container {
+	margin: 0 auto;
+	/* Center horizontally */
+	min-width: 600px;
+}
+
+.navbar {
+	background-color: #141414;
+	border-radius: 8px;
+	text-align: center;
+}
+
+.navbar a {
+	color: #fff;
+	display: inline-block;
+	font-size: 17px;
+	padding: 10px 10px;
+	text-decoration: none;
+}
+
+.navbar a:hover {
+	color: #fff;
+	text-shadow: 0 0 10px #fff;
+	/* Glowing text effect */
+}
+
+/* Box styles */
+/* Profile box styles */
+.profile-box {
+	background-color: #141414;
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	margin: 0 auto;
+	/* Center horizontally */
+	min-width: 600px;
+	padding: 20px;
+	text-align: center;
+}
+
+/* Profile image styles */
+.profile-img {
+	border-radius: 50%;
+	height: 135px;
+	margin-bottom: 5px;
+	/* Add vertical space between profile image and content below it */
+	width: 135px;
+}
+
+/* Posts box styles */
+.posts-box {
+	background-color: #141414;
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	margin: 0 auto;
+	/* Center horizontally */
+	max-width: 600px;
+	/* Ensure that elements with class "posts-box" will never be wider than 600 pixels */
+	min-width: 600px;
+	padding: 20px;
+	text-align: center;
+}
+
+.post-item {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+	margin: 10px 0;
+}
+
+.post-item p {
+	margin: 0;
+	/* Remove margin from paragraphs inside elements with class "post-item" */
+}
+
+.post-item a {
+	color: #fff;
+}
+
+.post-item a:hover {
+	text-shadow: 0 0 10px #fff;
+	/* Glowing text effect */
+}
+
+/* Media box styles */
+.media-box {
+	background-color: #141414;
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	margin: 0 auto;
+	/* Center horizontally */
+	max-width: 600px;
+	/* Ensure that elements with class "media-box" will never be wider than 600 pixels */
+	min-width: 600px;
+	padding: 20px;
+	text-align: center;
+}
+
+/* Drop-down list styles */
+select option[value=""] {
+	color: gray;
+}
+
+/* Drop-down list output styles */
+.brawlhalla-power-rankings-output-text {
+	margin-top: -10px;
+	text-align: center;
+}
+
+.media-output-text {
+	margin-top: -10px;
+	text-align: center;
+}
+
+/* Table styles */
+.team-history-table-title {
+	margin-top: 10px;
+}
+
+.team-history-table {
+	border-collapse: collapse;
+	text-align: center;
+	width: 100%;
+}
+
+.team-history-table th,
+.team-history-table td {
+	border: 1px solid #ddd;
+}
+
+.team-history-table a {
+	color: #fff;
+}
+
+.team-history-table a:hover {
+	text-shadow: 0 0 10px #fff;
+	/* Glowing text effect */
+}
+
+.team-history-table img {
+	display: block;
+	margin: 0 auto;
+	/* Center horizontally */
+	padding: 5px;
+}
+
+.team-logo {
+	height: 85px;
+	margin-bottom: 20px;
+	/* Add vertical space between team logo and content below it */
+	width: 85px;
+}
+
+/* Icon styles */
+.icons {
+	display: flex;
+	justify-content: center;
+}
+
+.icons i {
+	color: #fff;
+	font-size: 45px;
+	margin: 0 6.5px;
+	transition: transform 0.3s ease;
+	/* Add transition for smooth transformation */
+}
+
+.icons i:hover {
+	transform: scale(1.2);
+	/* Increase size on hover */
+}
+
+/* Footer styles */
+.footer {
+	font-size: 12px;
+	margin: 20px auto;
+	/* Add vertical space between respective box and footer */
+	text-align: center;
+}
+
+/* Media queries */
+/* Extra small device styles */
+@media screen and (max-width: 575.98px) {
+	.navbar-container {
+		min-width: 100%;
+	}
+
+	.navbar {
+		flex-wrap: wrap;
+	}
+
+	.navbar a {
+		flex: 1 1 100%;
+		padding: 8px;
+	}
+
+	.profile-box {
+		min-width: 100%;
+	}
+
+	.posts-box {
+		min-width: 100%;
+	}
+
+	.post-item {
+		align-items: flex-start;
+		/* Align items to beginning (top) of container */
+		flex-direction: column;
+		font-size: 13px;
+	}
+
+	.media-box {
+		min-width: 100%;
+	}
+
+	.media-output-text {
+		font-size: 10px;
+	}
+
+	.team-logo {
+		display: none !important;
+		/* Hide team logos on extra small devices */
+	}
+}
+
+@media screen and (max-width: 575.98px) and (orientation: landscape) {
+	.footer {
+		display: none;
+		/* Hide footer in landscape mode */
+	}
+}
+
+/* Small device styles */
+@media screen and (min-width: 576px) and (max-width: 767.98px) {
+	.navbar-container {
+		min-width: 100%;
+	}
+
+	.profile-box {
+		min-width: 100%;
+	}
+
+	.posts-box {
+		min-width: 100%;
+	}
+
+	.media-box {
+		min-width: 100%;
+	}
+}
+
+@media screen and (min-width: 576px) and (max-width: 767.98px) and (orientation: landscape) {
+	.footer {
+		display: none;
+		/* Hide footer in landscape mode */
+	}
+}
+
+/* Medium device styles */
+@media screen and (min-width: 768px) and (max-width: 991.98px) and (orientation: landscape) {
+	.footer {
+		display: none;
+		/* Hide footer in landscape mode */
+	}
+}
+
+/* Large device styles */
+@media screen and (min-width: 992px) and (max-width: 1199.98px) and (orientation: landscape) {
+	.media-output-text {
+		font-size: 14px;
+	}
+
+	.footer {
+		display: none;
+		/* Hide footer in landscape mode */
+	}
+}
