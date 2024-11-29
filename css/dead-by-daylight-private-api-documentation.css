@@ -28,7 +28,7 @@ a:hover {
 
 h4 {
 	margin-bottom: 15px;
-	/* Add vertical space between list item element and content below it */
+	/* Add vertical space between heading and content below it */
 }
 
 li {
@@ -40,7 +40,7 @@ li {
 	margin-left: 29px;
 	/* Add horizontal space between container and content within it */
 	margin-top: 5px;
-	/* Add vertical space between table and content above it */
+	/* Add vertical space between content and content above it */
 }
 
 /* Sidebar toggle styles */
@@ -171,6 +171,38 @@ li {
 	height: 250px;
 	margin: auto;
 	width: 250px;
+}
+
+/* Changelog styles */
+.changelog-a {
+	font-size: 19px;
+	position: relative;
+	text-decoration: none;
+    top: -1.5px;
+}
+
+.changelog-h4 {
+	margin-bottom: 0px;
+	/* Remove vertical space between heading and content below it */
+}
+
+.changelog-li {
+	margin-bottom: 2.5px; 
+	/* Add vertical space between list item element and content below it */
+	margin-left: 20px;
+	/* Add horizontal space between container and content within it */
+}
+
+.changelog-subtitle {
+	font-size: 14px;
+	margin-bottom: 15px;
+	/* Add vertical space between subtitle and content below it */
+}
+
+.changelog-update-date {
+	font-size: 14px;
+	margin-top: 15px;
+	/* Add vertical space between update date and content above it */
 }
 
 /* Code block styles */

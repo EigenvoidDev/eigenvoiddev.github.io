@@ -2113,6 +2113,44 @@
                      </button>
                   </th>
                </tr>
+               <tr onclick="toggleDetails('extensions-news-details', this)">
+                  <td>
+                     <span class="row-name">News</span>
+                     <div class="request-line">
+                        <span class="request-method-get">GET</span>
+                        <span class="caret">&#9660;</span>
+                     </div>
+                     <span class="url-path">https://egs.live.bhvrdbd.com/api/v1/extensions/news?locale={locale}</span>
+                  </td>
+               </tr>
+               <tr id="extensions-news-details" class="details hidden">
+                  <td>
+                     <p class="api-endpoints-nested-description">Returns news data for a specified language code.</p>
+                     <p class="api-endpoints-nested-heading">Query Parameters</p>
+                     <table class="api-endpoints-nested-table">
+                        <thead>
+                           <tr>
+                              <th>Parameter</th>
+                              <th>Type</th>
+                              <th>Example Values</th>
+                              <th>Description</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td>locale</td>
+                              <td>String</td>
+                              <td>"en"</td>
+                              <td>The language code used to determine the language of the content.</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                     <p class="api-endpoints-nested-heading">Request Headers</p>
+                     <pre>Host: egs.live.bhvrdbd.com<br>Accept: */*<br>Accept-Encoding: deflate, gzip<br>Cookie: bhvrSession=(session cookie)<br>Content-Type: application/json<br>x-kraken-analytics-session-id: {sessionId}<br>x-kraken-client-platform: egs<br>x-kraken-client-provider: egs<br>x-kraken-client-resolution: {resolution}<br>x-kraken-client-timezone-offset: (timezone offset in minutes)<br>x-kraken-client-os: {os}<br>x-kraken-client-version: (client version)<br>api-key: {token}<br>User-Agent: DeadByDaylight/{version} EGS/{os}<br>Content-Length: 0</pre>
+                     <p class="api-endpoints-nested-heading">Response Body</p>
+                     <pre>{<br>  <span class="json-key">"news"</span>: <span class="json-array-value">array</span><br>}</pre>
+                  </td>
+               </tr>
                <tr onclick="toggleDetails('extensions-player-levels-get-player-level-details', this)">
                   <td>
                      <span class="row-name">Player Levels - Get Player Level</span>
@@ -2153,6 +2191,63 @@
                      <pre>{<br>  <span class="json-key">"data"</span>: <span class="json-array-value">array</span><br>}</pre>
                      <p class="api-endpoints-nested-heading">Response Body</p>
                      <pre>{<br>  <span class="json-key">"availableBundles"</span>: <span class="json-array-value">[</span><br>   <span class="json-nested-array-value">{</span><br>    <span class="json-key">"id"</span>: <span class="json-string-value">"cellsPack1"</span>,<br>    <span class="json-key">"categories"</span>: <span class="json-deeply-nested-array-value">[</span><br>     <span class="json-string-value">"currencyPack"</span>,<br>     <span class="json-string-value">"premiumItemPack"</span><br>    <span class="json-deeply-nested-array-value">]</span>,<br>    <span class="json-key">"defaultCost"</span>: <span class="json-deeply-nested-array-value">[</span><br>     <span class="json-array-value">{</span><br>      <span class="json-key">"currencyId"</span>: <span class="json-string-value">"USCents"</span>,<br>      <span class="json-key">"price"</span>: <span class="json-number-value">500</span><br>     <span class="json-array-value">}</span><br>    <span class="json-deeply-nested-array-value">]</span>,<br>    <span class="json-key">"awardedCurrencies"</span>: <span class="json-deeply-nested-array-value">[</span><br>     <span class="json-array-value">{</span><br>      <span class="json-key">"currencyId"</span>: <span class="json-string-value">"Cells"</span>,<br>      <span class="json-key">"quantity"</span>: <span class="json-number-value">500</span><br>     <span class="json-array-value">}</span><br>    <span class="json-deeply-nested-array-value">]</span>,<br>    <span class="json-key">"awardedItems"</span>: <span class="json-deeply-nested-array-value">[</span><br>     <span class="json-array-value">{</span><br>      <span class="json-key">"objectId"</span>: <span class="json-string-value">"EC_BDG_01"</span>,<br>      <span class="json-key">"quantity"</span>: <span class="json-number-value">1</span><br>     <span class="json-array-value">}</span><br>    <span class="json-deeply-nested-array-value">]</span>,<br>    <span class="json-key">"isPurchasable"</span>: <span class="json-boolean-value">true</span>,<br>    <span class="json-key">"platformId"</span>: <span class="json-string-value">string</span><br>   <span class="json-nested-array-value">}</span>,<br>   <span class="json-nested-array-value">{</span><br>    <span class="json-key">"id"</span>: <span class="json-string-value">"cellsPack2"</span>,<br>    <span class="json-key">"categories"</span>: <span class="json-deeply-nested-array-value">[</span><br>     <span class="json-string-value">"currencyPack"</span>,<br>     <span class="json-string-value">"premiumItemPack"</span><br>    <span class="json-deeply-nested-array-value">]</span>,<br>    <span class="json-key">"defaultCost"</span>: <span class="json-deeply-nested-array-value">[</span><br>     <span class="json-array-value">{</span><br>      <span class="json-key">"currencyId"</span>: <span class="json-string-value">"USCents"</span>,<br>      <span class="json-key">"price"</span>: <span class="json-number-value">1000</span><br>     <span class="json-array-value">}</span><br>    <span class="json-deeply-nested-array-value">]</span>,<br>    <span class="json-key">"awardedCurrencies"</span>: <span class="json-deeply-nested-array-value">[</span><br>     <span class="json-array-value">{</span><br>      <span class="json-key">"currencyId"</span>: <span class="json-string-value">"Cells"</span>,<br>      <span class="json-key">"quantity"</span>: <span class="json-number-value">1100</span><br>     <span class="json-array-value">}</span><br>    <span class="json-deeply-nested-array-value">]</span>,<br>    <span class="json-key">"awardedItems"</span>: <span class="json-deeply-nested-array-value">[</span><br>     <span class="json-array-value">{</span><br>      <span class="json-key">"objectId"</span>: <span class="json-string-value">"EC_BDG_01"</span>,<br>      <span class="json-key">"quantity"</span>: <span class="json-number-value">1</span><br>     <span class="json-array-value">}</span><br>    <span class="json-deeply-nested-array-value">]</span>,<br>    <span class="json-key">"isPurchasable"</span>: <span class="json-boolean-value">true</span>,<br>    <span class="json-key">"platformId"</span>: <span class="json-string-value">string</span><br>   <span class="json-nested-array-value">}</span>,<br>   <span class="json-nested-array-value">{</span><br>    <span class="json-key">"id"</span>: <span class="json-string-value">"cellsPack3"</span>,<br>    <span class="json-key">"categories"</span>: <span class="json-deeply-nested-array-value">[</span><br>     <span class="json-string-value">"currencyPack"</span>,<br>     <span class="json-string-value">"premiumItemPack"</span><br>    <span class="json-deeply-nested-array-value">]</span>,<br>    <span class="json-key">"defaultCost"</span>: <span class="json-deeply-nested-array-value">[</span><br>     <span class="json-array-value">{</span><br>      <span class="json-key">"currencyId"</span>: <span class="json-string-value">"USCents"</span>,<br>      <span class="json-key">"price"</span>: <span class="json-number-value">2000</span><br>     <span class="json-array-value">}</span><br>    <span class="json-deeply-nested-array-value">]</span>,<br>    <span class="json-key">"awardedCurrencies"</span>: <span class="json-deeply-nested-array-value">[</span><br>     <span class="json-array-value">{</span><br>      <span class="json-key">"currencyId"</span>: <span class="json-string-value">"Cells"</span>,<br>      <span class="json-key">"quantity"</span>: <span class="json-number-value">2250</span><br>     <span class="json-array-value">}</span><br>    <span class="json-deeply-nested-array-value">]</span>,<br>    <span class="json-key">"awardedItems"</span>: <span class="json-deeply-nested-array-value">[</span><br>     <span class="json-array-value">{</span><br>      <span class="json-key">"objectId"</span>: <span class="json-string-value">"EC_BDG_01"</span>,<br>      <span class="json-key">"quantity"</span>: <span class="json-number-value">1</span><br>     <span class="json-array-value">}</span><br>    <span class="json-deeply-nested-array-value">]</span>,<br>    <span class="json-key">"isPurchasable"</span>: <span class="json-boolean-value">true</span>,<br>    <span class="json-key">"platformId"</span>: <span class="json-string-value">string</span><br>   <span class="json-nested-array-value">}</span>,<br>   <span class="json-nested-array-value">{</span><br>    <span class="json-key">"id"</span>: <span class="json-string-value">"cellsPack4"</span>,<br>    <span class="json-key">"categories"</span>: <span class="json-deeply-nested-array-value">[</span><br>     <span class="json-string-value">"currencyPack"</span>,<br>     <span class="json-string-value">"premiumItemPack"</span><br>    <span class="json-deeply-nested-array-value">]</span>,<br>    <span class="json-key">"defaultCost"</span>: <span class="json-deeply-nested-array-value">[</span><br>     <span class="json-array-value">{</span><br>      <span class="json-key">"currencyId"</span>: <span class="json-string-value">"USCents"</span>,<br>      <span class="json-key">"price"</span>: <span class="json-number-value">3500</span><br>     <span class="json-array-value">}</span><br>    <span class="json-deeply-nested-array-value">]</span>,<br>    <span class="json-key">"awardedCurrencies"</span>: <span class="json-deeply-nested-array-value">[</span><br>     <span class="json-array-value">{</span><br>      <span class="json-key">"currencyId"</span>: <span class="json-string-value">"Cells"</span>,<br>      <span class="json-key">"quantity"</span>: <span class="json-number-value">4025</span><br>     <span class="json-array-value">}</span><br>    <span class="json-deeply-nested-array-value">]</span>,<br>    <span class="json-key">"awardedItems"</span>: <span class="json-deeply-nested-array-value">[</span><br>     <span class="json-array-value">{</span><br>      <span class="json-key">"objectId"</span>: <span class="json-string-value">"EC_BDG_01"</span>,<br>      <span class="json-key">"quantity"</span>: <span class="json-number-value">1</span><br>     <span class="json-array-value">}</span><br>    <span class="json-deeply-nested-array-value">]</span>,<br>    <span class="json-key">"isPurchasable"</span>: <span class="json-boolean-value">true</span>,<br>    <span class="json-key">"platformId"</span>: <span class="json-string-value">string</span><br>   <span class="json-nested-array-value">}</span>,<br>   <span class="json-nested-array-value">{</span><br>    <span class="json-key">"id"</span>: <span class="json-string-value">"cellsPack5"</span>,<br>    <span class="json-key">"categories"</span>: <span class="json-deeply-nested-array-value">[</span><br>     <span class="json-string-value">"currencyPack"</span>,<br>     <span class="json-string-value">"premiumItemPack"</span><br>    <span class="json-deeply-nested-array-value">]</span>,<br>    <span class="json-key">"defaultCost"</span>: <span class="json-deeply-nested-array-value">[</span><br>     <span class="json-array-value">{</span><br>      <span class="json-key">"currencyId"</span>: <span class="json-string-value">"USCents"</span>,<br>      <span class="json-key">"price"</span>: <span class="json-number-value">5000</span><br>     <span class="json-array-value">}</span><br>    <span class="json-deeply-nested-array-value">]</span>,<br>    <span class="json-key">"awardedCurrencies"</span>: <span class="json-deeply-nested-array-value">[</span><br>     <span class="json-array-value">{</span><br>      <span class="json-key">"currencyId"</span>: <span class="json-string-value">"Cells"</span>,<br>      <span class="json-key">"quantity"</span>: <span class="json-number-value">6000</span><br>     <span class="json-array-value">}</span><br>    <span class="json-deeply-nested-array-value">]</span>,<br>    <span class="json-key">"awardedItems"</span>: <span class="json-deeply-nested-array-value">[</span><br>     <span class="json-array-value">{</span><br>      <span class="json-key">"objectId"</span>: <span class="json-string-value">"EC_BDG_01"</span>,<br>      <span class="json-key">"quantity"</span>: <span class="json-number-value">1</span><br>     <span class="json-array-value">}</span><br>    <span class="json-deeply-nested-array-value">]</span>,<br>    <span class="json-key">"isPurchasable"</span>: <span class="json-boolean-value">true</span>,<br>    <span class="json-key">"platformId"</span>: <span class="json-string-value">string</span><br>   <span class="json-nested-array-value">}</span>,<br>   <span class="json-nested-array-value">{</span><br>    <span class="json-key">"id"</span>: <span class="json-string-value">"cellsPack6"</span>,<br>    <span class="json-key">"categories"</span>: <span class="json-deeply-nested-array-value">[</span><br>     <span class="json-string-value">"currencyPack"</span>,<br>     <span class="json-string-value">"premiumItemPack"</span><br>    <span class="json-deeply-nested-array-value">]</span>,<br>    <span class="json-key">"defaultCost"</span>: <span class="json-deeply-nested-array-value">[</span><br>     <span class="json-array-value">{</span><br>      <span class="json-key">"currencyId"</span>: <span class="json-string-value">"USCents"</span>,<br>      <span class="json-key">"price"</span>: <span class="json-number-value">10000</span><br>     <span class="json-array-value">}</span><br>    <span class="json-deeply-nested-array-value">]</span>,<br>    <span class="json-key">"awardedCurrencies"</span>: <span class="json-deeply-nested-array-value">[</span><br>     <span class="json-array-value">{</span><br>      <span class="json-key">"currencyId"</span>: <span class="json-string-value">"Cells"</span>,<br>      <span class="json-key">"quantity"</span>: <span class="json-number-value">12500</span><br>     <span class="json-array-value">}</span><br>    <span class="json-deeply-nested-array-value">]</span>,<br>    <span class="json-key">"awardedItems"</span>: <span class="json-deeply-nested-array-value">[</span><br>     <span class="json-array-value">{</span><br>      <span class="json-key">"objectId"</span>: <span class="json-string-value">"EC_BDG_01"</span>,<br>      <span class="json-key">"quantity"</span>: <span class="json-number-value">1</span><br>     <span class="json-array-value">}</span><br>    <span class="json-deeply-nested-array-value">]</span>,<br>    <span class="json-key">"isPurchasable"</span>: <span class="json-boolean-value">true</span>,<br>    <span class="json-key">"platformId"</span>: <span class="json-string-value">string</span><br>   <span class="json-nested-array-value">}</span>,<br>   <span class="json-nested-array-value">{</span><br>    <span class="json-key">"id"</span>: <span class="json-string-value">"cellsPack_10"</span>,<br>    <span class="json-key">"categories"</span>: <span class="json-deeply-nested-array-value">[</span><br>     <span class="json-string-value">"currencyPack"</span><br>    <span class="json-deeply-nested-array-value">]</span>,<br>    <span class="json-key">"defaultCost"</span>: <span class="json-deeply-nested-array-value">array</span>,<br>    <span class="json-key">"awardedCurrencies"</span>: <span class="json-deeply-nested-array-value">[</span><br>     <span class="json-array-value">{</span><br>      <span class="json-key">"currencyId"</span>: <span class="json-string-value">"Cells"</span>,<br>      <span class="json-key">"quantity"</span>: <span class="json-number-value">10</span><br>     <span class="json-array-value">}</span><br>    <span class="json-deeply-nested-array-value">]</span>,<br>    <span class="json-key">"awardedItems"</span>: <span class="json-deeply-nested-array-value">array</span>,<br>    <span class="json-key">"isPurchasable"</span>: <span class="json-boolean-value">false</span><br>   <span class="json-nested-array-value">}</span>,<br>   <span class="json-nested-array-value">{</span><br>    <span class="json-key">"id"</span>: <span class="json-string-value">"cellsPack_15"</span>,<br>    <span class="json-key">"categories"</span>: <span class="json-deeply-nested-array-value">[</span><br>     <span class="json-string-value">"currencyPack"</span><br>    <span class="json-deeply-nested-array-value">]</span>,<br>    <span class="json-key">"defaultCost"</span>: <span class="json-deeply-nested-array-value">array</span>,<br>    <span class="json-key">"awardedCurrencies"</span>: <span class="json-deeply-nested-array-value">[</span><br>     <span class="json-array-value">{</span><br>      <span class="json-key">"currencyId"</span>: <span class="json-string-value">"Cells"</span>,<br>      <span class="json-key">"quantity"</span>: <span class="json-number-value">15</span><br>     <span class="json-array-value">}</span><br>    <span class="json-deeply-nested-array-value">]</span>,<br>    <span class="json-key">"awardedItems"</span>: <span class="json-deeply-nested-array-value">array</span>,<br>    <span class="json-key">"isPurchasable"</span>: <span class="json-boolean-value">false</span><br>   <span class="json-nested-array-value">}</span>,<br>   <span class="json-nested-array-value">{</span><br>    <span class="json-key">"id"</span>: <span class="json-string-value">"cellsPack_25"</span>,<br>    <span class="json-key">"categories"</span>: <span class="json-deeply-nested-array-value">[</span><br>     <span class="json-string-value">"currencyPack"</span><br>    <span class="json-deeply-nested-array-value">]</span>,<br>    <span class="json-key">"defaultCost"</span>: <span class="json-deeply-nested-array-value">array</span>,<br>    <span class="json-key">"awardedCurrencies"</span>: <span class="json-deeply-nested-array-value">[</span><br>     <span class="json-array-value">{</span><br>      <span class="json-key">"currencyId"</span>: <span class="json-string-value">"Cells"</span>,<br>      <span class="json-key">"quantity"</span>: <span class="json-number-value">25</span><br>     <span class="json-array-value">}</span><br>    <span class="json-deeply-nested-array-value">]</span>,<br>    <span class="json-key">"awardedItems"</span>: <span class="json-deeply-nested-array-value">array</span>,<br>    <span class="json-key">"isPurchasable"</span>: <span class="json-boolean-value">false</span><br>   <span class="json-nested-array-value">}</span>,<br>   <span class="json-nested-array-value">{</span><br>    <span class="json-key">"id"</span>: <span class="json-string-value">"cellsPack_50"</span>,<br>    <span class="json-key">"categories"</span>: <span class="json-deeply-nested-array-value">[</span><br>     <span class="json-string-value">"currencyPack"</span><br>    <span class="json-deeply-nested-array-value">]</span>,<br>    <span class="json-key">"defaultCost"</span>: <span class="json-deeply-nested-array-value">array</span>,<br>    <span class="json-key">"awardedCurrencies"</span>: <span class="json-deeply-nested-array-value">[</span><br>     <span class="json-array-value">{</span><br>      <span class="json-key">"currencyId"</span>: <span class="json-string-value">"Cells"</span>,<br>      <span class="json-key">"quantity"</span>: <span class="json-number-value">50</span><br>     <span class="json-array-value">}</span><br>    <span class="json-deeply-nested-array-value">]</span>,<br>    <span class="json-key">"awardedItems"</span>: <span class="json-deeply-nested-array-value">array</span>,<br>    <span class="json-key">"isPurchasable"</span>: <span class="json-boolean-value">false</span><br>   <span class="json-nested-array-value">}</span>,<br>   <span class="json-nested-array-value">{</span><br>    <span class="json-key">"id"</span>: <span class="json-string-value">"cellsPack_75"</span>,<br>    <span class="json-key">"categories"</span>: <span class="json-deeply-nested-array-value">[</span><br>     <span class="json-string-value">"currencyPack"</span><br>    <span class="json-deeply-nested-array-value">]</span>,<br>    <span class="json-key">"defaultCost"</span>: <span class="json-deeply-nested-array-value">array</span>,<br>    <span class="json-key">"awardedCurrencies"</span>: <span class="json-deeply-nested-array-value">[</span><br>     <span class="json-array-value">{</span><br>      <span class="json-key">"currencyId"</span>: <span class="json-string-value">"Cells"</span>,<br>      <span class="json-key">"quantity"</span>: <span class="json-number-value">75</span><br>     <span class="json-array-value">}</span><br>    <span class="json-deeply-nested-array-value">]</span>,<br>    <span class="json-key">"awardedItems"</span>: <span class="json-deeply-nested-array-value">array</span>,<br>    <span class="json-key">"isPurchasable"</span>: <span class="json-boolean-value">false</span><br>   <span class="json-nested-array-value">}</span><br>  <span class="json-array-value">]</span><br>}</pre>
+                  </td>
+               </tr>
+               <tr onclick="toggleDetails('extensions-store-get-catalog-items-details', this)">
+                  <td>
+                     <span class="row-name">Store - Get Catalog Items</span>
+                     <div class="request-line">
+                        <span class="request-method-get">GET</span>
+                        <span class="caret">&#9660;</span>
+                     </div>
+                     <span class="url-path">https://egs.live.bhvrdbd.com/api/v1/extensions/store/getCatalogItems?types[]={types}</span>
+                  </td>
+               </tr>
+               <tr id="extensions-store-get-catalog-items-details" class="details hidden">
+                  <td>
+                     <p class="api-endpoints-nested-description">Returns the list of catalog items filtered by a specified type.</p>
+                     <p class="api-endpoints-nested-heading">Query Parameters</p>
+                     <table class="api-endpoints-nested-table">
+                        <thead>
+                           <tr>
+                              <th>Parameter</th>
+                              <th>Type</th>
+                              <th>Example Values</th>
+                              <th>Description</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td>types</td>
+                              <td>Array</td>
+                              <td>"character", "currencyPack", "entitlement", "item", "nonRenewableSubscription", "outfit", "pack", "premiumItemPack", "promoPack", "shrine", "specialPack", "statuette"</td>
+                              <td>Array specifying the type of catalog items to retrieve.</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                     <p class="api-endpoints-nested-heading">Request Headers</p>
+                     <pre>Host: egs.live.bhvrdbd.com<br>Accept: */*<br>Accept-Encoding: deflate, gzip<br>Cookie: bhvrSession=(session cookie)<br>Content-Type: application/json<br>x-kraken-analytics-session-id: {sessionId}<br>x-kraken-client-platform: egs<br>x-kraken-client-provider: egs<br>x-kraken-client-resolution: {resolution}<br>x-kraken-client-timezone-offset: (timezone offset in minutes)<br>x-kraken-client-os: {os}<br>x-kraken-client-version: (client version)<br>api-key: {token}<br>User-Agent: DeadByDaylight/{version} EGS/{os}<br>Content-Length: 0</pre>
+                     <p class="api-endpoints-nested-heading">Response Body</p>
+                     <pre>{<br>  <span class="json-key">"data"</span>: <span class="json-array-value">{</span><br>   <span class="json-key">{types}</span>: <span class="json-nested-array-value">{</span><br>    <span class="json-key">"items"</span>: <span class="json-deeply-nested-array-value">array</span>,<br>    <span class="json-key">"ttl"</span>: <span class="json-number-value">7200</span><br>   <span class="json-nested-array-value">}</span><br>  <span class="json-array-value">}</span><br>}</pre>
+                  </td>
+               </tr>
+               <tr onclick="toggleDetails('extensions-store-get-recommendations-details', this)">
+                  <td>
+                     <span class="row-name">Store - Get Recommendations</span>
+                     <div class="request-line">
+                        <span class="request-method-get">GET</span>
+                        <span class="caret">&#9660;</span>
+                     </div>
+                     <span class="url-path">https://egs.live.bhvrdbd.com/api/v1/extensions/store/getRecommendations</span>
+                  </td>
+               </tr>
+               <tr id="extensions-store-get-recommendations-details" class="details hidden">
+                  <td>
+                     <p class="api-endpoints-nested-description">Returns the list of store recommendations.</p>
+                     <p class="api-endpoints-nested-heading">Request Headers</p>
+                     <pre>Host: egs.live.bhvrdbd.com<br>Accept: */*<br>Accept-Encoding: deflate, gzip<br>Cookie: bhvrSession=(session cookie)<br>Content-Type: application/json<br>x-kraken-analytics-session-id: {sessionId}<br>x-kraken-client-platform: egs<br>x-kraken-client-provider: egs<br>x-kraken-client-resolution: {resolution}<br>x-kraken-client-timezone-offset: (timezone offset in minutes)<br>x-kraken-client-os: {os}<br>x-kraken-client-version: (client version)<br>api-key: {token}<br>User-Agent: DeadByDaylight/{version} EGS/{os}<br>Content-Length: 0</pre>
+                     <p class="api-endpoints-nested-heading">Response Body</p>
+                     <pre>{<br>  <span class="json-key">"recommendations"</span>: <span class="json-array-value">array</span><br>}</pre>
                   </td>
                </tr>
                <tr onclick="toggleDetails('extensions-store-get-special-packs-details', this)">
@@ -2963,6 +3058,60 @@
                               <td>Array</td>
                               <td>"Ban"</td>
                               <td>Array of filters to apply to the user's list of messages.</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                     <p class="api-endpoints-nested-heading">Request Headers</p>
+                     <pre>Host: egs.live.bhvrdbd.com<br>Accept: */*<br>Accept-Encoding: deflate, gzip<br>Cookie: bhvrSession=(session cookie)<br>Content-Type: application/json<br>x-kraken-analytics-session-id: {sessionId}<br>x-kraken-client-platform: egs<br>x-kraken-client-provider: egs<br>x-kraken-client-resolution: {resolution}<br>x-kraken-client-timezone-offset: (timezone offset in minutes)<br>x-kraken-client-os: {os}<br>x-kraken-client-version: (client version)<br>api-key: {token}<br>User-Agent: DeadByDaylight/{version} EGS/{os}<br>Content-Length: 0</pre>
+                     <p class="api-endpoints-nested-heading">Response Body</p>
+                     <pre>{<br>  <span class="json-key">"messages"</span>: <span class="json-array-value">array</span><br>}</pre>
+                  </td>
+               </tr>
+               <tr onclick="toggleDetails('messages-list-v2-inbox-details', this)">
+                  <td>
+                     <span class="row-name">List V2 - Inbox</span>
+                     <div class="request-line">
+                        <span class="request-method-get">GET</span>
+                        <span class="caret">&#9660;</span>
+                     </div>
+                     <span class="url-path">https://egs.live.bhvrdbd.com/api/v1/messages/listV2?filter[]=inbox&language={language}&limit={limit}</span>
+                  </td>
+               </tr>
+               <tr id="messages-list-v2-inbox-details" class="details hidden">
+                  <td>
+                     <p class="api-endpoints-nested-description">Returns the user's inbox based on both a specified language and a specified maximum number of messages to be returned.</p>
+                     <p class="api-endpoints-nested-heading">Query Parameters</p>
+                     <table class="api-endpoints-nested-table">
+                        <thead>
+                           <tr>
+                              <th>Parameter</th>
+                              <th>Type</th>
+                              <th>Example Values</th>
+                              <th>Description</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td>filter</td>
+                              <td>Array</td>
+                              <td>"inbox"</td>
+                              <td>Array of filters to apply to the user's list of messages.</td>
+                           </tr>
+                        </tbody>
+                        <tbody>
+                           <tr>
+                              <td>language</td>
+                              <td>String</td>
+                              <td>"en"</td>
+                              <td>The language code used to filter messages based on a specific language.</td>
+                           </tr>
+                        </tbody>
+                        <tbody>
+                           <tr>
+                              <td>limit</td>
+                              <td>Number</td>
+                              <td>"1", "2", "100"</td>
+                              <td>Specifies the maximum number of messages to return in the response.</td>
                            </tr>
                         </tbody>
                      </table>
@@ -3851,6 +4000,25 @@
                      <pre>Host: egs.live.bhvrdbd.com<br>Accept: */*<br>Accept-Encoding: deflate, gzip<br>Cookie: bhvrSession=(session cookie)<br>Content-Type: application/json<br>x-kraken-analytics-session-id: {sessionId}<br>x-kraken-client-platform: egs<br>x-kraken-client-provider: egs<br>x-kraken-client-resolution: {resolution}<br>x-kraken-client-timezone-offset: (timezone offset in minutes)<br>x-kraken-client-os: {os}<br>x-kraken-client-version: (client version)<br>api-key: {token}<br>User-Agent: DeadByDaylight/{version} EGS/{os}<br>Content-Length: 0</pre>
                      <p class="api-endpoints-nested-heading">Response Body</p>
                      <pre>string</pre>
+                  </td>
+               </tr>
+               <tr onclick="toggleDetails('players-me-states-seen-news-articles-details', this)">
+                  <td>
+                     <span class="row-name">Me - States (Seen News Articles)</span>
+                     <div class="request-line">
+                        <span class="request-method-get">GET</span>
+                        <span class="caret">&#9660;</span>
+                     </div>
+                     <span class="url-path">https://egs.live.bhvrdbd.com/api/v1/players/me/states/SeenNewsArticles</span>
+                  </td>
+               </tr>
+               <tr id="players-me-states-seen-news-articles-details" class="details hidden">
+                  <td>
+                     <p class="api-endpoints-nested-description">Returns state data related to the news articles that the user has seen.</p>
+                     <p class="api-endpoints-nested-heading">Request Headers</p>
+                     <pre>Host: egs.live.bhvrdbd.com<br>Accept: */*<br>Accept-Encoding: deflate, gzip<br>Cookie: bhvrSession=(session cookie)<br>Content-Type: application/json<br>x-kraken-analytics-session-id: {sessionId}<br>x-kraken-client-platform: egs<br>x-kraken-client-provider: egs<br>x-kraken-client-resolution: {resolution}<br>x-kraken-client-timezone-offset: (timezone offset in minutes)<br>x-kraken-client-os: {os}<br>x-kraken-client-version: (client version)<br>api-key: {token}<br>User-Agent: DeadByDaylight/{version} EGS/{os}<br>Content-Length: 0</pre>
+                     <p class="api-endpoints-nested-heading">Response Body</p>
+                     <pre>{<br>  <span class="json-key">"version"</span>: <span class="json-number-value">number</span>,<br>  <span class="json-key">"stateName"</span>: <span class="json-string-value">"SeenNewsArticles"</span>,<br>  <span class="json-key">"playerId"</span>: <span class="json-string-value">string</span>,<br>  <span class="json-key">"data"</span>: <span class="json-string-value">string</span>,<br>  <span class="json-key">"schemaVersion"</span>: <span class="json-number-value">number</span><br>}</pre>
                   </td>
                </tr>
                <tr onclick="toggleDetails('players-me-states-seen-store-items-details', this)">
