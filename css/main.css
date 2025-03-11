@@ -7,180 +7,312 @@
 
 /* Body styles */
 body {
-	background-color: #000;
+	background-color: #11141D;
 	color: #fff;
-	font-family: "Fira Sans", sans-serif;
+	display: flex;
+	flex-direction: column;
+	font-family: Plus Jakarta Sans, sans-serif;
+	min-height: 100vh;
+	/* Ensure that body takes up full height of viewport */
 }
 
-/* Animated background styles */
-.animated-background {
-	background-color: #000;
-	height: 100%;
-	overflow: hidden;
-	position: fixed;
-	width: 100%;
-	z-index: -1;
-	/* Ensure that animated background sits below other elements */
-}
-
-/* Star styles */
-.star {
-	animation: animateStars 10s linear infinite, twinkle 1s ease-in-out infinite alternate;
-	background-color: #fff;
-	border-radius: 50%;
-	box-shadow: 0 0 2px #fff;
-	height: 2px;
-	opacity: 0;
-	position: absolute;
-	width: 2px;
-}
-
-/* Generate stars dynamically */
-@keyframes animateStars {
-	0% {
-		transform: translateY(-10px);
-		opacity: 1;
-		/* At 0% (beginning), star will be generated above viewport and be fully opaque */
-	}
-
-	100% {
-		transform: translateY(100vh);
-		opacity: 0;
-		/* At 100% (end), star will move below viewport and become fully transparent */
-	}
-}
-
-@keyframes twinkle {
-
-	0%,
-	100% {
-		opacity: 1;
-		/* At 0% (beginning) and 100% (end), opacity of star will be 1 (fully opaque) */
-	}
-
-	50% {
-		opacity: 0.6;
-		/* At 50%, opacity of star will be 0.6 (partially transparent) */
-	}
-}
-
-/* Navbar styles */
-.navbar-container {
-	margin: 0 auto;
-	/* Center horizontally */
-	min-width: 600px;
-}
-
-.navbar {
-	background-color: #141414;
-	border-radius: 8px;
-	text-align: center;
-}
-
-.navbar a {
-	color: #fff;
-	display: inline-block;
-	font-size: 17px;
-	padding: 10px 10px;
+a {
+	color: #7FC3D9;
 	text-decoration: none;
 }
 
-.navbar a:hover {
-	color: #fff;
-	text-shadow: 0 0 10px #fff;
-	/* Glowing text effect */
+a:hover {
+	text-decoration: underline;
 }
 
-/* Box styles */
-/* Profile box styles */
-.profile-box {
-	background-color: #141414;
-	border-radius: 8px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-	margin: 0 auto;
-	/* Center horizontally */
-	min-width: 600px;
-	padding: 20px;
-	text-align: center;
+h6 {
+	font-weight: bold;
 }
 
-/* Profile image styles */
-.profile-img {
-	border-radius: 50%;
-	height: 135px;
+ul li {
 	margin-bottom: 5px;
-	/* Add vertical space between profile image and content below it */
-	width: 135px;
+	/* Add vertical space between list items */
 }
 
-/* Posts box styles */
-.posts-box {
-	background-color: #141414;
-	border-radius: 8px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+/* Wrapper for navbar and main content */
+.wrapper {
+	flex-grow: 1;
+	/* Ensure that wrapper grows and takes up available space */
+}
+
+/* Container styles */
+.container {
 	margin: 0 auto;
 	/* Center horizontally */
-	max-width: 600px;
-	/* Ensure that elements with class "posts-box" will never be wider than 600 pixels */
-	min-width: 600px;
-	padding: 20px;
+	max-width: 1000px;
+	/* Ensure that container will never be wider than 1000 pixels */
+}
+
+.container.main-content {
+	margin-top: 10px;
+	/* Add vertical space between navbar and main content */
+}
+
+.container.main-content p {
+	font-weight: 450;
+}
+
+/* Navbar styles */
+.navbar {
+	background-color: #181C24;
+	border-bottom: 0.5px solid #2A2D3A;
+}
+
+.navbar .brand-name {
+	font-size: 20px;
+}
+
+.navbar .brand-name:hover {
+	color: #fff;
+}
+
+.navbar a {
+	font-weight: 500;
+}
+
+.nav-link:hover {
+	color: #7FC3D9;
+	text-decoration: none;
+}
+
+.navbar ul li {
+	margin-bottom: 0;
+}
+
+/* Grid styles */
+.grid {
+	display: grid;
+	gap: 20px;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.grid h5 {
 	text-align: center;
 }
 
-.post-item {
+.grid-item {
+	background-color: #181C24;
+	border: 0.5px solid #2A2D3A;
+	border-radius: 8px;
+	overflow: auto;
+	padding: 15px;
+	position: relative;
+	word-wrap: break-word;
+	white-space: normal;
+}
+
+.probability-high {
+	border: 1px solid #2E8B57;
+}
+
+.probability-medium-high {
+	border: 1px solid #A3D900;
+}
+
+.probability-medium-low {
+	border: 1px solid #FFA500;
+}
+
+.probability-low {
+	border: 1px solid #FF6347;
+}
+
+.brawlhalla-level-data-image-container {
+	background-position: center;
+	background-size: cover;
+	height: 150px;
+	margin-bottom: 10px;
+	/* Add vertical space between image container and info container */
+}
+
+.dead-by-daylight-character-and-map-data-character-image-container {
+	background-position: center;
+	background-size: cover;
+	height: 150px;
+	margin: 0 auto;
+	/* Center horizontally */
+	margin-bottom: 10px;
+	/* Add vertical space between image container and info container */
+	width: 150px;
+}
+
+.dead-by-daylight-character-and-map-data-map-grid {
+	grid-template-columns: repeat(1, 1fr);
+}
+
+.dead-by-daylight-character-and-map-data-map-image-container {
+	background-position: center;
+	background-size: cover;
+	height: 150px;
+	margin: 0 auto;
+	/* Center horizontally */
+	margin-bottom: 10px;
+	/* Add vertical space between image container and info container */
+	width: 225px;
+}
+
+.info-container {
+	font-size: 14px;
+	text-align: center;
+}
+
+/* Code block styles */
+pre,
+code {
+	font-family: 'JetBrains Mono', monospace;
+}
+
+pre {
+	background-color: #181C24;
+	border: 1px solid #636363;
+	border-radius: 8px;
+	color: #fff;
+	font-size: 14px;
+	margin: 10px 0;
+	overflow-x: auto;
+	padding: 10px;
+	white-space: pre-wrap;
+	/* Ensure that long lines wrap */
+}
+
+code {
+	border: 1px solid #636363;
+	padding: 2px 2px;
+}
+
+.codebox-1 {
+	border: 1px solid #4DA8DA;
+	color: #D63384;
+	font-family: 'JetBrains Mono', monospace;
+	font-size: 87.5%;
+	padding: 2px 2px;
+}
+
+.codebox-2 {
+	border: 1px solid #FF7F50;
+	color: #D63384;
+	font-family: 'JetBrains Mono', monospace;
+	font-size: 87.5%;
+	padding: 2px 2px;
+}
+
+/* Notes button styles */
+.notes-container {
 	align-items: center;
 	display: flex;
-	justify-content: space-between;
-	margin: 10px 0;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
 }
 
-.post-item p {
-	margin: 0;
-	/* Remove margin from paragraphs inside elements with class "post-item" */
-}
-
-.post-item a {
+.notes-btn {
+	background-color: #181C24;
+	border: 1px solid #2A2D3A;
 	color: #fff;
-}
-
-.post-item a:hover {
-	text-shadow: 0 0 10px #fff;
-	/* Glowing text effect */
-}
-
-/* Media box styles */
-.media-box {
-	background-color: #141414;
-	border-radius: 8px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	cursor: pointer;
+	display: block;
+	font-weight: 500;
+	font-size: 16px;
 	margin: 0 auto;
 	/* Center horizontally */
-	max-width: 600px;
-	/* Ensure that elements with class "media-box" will never be wider than 600 pixels */
-	min-width: 600px;
-	padding: 20px;
-	text-align: center;
+	margin-bottom: 10px;
+	/* Add vertical space between notes button and content below it */
+	padding: 5px 10px;
+	transition: background-color 0.3s;
 }
 
-/* Drop-down list styles */
-select option[value=""] {
-	color: gray;
+.notes-btn:hover {
+	background-color: #20262E;
 }
 
-/* Drop-down list output styles */
-.brawlhalla-power-rankings-output-text {
-	margin-top: -10px;
-	text-align: center;
+.notes-btn.active {
+	background-color: #1C212F;
 }
 
-.media-output-text {
-	margin-top: -10px;
-	text-align: center;
+.notes-text {
+	border: 1px solid #2A2D3A;
+	display: none;
+	font-size: 16px;
+	margin-bottom: 10px;
+	/* Add vertical space between notes text and content below it */
+	padding: 10px;
 }
 
-/* Table styles */
-.team-history-table-title {
+/* Tab styles */
+.tabs {
+	font-size: 14px;
+	margin-top: 20px;
+	/* Add vertical space between selected project heading and tabs */
+}
+
+.tab-titles {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+}
+
+.tab {
+	background-color: #181C24;
+	border: 1px solid #2A2D3A;
+	color: #fff;
+	cursor: pointer;
+	font-weight: 500;
+	padding: 5px 10px;
+	transition: background-color 0.3s;
+}
+
+.tab:hover {
+	background-color: #20262E;
+}
+
+.tab.active {
+	background-color: #1C212F;
+}
+
+.tab-content {
 	margin-top: 10px;
+	/* Add vertical space between tabs and tab content */
+}
+
+.tab-pane {
+	display: none;
+}
+
+.tab-pane.active {
+	display: block;
+}
+
+/* Tooltip styles */
+.has-tooltip {
+	position: relative;
+}
+
+.has-tooltip::after {
+	content: "🟣";
+	font-size: 12px;
+	margin-left: 5px;
+	/* Add horizontal space between header cell text and tooltip symbol */
+}
+
+.has-tooltip:hover::after {
+	content: "☑️";
+}
+
+/* Specific styles */
+/* Achievements webpage and subpages */
+.achievements-heading {
+	text-align: center;
+}
+
+.team-history-heading {
+	margin-top: 10px;
+	/* Add vertical space between achievements grid and team history heading */
+	text-align: center;
 }
 
 .team-history-table {
@@ -189,18 +321,14 @@ select option[value=""] {
 	width: 100%;
 }
 
+.team-history-table th {
+	background-color: #181C24;
+}
+
 .team-history-table th,
 .team-history-table td {
-	border: 1px solid #ddd;
-}
-
-.team-history-table a {
-	color: #fff;
-}
-
-.team-history-table a:hover {
-	text-shadow: 0 0 10px #fff;
-	/* Glowing text effect */
+	border: 0.5px solid #ddd;
+	padding: 5px;
 }
 
 .team-history-table img {
@@ -212,132 +340,760 @@ select option[value=""] {
 
 .team-logo {
 	height: 85px;
-	margin-bottom: 20px;
-	/* Add vertical space between team logo and content below it */
 	width: 85px;
 }
 
-/* Icon styles */
-.icons {
-	display: flex;
-	justify-content: center;
+.brawlhalla-power-rankings-heading {
+	text-align: center;
 }
 
-.icons i {
+.brawlhalla-power-rankings-table {
+	border-collapse: collapse;
+	margin: 0 auto;
+	/* Center horizontally */
+	text-align: center;
+}
+
+.brawlhalla-power-rankings-table th {
+	background-color: #181C24;
+}
+
+.brawlhalla-power-rankings-table th,
+.brawlhalla-power-rankings-table td {
+	border: 0.5px solid #ddd;
+	padding: 5px;
+}
+
+/* Posts webpage and subpages */
+.posts-heading {
+	text-align: center;
+}
+
+.post-block {
+	background-color: #181C24;
+	border: 1px solid #2A2D3A;
+	border-radius: 8px;
+	margin-bottom: 20px;
+	/* Add vertical space between posts */
+	padding: 15px;
+}
+
+.post-title {
 	color: #fff;
-	font-size: 45px;
-	margin: 0 6.5px;
-	transition: transform 0.3s ease;
-	/* Add transition for smooth transformation */
 }
 
-.icons i:hover {
-	transform: scale(1.2);
-	/* Increase size on hover */
+.post-title h5 {
+	margin-bottom: 5px;
+	/* Add vertical space between post title and content below it */
+}
+
+.post-dates {
+	color: #A7C6ED;
+	display: flex;
+	flex-direction: column;
+	font-size: 14px;
+}
+
+.post-dates p {
+	margin: 0;
+}
+
+.post-description {
+	color: #ddd;
+	font-size: 16px;
+	margin-top: 10px;
+	/* Add vertical space between post dates and post description */
+}
+
+.decrypting-brawlhalla-swz-files-xor-cipher-well512-prng-combined-approach-pre {
+	background-color: #1E1E1E;
+}
+
+.modding-castle-crashers-remastered-using-cheat-engine-level-unlocks-table {
+	border-collapse: collapse;
+	margin: 0 auto;
+	/* Center horizontally */
+	margin-bottom: 15px;
+	/* Add vertical space between table and content below it */
+	text-align: center;
+	width: 100%;
+}
+
+.modding-castle-crashers-remastered-using-cheat-engine-level-unlocks-table th {
+	background-color: #181C24;
+}
+
+.modding-castle-crashers-remastered-using-cheat-engine-level-unlocks-table th,
+.modding-castle-crashers-remastered-using-cheat-engine-level-unlocks-table td {
+	border: 0.5px solid #ddd;
+	padding: 5px;
+}
+
+.modding-castle-crashers-remastered-using-cheat-engine-relic-unlocks-table {
+	border-collapse: collapse;
+	margin: 0 auto;
+	/* Center horizontally */
+	margin-bottom: 15px;
+	/* Add vertical space between table and content below it */
+	text-align: center;
+	width: 100%;
+}
+
+.modding-castle-crashers-remastered-using-cheat-engine-relic-unlocks-table th {
+	background-color: #181C24;
+}
+
+.modding-castle-crashers-remastered-using-cheat-engine-relic-unlocks-table th,
+.modding-castle-crashers-remastered-using-cheat-engine-relic-unlocks-table td {
+	border: 0.5px solid #ddd;
+	padding: 5px;
+}
+
+.void-relic-rarity-weights-table {
+	border-collapse: collapse;
+	margin: 0 auto;
+	/* Center horizontally */
+	margin-bottom: 15px;
+	/* Add vertical space between table and content below it */
+	text-align: center;
+	width: 100%;
+}
+
+.void-relic-rarity-weights-table th {
+	background-color: #181C24;
+}
+
+.void-relic-rarity-weights-table th,
+.void-relic-rarity-weights-table td {
+	border: 0.5px solid #ddd;
+	padding: 5px;
+}
+
+.void-relic-rarity-weights-table-exceptional-data-cell {
+	max-width: 87.5px;
+	overflow: hidden;
+}
+
+.void-relic-rarity-weights-table-flawless-data-cell {
+	max-width: 89px;
+	overflow: hidden;
+}
+
+.rng-warframe-rarity-weights-table {
+	border-collapse: collapse;
+	margin: 0 auto;
+	/* Center horizontally */
+	margin-bottom: 15px;
+	/* Add vertical space between table and content below it */
+	text-align: center;
+	width: 100%;
+}
+
+.rng-warframe-rarity-weights-table th {
+	background-color: #181C24;
+}
+
+.rng-warframe-rarity-weights-table th,
+.rng-warframe-rarity-weights-table td {
+	border: 0.5px solid #ddd;
+	padding: 5px;
+}
+
+.rng-warframe-bias-specter-table {
+	border-collapse: collapse;
+	margin: 0 auto;
+	/* Center horizontally */
+	margin-bottom: 15px;
+	/* Add vertical space between table and content below it */
+	text-align: center;
+	width: 100%;
+}
+
+.rng-warframe-bias-specter-table th {
+	background-color: #181C24;
+}
+
+.rng-warframe-bias-specter-table th,
+.rng-warframe-bias-specter-table td {
+	border: 0.5px solid #ddd;
+	padding: 5px;
+}
+
+.rng-warframe-reward-seed-generator-pre {
+	background-color: #1E1E1E;
+}
+
+.rng-warframe-weighted-random-number-generator-pre {
+	background-color: #1E1E1E;
+}
+
+/* Projects webpage and subpages */
+.projects-heading {
+	text-align: center;
+}
+
+.project-block {
+	background-color: #181C24;
+	border: 1px solid #2A2D3A;
+	border-radius: 8px;
+	margin-bottom: 20px;
+	/* Add vertical space between projects */
+	padding: 15px;
+}
+
+.project-title {
+	color: #fff;
+}
+
+.project-title h5 {
+	margin-bottom: 5px;
+	/* Add vertical space between project title and content below it */
+}
+
+.project-date {
+	color: #A7C6ED;
+	display: flex;
+	flex-direction: column;
+	font-size: 14px;
+}
+
+.project-description {
+	color: #ddd;
+	font-size: 16px;
+	margin-top: 10px;
+	/* Add vertical space between project date and project description */
+}
+
+.selected-project-heading {
+	text-align: center;
+}
+
+.brawlhalla-level-data-grid-table {
+	border-collapse: collapse;
+	margin: 0 auto;
+	/* Center horizontally */
+	text-align: center;
+}
+
+.brawlhalla-level-data-grid-table th {
+	background-color: #181C24;
+	top: 0;
+}
+
+.brawlhalla-level-data-grid-table th,
+.brawlhalla-level-data-grid-table td {
+	border: 0.5px solid #ddd;
+	padding: 10px;
+}
+
+
+.brawlhalla-strength-table {
+	border-collapse: collapse;
+	margin: 0 auto;
+	/* Center horizontally */
+	text-align: center;
+}
+
+.brawlhalla-strength-table th {
+	background-color: #181C24;
+	position: sticky;
+	top: 0;
+}
+
+.brawlhalla-strength-table th,
+.brawlhalla-strength-table td {
+	border: 0.5px solid #ddd;
+	padding: 5px;
+}
+
+.brawlhalla-dexterity-table {
+	border-collapse: collapse;
+	margin: 0 auto;
+	/* Center horizontally */
+	text-align: center;
+}
+
+.brawlhalla-dexterity-table th {
+	background-color: #181C24;
+	position: sticky;
+	top: 0;
+}
+
+.brawlhalla-dexterity-table th,
+.brawlhalla-dexterity-table td {
+	border: 0.5px solid #ddd;
+	padding: 5px;
+}
+
+.brawlhalla-defense-table {
+	border-collapse: collapse;
+	margin: 0 auto;
+	/* Center horizontally */
+	text-align: center;
+}
+
+.brawlhalla-defense-table th {
+	background-color: #181C24;
+	position: sticky;
+	top: 0;
+}
+
+.brawlhalla-defense-table th,
+.brawlhalla-defense-table td {
+	border: 0.5px solid #ddd;
+	padding: 5px;
+}
+
+.brawlhalla-speed-table {
+	border-collapse: collapse;
+	margin: 0 auto;
+	/* Center horizontally */
+	text-align: center;
+}
+
+.brawlhalla-speed-table th {
+	background-color: #181C24;
+	position: sticky;
+	top: 0;
+}
+
+.brawlhalla-speed-table th,
+.brawlhalla-speed-table td {
+	border: 0.5px solid #ddd;
+	padding: 5px;
+}
+
+.castle-crashers-remastered-characters-table {
+	border-collapse: collapse;
+	margin: 0 auto;
+	/* Center horizontally */
+	text-align: center;
+}
+
+.castle-crashers-remastered-characters-table th {
+	background-color: #181C24;
+	position: sticky;
+	top: 0;
+}
+
+.castle-crashers-remastered-characters-table th,
+.castle-crashers-remastered-characters-table td {
+	border: 0.5px solid #ddd;
+	padding: 10px;
+}
+
+.character-portrait {
+	height: 67%;
+	width: 67%;
+}
+
+.castle-crashers-remastered-weapons-table {
+	border-collapse: collapse;
+	margin: 0 auto;
+	/* Center horizontally */
+	text-align: center;
+}
+
+.castle-crashers-remastered-weapons-table th {
+	background-color: #181C24;
+	position: sticky;
+	top: 0;
+}
+
+.castle-crashers-remastered-weapons-table th,
+.castle-crashers-remastered-weapons-table td {
+	border: 0.5px solid #ddd;
+	padding: 10px;
+}
+
+.castle-crashers-remastered-animal-orbs-table {
+	border-collapse: collapse;
+	margin: 0 auto;
+	/* Center horizontally */
+	text-align: center;
+}
+
+.castle-crashers-remastered-animal-orbs-table th {
+	background-color: #181C24;
+	position: sticky;
+	top: 0;
+}
+
+.castle-crashers-remastered-animal-orbs-table th,
+.castle-crashers-remastered-animal-orbs-table td {
+	border: 0.5px solid #ddd;
+	padding: 10px;
+}
+
+.dead-by-daylight-bloodweb-data-tab-content-heading {
+	text-align: center;
+}
+
+.dead-by-daylight-bloodweb-data-tab-content-subheading {
+	text-align: center;
+}
+
+.dead-by-daylight-bloodweb-progression-table {
+	border-collapse: collapse;
+	margin: 0 auto;
+	/* Center horizontally */
+	margin-bottom: 20px;
+	/* Add vertical space between table and heading below it */
+	margin-top: 12.5px;
+	/* Add vertical space between table and heading above it */
+	text-align: center;
+}
+
+.dead-by-daylight-bloodweb-progression-table th {
+	background-color: #181C24;
+	top: 0;
+}
+
+.dead-by-daylight-bloodweb-progression-table th,
+.dead-by-daylight-bloodweb-progression-table td {
+	border: 0.5px solid #ddd;
+	padding: 10px;
+}
+
+.dead-by-daylight-content-distribution-table {
+	border-collapse: collapse;
+	margin: 0 auto;
+	/* Center horizontally */
+	margin-bottom: 20px;
+	/* Add vertical space between table and heading below it */
+	margin-top: 12.5px;
+	/* Add vertical space between table and heading above it */
+	text-align: center;
+}
+
+.dead-by-daylight-content-distribution-table th {
+	background-color: #181C24;
+	top: 0;
+}
+
+.dead-by-daylight-content-distribution-table th,
+.dead-by-daylight-content-distribution-table td {
+	border: 0.5px solid #ddd;
+	padding: 10px;
+}
+
+.dead-by-daylight-prestige-modifiers-table {
+	border-collapse: collapse;
+	margin: 0 auto;
+	/* Center horizontally */
+	margin-bottom: 20px;
+	/* Add vertical space between table and heading below it */
+	margin-top: 12.5px;
+	/* Add vertical space between table and heading above it */
+	text-align: center;
+}
+
+.dead-by-daylight-prestige-modifiers-table th {
+	background-color: #181C24;
+	top: 0;
+}
+
+.dead-by-daylight-prestige-modifiers-table th,
+.dead-by-daylight-prestige-modifiers-table td {
+	border: 0.5px solid #ddd;
+	padding: 10px;
+}
+
+.dead-by-daylight-mystery-box-probabilities-table {
+	border-collapse: collapse;
+	margin: 0 auto;
+	/* Center horizontally */
+	margin-bottom: 20px;
+	/* Add vertical space between table and heading below it */
+	margin-top: 12.5px;
+	/* Add vertical space between table and heading above it */
+	text-align: center;
+}
+
+.dead-by-daylight-mystery-box-probabilities-table th {
+	background-color: #181C24;
+	top: 0;
+}
+
+.dead-by-daylight-mystery-box-probabilities-table th,
+.dead-by-daylight-mystery-box-probabilities-table td {
+	border: 0.5px solid #ddd;
+	padding: 10px;
+}
+
+.dead-by-daylight-character-and-map-data-character-grid-table {
+	border-collapse: collapse;
+	margin: 0 auto;
+	/* Center horizontally */
+	text-align: center;
+}
+
+.dead-by-daylight-character-and-map-data-character-grid-table th {
+	background-color: #181C24;
+	top: 0;
+}
+
+.dead-by-daylight-character-and-map-data-character-grid-table th,
+.dead-by-daylight-character-and-map-data-character-grid-table td {
+	border: 0.5px solid #ddd;
+	padding: 10px;
+}
+
+.dead-by-daylight-character-and-map-data-map-grid-table {
+	border-collapse: collapse;
+	margin: 0 auto;
+	/* Center horizontally */
+	text-align: center;
+}
+
+.dead-by-daylight-character-and-map-data-map-grid-table th {
+	background-color: #181C24;
+	top: 0;
+}
+
+.dead-by-daylight-character-and-map-data-map-grid-table th,
+.dead-by-daylight-character-and-map-data-map-grid-table td {
+	border: 0.5px solid #ddd;
+	padding: 10px;
+}
+
+.secret-hitler-role-probabilities-table {
+	border-collapse: collapse;
+	text-align: center;
+	width: 100%;
+}
+
+.secret-hitler-role-probabilities-table th {
+	background-color: #181C24;
+	position: sticky;
+	top: 0;
+}
+
+.secret-hitler-role-probabilities-table th,
+.secret-hitler-role-probabilities-table td {
+	border: 0.5px solid #ddd;
+	padding: 5px;
+}
+
+.secret-hitler-policy-card-draw-probabilities-table {
+	border-collapse: collapse;
+	text-align: center;
+	width: 100%;
+}
+
+.secret-hitler-policy-card-draw-probabilities-table th {
+	background-color: #181C24;
+	position: sticky;
+	top: 0;
+}
+
+.secret-hitler-policy-card-draw-probabilities-table th,
+.secret-hitler-policy-card-draw-probabilities-table td {
+	border: 0.5px solid #ddd;
+	padding: 5px;
+}
+
+/* Media webpage */
+.media-heading {
+	text-align: center;
+}
+
+/* C++ syntax highlighting styles */
+.cpp-comment {
+	color: #505D84;
+}
+
+.cpp-data-type {
+	color: #7ACCDC;
+	font-style: italic;
+}
+
+.cpp-keyword {
+	color: #E86FB4;
+}
+
+.cpp-library-header {
+	color: #A984DE;
+}
+
+.cpp-preprocessor-directive {
+	color: #E86FB4;
+}
+
+.cpp-string {
+	color: #CFD779;
+}
+
+.cpp-value {
+	color: #A984DE;
 }
 
 /* Footer styles */
 .footer {
-	font-size: 12px;
-	margin: 20px auto;
-	/* Add vertical space between respective box and footer */
+	font-size: 14px;
+	margin-top: 20px;
+	/* Add vertical space between main content and footer */
 	text-align: center;
 }
 
 /* Media queries */
 /* Extra small device styles */
 @media screen and (max-width: 575.98px) {
-	.navbar-container {
-		min-width: 100%;
-	}
-
-	.navbar {
-		flex-wrap: wrap;
-	}
-
-	.navbar a {
-		flex: 1 1 100%;
-		padding: 8px;
-	}
-
-	.profile-box {
-		min-width: 100%;
-	}
-
-	.posts-box {
-		min-width: 100%;
-	}
-
-	.post-item {
-		align-items: flex-start;
-		/* Align items to beginning (top) of container */
-		flex-direction: column;
-		font-size: 13px;
-	}
-
-	.media-box {
-		min-width: 100%;
-	}
-
-	.media-output-text {
+	.decrypting-brawlhalla-swz-files-file-structure-pre {
 		font-size: 10px;
 	}
 
-	.team-logo {
-		display: none !important;
-		/* Hide team logos on extra small devices */
+	.decrypting-brawlhalla-swz-files-xor-cipher-well512-prng-combined-approach-pre {
+		font-size: 6px;
 	}
-}
 
-@media screen and (max-width: 575.98px) and (orientation: landscape) {
-	.footer {
+	.void-relic-rarity-weights-table {
+		font-size: 12px;
+	}
+
+	.void-relic-rarity-weights-table-exceptional-data-cell {
+		font-size: 8px;
+	}
+
+	.void-relic-rarity-weights-table-flawless-data-cell {
+		font-size: 11px;
+	}
+
+	.rng-warframe-item-drop-chance-formula-exercise-1-pre {
+		font-size: 10.5px;
+	}
+
+	.rng-warframe-normalization-exercise-1-pre {
+		font-size: 8px;
+	}
+
+	.rng-warframe-reward-seed-generator-pre {
+		font-size: 5px;
+	}
+
+	.rng-warframe-weighted-random-number-generator-pre {
+		font-size: 4.5px;
+	}
+
+	.rng-warframe-bias-specter-table {
+		font-size: 9px;
+	}
+
+	.tabs {
+		font-size: 11px;
+	}
+
+	.has-tooltip::after {
 		display: none;
-		/* Hide footer in landscape mode */
+	}
+
+	.brawlhalla-dexterity-table {
+		font-size: 8px;
+	}
+
+	.brawlhalla-speed-table {
+		font-size: 4.25px;
+	}
+
+	.castle-crashers-remastered-weapons-table {
+		font-size: 11.5px;
+	}
+
+	.weapon-image {
+		height: 30%;
+		width: 30%;
+	}
+
+	.castle-crashers-remastered-animal-orbs-table {
+		font-size: 8.5px;
+	}
+
+	.animal-orb-image {
+		height: 70%;
+		width: 70%;
+	}
+
+	.dead-by-daylight-bloodweb-progression-table {
+		font-size: 10px;
+	}
+
+	.dead-by-daylight-content-distribution-table {
+		font-size: 10px;
+	}
+
+	.dead-by-daylight-prestige-modifiers-table {
+		font-size: 10px;
+	}
+
+	.dead-by-daylight-mystery-box-probabilities-table {
+		font-size: 10px;
+	}
+
+	.dead-by-daylight-character-and-map-data-map-grid-table {
+		font-size: 6px;
+	}
+
+	.secret-hitler-role-probabilities-table {
+		font-size: 7px;
+	}
+
+	.secret-hitler-policy-card-draw-probabilities-table {
+		font-size: 6px;
 	}
 }
 
 /* Small device styles */
 @media screen and (min-width: 576px) and (max-width: 767.98px) {
-	.navbar-container {
-		min-width: 100%;
-	}
-
-	.profile-box {
-		min-width: 100%;
-	}
-
-	.posts-box {
-		min-width: 100%;
-	}
-
-	.media-box {
-		min-width: 100%;
+	.has-tooltip::after {
+		display: none;
 	}
 }
 
 @media screen and (min-width: 576px) and (max-width: 767.98px) and (orientation: landscape) {
-	.footer {
+	.has-tooltip::after {
 		display: none;
-		/* Hide footer in landscape mode */
+	}
+
+	.brawlhalla-speed-table {
+		font-size: 11px;
 	}
 }
 
 /* Medium device styles */
-@media screen and (min-width: 768px) and (max-width: 991.98px) and (orientation: landscape) {
-	.footer {
+@media screen and (min-width: 768px) and (max-width: 991.98px) {
+	.has-tooltip::after {
 		display: none;
-		/* Hide footer in landscape mode */
+	}
+
+	.brawlhalla-speed-table {
+		font-size: 13px;
+	}
+
+	.dead-by-daylight-character-and-map-data-character-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media screen and (min-width: 768px) and (max-width: 991.98px) and (orientation: landscape) {
+	.has-tooltip::after {
+		display: none;
+	}
+
+	.dead-by-daylight-character-and-map-data-character-grid {
+		grid-template-columns: repeat(2, 1fr);
 	}
 }
 
 /* Large device styles */
-@media screen and (min-width: 992px) and (max-width: 1199.98px) and (orientation: landscape) {
-	.media-output-text {
-		font-size: 14px;
-	}
-
-	.footer {
+@media screen and (min-width: 992px) and (max-width: 1199.98px) {
+	.has-tooltip::after {
 		display: none;
-		/* Hide footer in landscape mode */
+	}
+}
+
+/* Extra large device styles */
+@media screen and (min-width: 1200px) and (max-width: 1399.98px) {
+	.has-tooltip::after {
+		display: none;
 	}
 }

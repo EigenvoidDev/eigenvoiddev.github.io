@@ -3,23 +3,22 @@
    <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="theme-color" content="#15171E">
       <title>Extracting AES Key for Dead by Daylight - Eigenvoid</title>
-      <meta name="description" content="The following is a list of instructions required to extract the AES key for Dead by Daylight.">
+      <meta name="description" content="Learn how to extract the AES key for Dead by Daylight.">
       <!-- Canonical URL -->
       <link rel="canonical" href="https://www.eigenvoid.dev/posts/extracting-aes-key-for-dead-by-daylight">
       <!-- Open Graph Meta Tags -->
       <meta property="og:url" content="https://www.eigenvoid.dev/posts/extracting-aes-key-for-dead-by-daylight">
       <meta property="og:type" content="article">
       <meta property="og:title" content="Extracting AES Key for Dead by Daylight - Eigenvoid">
-      <meta property="og:description" content="The following is a list of instructions required to extract the AES key for Dead by Daylight.">
+      <meta property="og:description" content="Learn how to extract the AES key for Dead by Daylight.">
       <meta property="og:image" content="https://www.eigenvoid.dev/img/og/favicon-1200x628.png">
       <meta property="og:site_name" content="Eigenvoid">
       <meta property="og:locale" content="en_US">
       <!-- Twitter Card Meta Tags -->
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="Extracting AES Key for Dead by Daylight - Eigenvoid">
-      <meta name="twitter:description" content="The following is a list of instructions required to extract the AES key for Dead by Daylight.">
+      <meta name="twitter:description" content="Learn how to extract the AES key for Dead by Daylight.">
       <meta name="twitter:image" content="https://www.eigenvoid.dev/img/twitter/favicon-1200x670.png">
       <!-- Apple Touch Icon -->
       <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
@@ -29,13 +28,14 @@
       <!-- Bootstrap CSS -->
       <link rel="stylesheet" href="../css/bootstrap.min.css">
       <!-- Custom CSS -->
-      <link rel="stylesheet" href="../css/secondary.css">
-      <!-- Font -->
+      <link rel="stylesheet" href="../css/main.css">
+      <!-- Fonts -->
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
       <!-- Font Awesome CSS -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <!-- Google tag (gtag.js) -->
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E7GC202X7V"></script>
       <script>
@@ -47,60 +47,79 @@
       </script>
    </head>
    <body>
-      <!-- Navbar Container -->
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top">
-         <div class="container-fluid">
-            <!-- Navbar Toggler Button -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <!-- Navbar Items -->
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-               <ul class="navbar-nav mx-auto">
-                  <a href="../">Home</a>
-                  <a href="../achievements">Achievements</a>
-                  <a href="../posts">Posts</a>
-                  <a href="../software-and-resources">Software & Resources</a>
-                  <a href="../media">Media</a>
-               </ul>
+      <div class="wrapper">
+         <!-- Navbar -->
+         <nav class="navbar navbar-expand-md navbar-dark">
+            <div class="container d-flex justify-content-between">
+               <!-- Brand Name -->
+               <a class="nav-link brand-name" href="../">Eigenvoid</a>
+               <!-- Navbar Toggler Button -->
+               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+               </button>
+               <!-- Navbar Items -->
+               <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav ms-auto">
+                     <li class="nav-item">
+                        <a class="nav-link" href="../achievements">Achievements</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="../posts">Posts</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="../projects">Projects</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="../media">Media</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="https://discord.com/users/1310056373136003102"><i class="fab fa-discord"></i></a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/EigenvoidDev"><i class="fab fa-github"></i></a>
+                     </li>
+                  </ul>
+               </div>
             </div>
+         </nav>
+         <!-- Main Content -->
+         <div class="container main-content">
+            <h4>Extracting AES Key for Dead by Daylight</h4>
+            <div class="post-dates">
+               <p class="post-date">August 10, 2024</p>
+            </div>
+            <hr>
+            <h5>Disclaimer</h5>
+            <p>The information included in this post is for educational purposes only. Any material on this webpage may not be reproduced, retransmitted, or redisplayed other than for personal or educational use.</p>
+            <h5>Introduction</h5>
+            <p>An Advanced Encryption Standard (AES) key is a symmetric-key block cipher algorithm, meaning that the same key is used to both encrypt and decrypt fixed-length blocks of data. Behaviour Interactive uses a 256-bit AES key for Dead by Daylight's game files, and Dead by Daylight runs on Unreal Engine 5.2.1. You can use <a href="https://fmodel.app/">FModel</a> to explore game files created by Unreal Engine, provided that you have both a <a href="generating-mapping-file-for-dead-by-daylight">mapping file</a> (if relevant) and the AES key (if relevant) associated with the particular video game that you are trying to explore.</p>
+            <h5>Instructions</h5>
+            <p>The following is a list of instructions required to extract the AES key for Dead by Daylight:</p>
+            <p>1. Visit <a href=https://github.com/EZFNDEV/UEAESKeyFinder/releases>this</a> URL and left-click on "UEAESKeyFinder.zip". Save the compressed (zipped) folder of "UEAESKeyFinder" into the directory of your choice.</p>
+            <p>2. Head to the location of the completed download and extract the contents of the compressed (zipped) folder "UEAESKeyFinder" into the directory of your choice.</p>
+            <p>3. Open the "UEAESKeyFinder" directory, right-click inside the directory, and left-click on "Open in Terminal".</p>
+            <p>4. After Windows PowerShell launches, drag the UEAESKeyFinder application into the terminal to paste its file path. Press the "Enter" key.</p>
+            <p>5. If you are missing any versions of .NET that the UEAESKeyFinder application needs to run, then the program will tell you to install them. Close the UEAESKeyFinder application and visit the relevant download links to install them. After installing them, repeat steps 3 and 4.</p>
+            <p>6. You should now be presented with a menu that asks you to select a method for extracting the AES key. Type "1" for File and press the "Enter" key. The UEAESKeyFinder application should now ask you to provide a file path. Head to where Dead by Daylight is installed. Left-click on its "DeadByDaylight" subdirectory, then left-click on its "Binaries" subdirectory, and then left-click on its "Win64" subdirectory.</p>
+            <p>7. Right-click on the "DeadByDaylight-Win64-Shipping" application, left-click on "Copy as path", and then paste it into Windows PowerShell. If "Copy as path" is not an option, then you can drag the application into Windows PowerShell like you did for the UEAESKeyFinder application.</p>
+            <p>8. After pasting the file path into Windows PowerShell, press the "Enter" key.</p>
+            <p>9. The UEAESKeyFinder application will find and output the AES key after a few seconds. In the case of Dead by Daylight update 8.1.2, the AES key is <code>0x22B1639B548124925CF7B9CBAA09F9AC295FCF0324586D6B37EE1D42670B39B3</code>.</p>
          </div>
-      </nav>
-      <!-- Main Content -->
-      <div class="container post-container">
-         <h2 class="post-title">Extracting AES Key for Dead by Daylight</h2>
-         <h6 class="post-date">August 10, 2024</h6>
-         <hr>
-         <h5>Disclaimer</h5>
-         <p>The information included in this post is for educational purposes only. Any material on this webpage may not be reproduced, retransmitted, or redisplayed other than for personal or educational use.</p>
-         <h5>Introduction</h5>
-         <p>An Advanced Encryption Standard (AES) key is a symmetric-key block cipher algorithm, meaning that the same key is used to both encrypt and decrypt fixed-length blocks of data. Behaviour Interactive uses a 256-bit AES key for Dead by Daylight's game files, and Dead by Daylight runs on Unreal Engine 5.2.1. You can use <a href="https://fmodel.app/">FModel</a> to explore game files created by Unreal Engine, provided that you have both a <a href="generating-mapping-file-for-dead-by-daylight">mapping file</a> (if relevant) and the AES key (if relevant) associated with the particular video game that you are trying to explore.</p>
-         <h5>Instructions</h5>
-         <p>The following is a list of instructions required to extract the AES key for Dead by Daylight:</p>
-         <p>1. Visit <a href=https://github.com/EZFNDEV/UEAESKeyFinder/releases>this</a> URL and left-click on "UEAESKeyFinder.zip". Save the compressed (zipped) folder of "UEAESKeyFinder" into the directory of your choice.</p>
-         <p>2. Head to the location of the completed download and extract the contents of the compressed (zipped) folder "UEAESKeyFinder" into the directory of your choice.</p>
-         <p>3. Open the "UEAESKeyFinder" directory, right-click inside the directory, and left-click on "Open in Terminal".</p>
-         <p>4. After Windows PowerShell launches, drag the UEAESKeyFinder application into the terminal to paste its file path. Press the "Enter" key.</p>
-         <p>5. If you are missing any versions of .NET that the UEAESKeyFinder application needs to run, then the program will tell you to install them. Close the UEAESKeyFinder application and visit the relevant download links to install them. After installing them, repeat steps 3 and 4.</p>
-         <p>6. You should now be presented with a menu that asks you to select a method for extracting the AES key. Type "1" for File and press the "Enter" key. The UEAESKeyFinder application should now ask you to provide a file path. Head to where Dead by Daylight is installed. Left-click on its "DeadByDaylight" subdirectory, then left-click on its "Binaries" subdirectory, and then left-click on its "Win64" subdirectory.</p>
-         <p>7. Right-click on the "DeadByDaylight-Win64-Shipping" application, left-click on "Copy as path", and then paste it into Windows PowerShell. If "Copy as path" is not an option, then you can drag the application into Windows PowerShell like you did for the UEAESKeyFinder application.</p>
-         <p>8. After pasting the file path into Windows PowerShell, press the "Enter" key.</p>
-         <p>9. The UEAESKeyFinder application will find and output the AES key after a few seconds. In the case of Dead by Daylight update 8.1.2, the AES key is <code>0x22B1639B548124925CF7B9CBAA09F9AC295FCF0324586D6B37EE1D42670B39B3</code>.</p>
-         <!-- Footer -->
-         <footer class="footer">
-            <p>
-               Copyright &copy;
-               <script type="text/javascript">
-                  document.write(new Date().getFullYear());
-               </script>
-               Eigenvoid. All rights reserved.
-            </p>
-         </footer>
       </div>
+      <!-- Footer -->
+      <footer class="footer">
+         <p>
+            Copyright &copy;
+            <script type="text/javascript">
+               document.write(new Date().getFullYear());
+            </script>
+            Eigenvoid. All rights reserved.
+         </p>
+      </footer>
       <!-- JavaScript -->
       <!-- jQuery first, then Popper.js, then Bootstrap JS -->
       <script src="../js/jquery-3.7.1.min.js"></script>
       <script src="../js/popper.min.js"></script>
-      <script src="../js/bootstrap.min.js"></script>     
+      <script src="../js/bootstrap.min.js"></script>
    </body>
 </html>

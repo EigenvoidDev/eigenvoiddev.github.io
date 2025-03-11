@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Authorization - Dead by Daylight Private API Documentation | Eigenvoid</title>
+      <meta name="description" content="View the Dead by Daylight private API documentation of Eigenvoid&mdash;the data miner, programmer, and reverse engineer.">
+      <!-- Canonical URL -->
+      <link rel="canonical" href="https://www.eigenvoid.dev/projects/dead-by-daylight-private-api-documentation/authorization">
+      <!-- Open Graph Meta Tags -->
+      <meta property="og:url" content="https://www.eigenvoid.dev/projects/dead-by-daylight-private-api-documentation/authorization">
+      <meta property="og:type" content="website">
+      <meta property="og:title" content="Authorization - Dead by Daylight Private API Documentation | Eigenvoid">
+      <meta property="og:description" content="View the Dead by Daylight private API documentation of Eigenvoid&mdash;the data miner, programmer, and reverse engineer.">
+      <meta property="og:image" content="https://www.eigenvoid.dev/img/og/favicon-1200x628.png">
+      <meta property="og:site_name" content="Eigenvoid">
+      <meta property="og:locale" content="en_US">
+      <!-- Twitter Card Meta Tags -->
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Authorization - Dead by Daylight Private API Documentation | Eigenvoid">
+      <meta name="twitter:description" content="View the Dead by Daylight private API documentation of Eigenvoid&mdash;the data miner, programmer, and reverse engineer.">
+      <meta name="twitter:image" content="https://www.eigenvoid.dev/img/twitter/favicon-1200x670.png">
+      <!-- Apple Touch Icon -->
+      <link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png">
+      <!-- Favicons -->
+      <link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16x16.png">
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="../../css/bootstrap.min.css">
+      <!-- Custom CSS -->
+      <link rel="stylesheet" href="../../css/docs.css">
+      <!-- Fonts -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+      <!-- Font Awesome CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-E7GC202X7V"></script>
+      <script>
+         window.dataLayer = window.dataLayer || [];
+         function gtag(){dataLayer.push(arguments);}
+         gtag('js', new Date());
+         
+         gtag('config', 'G-E7GC202X7V');
+      </script>
+   </head>
+   <body>
+      <div class="wrapper">
+         <!-- Navbar -->
+         <nav class="navbar navbar-expand-md navbar-dark">
+            <div class="container d-flex justify-content-between">
+               <!-- Brand Name -->
+               <a class="nav-link brand-name" href="../../">Eigenvoid</a>
+               <!-- Navbar Toggler Button -->
+               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+               </button>
+               <!-- Navbar Items -->
+               <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav ms-auto">
+                     <li class="nav-item">
+                        <a class="nav-link" href="../../achievements">Achievements</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="../../posts">Posts</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="../../projects">Projects</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="../../media">Media</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="https://discord.com/users/1310056373136003102"><i class="fab fa-discord"></i></a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/EigenvoidDev"><i class="fab fa-github"></i></a>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </nav>
+         <!-- Sidebar and Main Content -->
+         <div class="layout">
+            <!-- Mobile Menu Button -->
+            <button id="menu-button" class="menu-button">☰ Menu</button>
+            <!-- Overlay for Background Dimming -->
+            <div id="overlay" class="overlay"></div>
+            <aside class="sidebar">
+               <!-- Dropdown 1 -->
+               <div class="dropdown">
+                  <div class="dropdown-toggler">
+                     <span class="dropdown-label">Overview</span>
+                     <span class="dropdown-arrow">▶</span>
+                  </div>
+                  <ul class="dropdown-menu">
+                     <li><a href="overview#introduction">Introduction</a></li>
+                     <li><a href="overview#host-names">Host Names</a></li>
+                     <li><a href="overview#server-certificate">Server Certificate</a></li>
+                     <li><a href="overview#errors">Errors</a></li>
+                  </ul>
+               </div>
+               <!-- Dropdown 2 -->
+               <div class="dropdown active-dropdown-label">
+                  <div class="dropdown-toggler">
+                     <span class="dropdown-label">Authorization</span>
+                     <span class="dropdown-arrow">▶</span>
+                  </div>
+                  <ul class="dropdown-menu">
+                     <li><a href="#oauth-2.0" onclick="scrollToSection('#oauth-2.0'); return false;">OAuth 2.0</a></li>
+                     <li><a href="#client-types" onclick="scrollToSection('#client-types'); return false;">Client Types</a></li>
+                     <li><a href="#available-scopes" onclick="scrollToSection('#available-scopes'); return false;">Available Scopes</a></li>
+                     <li><a href="#grant-types" onclick="scrollToSection('#grant-types'); return false;">Grant Types</a></li>
+                  </ul>
+               </div>
+               <!-- Dropdown 3 -->
+               <div class="dropdown">
+                  <div class="dropdown-toggler">
+                     <span class="dropdown-label">API Reference</span>
+                     <span class="dropdown-arrow">▶</span>
+                  </div>
+                  <ul class="dropdown-menu">
+                     <li><a href="api-reference#archives">Archives</a></li>
+                     <li><a href="api-reference#authentication">Authentication</a></li>
+                     <li><a href="api-reference#client-data">Client Data</a></li>
+                     <li><a href="api-reference#dbd-game-elements">DBD Game Elements</a></li>
+                     <li><a href="api-reference#extensions">Extensions</a></li>
+                     <li><a href="api-reference#features">Features</a></li>
+                     <li><a href="api-reference#game-logs">Game Logs</a></li>
+                     <li><a href="api-reference#general">General</a></li>
+                     <li><a href="api-reference#match">Match</a></li>
+                     <li><a href="api-reference#me">Me</a></li>
+                     <li><a href="api-reference#messages">Messages</a></li>
+                     <li><a href="api-reference#mystery-box">Mystery Box</a></li>
+                     <li><a href="api-reference#onboarding">Onboarding</a></li>
+                     <li><a href="api-reference#party">Party</a></li>
+                     <li><a href="api-reference#player-name">Player Name</a></li>
+                     <li><a href="api-reference#players">Players</a></li>
+                     <li><a href="api-reference#queue">Queue</a></li>
+                     <li><a href="api-reference#ranks">Ranks</a></li>
+                     <li><a href="api-reference#utils">Utils</a></li>
+                  </ul>
+               </div>
+               <!-- Dropdown 4 -->
+               <div class="dropdown">
+                  <div class="dropdown-toggler">
+                     <span class="dropdown-label">Changelog</span>
+                     <span class="dropdown-arrow">▶</span>
+                  </div>
+                  <ul class="dropdown-menu">
+                     <li><a href="changelog#8.5.2">8.5.2</a></li>
+                     <li><a href="changelog#8.4.0">8.4.0</a></li>
+                  </ul>
+               </div>
+            </aside>
+            <main class="main-content">
+               <h3>Authorization</h3>
+               <p>A large number of Dead by Daylight's private API endpoints require authentication with a valid Dead by Daylight account. Access is secured through token-based authentication, ensuring that only authorized users can retrieve the requested resources.</p>
+               <hr>
+               <h3 id="oauth-2.0">OAuth 2.0</h3>
+               <p>Epic Online Services (EOS) uses the <a href="https://datatracker.ietf.org/doc/html/rfc6749">OAuth 2.0</a> protocol for authentication and authorization, supporting common-use cases for web servers and client-side applications. Epic has also introduced custom grant types for some specific use cases. You can learn more about this process <a href="https://dev.epicgames.com/docs/web-api-ref/authentication">here</a>.</p>
+               <h4>OAuth Server Endpoints</h4>
+               <li class="auth-li"><u>https://api.epicgames.dev/epic/oauth/v2/exchange?consumingClientId={consumingClientId}&codeChallenge={codeChallenge}&codeChallengeMethod={codeChallengeMethod}</u></li>
+               <p class="indented">Endpoint for exchanging an authorization code for an access token. <code>consumingClientId</code> refers to the client application making the request, <code>codeChallenge</code> is the value derived from the code verifier (a cryptographically random string generated by the client), and <code>codeChallengeMethod</code> specifies the method used to create the <code>codeChallenge</code>. EOS employs the SHA-256 hashing algorithm to secure the code challenge in the Proof Key for Code Exchange (PKCE) flow.</p>
+               <li class="auth-li"><u>https://api.epicgames.dev/epic/oauth/v2/token</u></li>
+               <p class="indented">Endpoint for obtaining an access token, refresh token, and other identity information after successfully exchanging an authorization code.</p>
+               <li class="auth-li"><u>https://api.epicgames.dev/epic/oauth/v2/tokenInfo</u></li>
+               <p class="indented">Endpoint for obtaining detailed information about a given access token. When a client provides a valid access token, the endpoint responds with metadata associated with it.</p>
+               <li class="auth-li"><u>https://api.epicgames.dev/epic/oauth/v2/revoke</u></li>
+               <p class="indented">Endpoint that enables clients to implement a "log out" feature by invalidating tokens, ensuring that any associated security credentials or access rights are revoked. This endpoint implements <a href="https://datatracker.ietf.org/doc/html/rfc7009">RFC 7009 - OAuth 2.0 Token Revocation</a>.</p>
+               <h4>Errors</h4>
+               <p>The endpoints listed above return error messages in accordance with the relevant RFC specifications.</p>
+               <hr>
+               <h3 id="client-types">Client Types</h3>
+               <p>OAuth categorizes clients into two types: confidential clients and public clients.</p>
+               <h4>Confidential Clients</h4>
+               <p>Confidential clients are applications that can securely authenticate with the authorization server, such as those capable of keeping their registered client secret safe.</p>
+               <p>The client ID is a public identifier for applications registered with an OAuth 2.0 authorization server. It must be unique across all clients managed by the server to ensure requests are correctly attributed to the appropriate application.</p>
+               <p>The client secret is a confidential credential known only to the application and the authorization server. It functions as the application's password, ensuring secure communication between the application and the server.</p>
+               <p>These clients are able to use the <code>authorization_code</code>, <code>client_credentials</code>, <code>exchange_code</code>, <code>password</code>, and <code>refresh_token</code> grant types.</p>
+               <p>Confidential clients can have ID tokens issued to them either symmetrically using their client secret (HS256) or asymmetrically using a private key (RS256), as they are capable of securely storing secrets.</p>
+               <h4>Public Clients</h4>
+               <p>Public clients, like applications running in a browser or on a mobile device, cannot securely store client secrets because these environments are not secure enough to protect them.</p>
+               <p>These clients can only use grant types that do not require a client secret, as they cannot securely store or protect the confidentiality of such credentials.</p>
+               <p>Since public clients cannot securely store secrets, ID tokens issued to them must be signed asymmetrically using a private key (RS256) and verified with the corresponding public key.</p>
+               <h4>Tokens</h4>
+               <p>When attempting to play Dead by Daylight, the client interacts with Epic Games' OAuth 2.0 authentication system to obtain access tokens, refresh tokens, and ID tokens.</p>
+               <h5>Access Token</h5>
+               <p>An access token is issued by the authorization server to grant the client access to protected resources on behalf of the user. This token is valid for 2 hours from the time of issuance.</p>
+               <h5>Refresh Token</h5>
+               <p>A refresh token is used to obtain a new access token without requiring the user to re-authenticate. This token remains valid for 8 hours from the time of issuance.</p>
+               <h5>ID Token</h5>
+               <p>An ID token is part of the <a href="https://auth0.com/docs/authenticate/protocols/openid-connect-protocol">OpenID Connect protocol</a>, which provides a standardized method to authenticate and retrieve basic user information. It is used to verify the user's identity and contains user details in the form of claims (e.g., Epic Account ID, Epic Account display name, client ID used to authenticate the user with Epic Account Services, and other identity-related information). This token remains valid for 2 hours from the time it is issued.</p>
+               <hr>
+               <h3 id="available-scopes">Available Scopes</h3>
+               <p>When the client attempts to connect to Dead by Daylight's servers, it requests specific scopes as part of the OAuth 2.0 authorization flow. The scope <code>basic_profile friends_list openid presence</code> specifies the resources and permissions the client needs to access:</p>
+               <li class="auth-li"><code>basic_profile</code> access allows the client to authenticate the user with Epic Account Services, retrieve information such as the user's screen name, and facilitate in-application purchases.</li>
+               <li class="auth-li"><code>friends_list</code> access allows the client to retrieve an Epic Account's friends list.</li>
+               <li class="auth-li"><code>openid</code> access allows the client to request an ID token.</li>
+               <li class="auth-li"><code>presence</code> access allows the client to retrieve an Epic Account's presence information, which details a user's current activity. This includes both basic status and game-specific status. Basic status provides general details, such as whether the user is online or offline and what game they are playing (if they have chosen to share this information). Game-specific status includes details unique to the game the user is playing.</li>
+               <hr>
+               <h3 id="grant-types">Grant Types</h3>
+               <h4>Authorization Code Grant</h4>
+               <p>This grant allows both confidential and public clients to exchange an authorization code for an access token. After the user is redirected back to the client via the specified redirect URL, the application extracts the authorization code from the URL and uses it to request an access token. You can learn more this flow <a href="https://datatracker.ietf.org/doc/html/rfc6749#section-4.1">here</a>.</p>
+               <p>Authentication using this method is only possible for clients that have a configured redirect URL. Since the Dead by Daylight client does not have a redirect URL, I will use <code>fortnitePCGameClient</code> to illustrate this process. Notably, jaren.wtf's unofficial <a href="https://egs.jaren.wtf/">Epic Games Client Documentation</a> states that <code>fortnitePCGameClient</code>'s client ID is <code>ec684b8c687f479fadea3cb2ad83f5c6</code>, and its client secret is <code>e1f31c211f28413186262d37a13fc84d</code>.</p>
+               <h5>Method</h5>
+               <p>1. Identify the client for which you need to obtain an access token.</p>
+               <p>2. Make sure you are logged into your <a href="https://store.epicgames.com/en-US/">Epic Games</a> account.</p>
+               <p>3. Open <a href="https://www.epicgames.com/id/api/redirect?clientId=:clientId&responseType=code">https://www.epicgames.com/id/api/redirect?clientId=:clientId&responseType=code</a> in your web browser, replacing <code>:clientId</code> with the chosen client ID. In this case, use <code>ec684b8c687f479fadea3cb2ad83f5c6</code>.</p>
+               <p>4. If the request is successful, then you will receive a response with the following structure:</p>
+               <pre>{<br>  <span class="json-key">"redirectUrl"</span>: <span class="json-string-value">string</span>,<br>  <span class="json-key">"authorizationCode"</span>: <span class="json-string-value">string</span>,<br>  <span class="json-key">"exchangeCode"</span>: null,<br>  <span class="json-key">"sid"</span>: null,<br>  <span class="json-key">"ssoV2Enabled"</span>: <span class="json-boolean-value">boolean</span><br>}</pre>
+               <table class="key-description-table">
+                  <tr>
+                     <th>Key</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+                  <tr>
+                     <td><code>redirectUrl</code></td>
+                     <td>String</td>
+                     <td>The URL to which the user will be redirected after authentication. This URL contains the authorization code as a query parameter, which the client can later use to exchange for an access token.</td>
+                  </tr>
+                  <tr>
+                     <td><code>authorizationCode</code></td>
+                     <td>String</td>
+                     <td>A temporary authorization code issued after the user successfully logs in. This code is used in the next step to request an access token from the authorization server.</td>
+                  </tr>
+                  <tr>
+                     <td><code>exchangeCode</code></td>
+                     <td>String (can be null)</td>
+                     <td>A code used to exchange for an access token in specific OAuth flows. This field is null if the exchange code hasn't been issued yet or isn't required for the current flow.</td>
+                  </tr>
+                  <tr>
+                     <td><code>sid</code></td>
+                     <td>String (can be null)</td>
+                     <td>Represents the session ID (SID) for the user's authentication session. It is null if not applicable or has not yet been assigned during the process.</td>
+                  </tr>
+                  <tr>
+                     <td><code>ssoV2Enabled</code></td>
+                     <td>Boolean</td>
+                     <td>Indicates whether Single Sign-On (SSO) version 2 is enabled for this authentication flow. If true, then the system supports SSOv2, allowing the user to authenticate across multiple services without the need to re-enter credentials.</td>
+                  </tr>
+               </table>
+               <p>Note that the authorization code expires after 5 minutes. If step 5 is not completed within 5 minutes of completing step 3, then a new authorization code will need to be generated.</p>
+               <p>5. Send a <code>POST</code> request to <u>https://account-public-service-prod.ol.epicgames.com/account/api/oauth/token</u>:</p>
+               <p>Request Headers:</p>
+               <pre>Content-Type: application/x-www-form-urlencoded<br>Authorization: Basic {client_id:client_secret}</pre>
+               <p>Note that the <code>client_id:client_secret</code> pair needs to be encoded in Base64.</p>
+               <p>Request Body:</p>
+               <pre>grant_type=authorization_code&code={authorizationCode}</pre>
+               <p>Note that <code>authorizationCode</code> is obtained from the response in step 4.</p>
+               <h5>Example: Authenticating to <code>fortnitePCGameClient</code></h5>
+               <p>Request Headers:</p>
+               <pre>Content-Type: application/x-www-form-urlencoded<br>Authorization: Basic ZWM2ODRiOGM2ODdmNDc5ZmFkZWEzY2IyYWQ4M2Y1YzY6ZTFmMzFjMjExZjI4NDEzMTg2MjYyZDM3YTEzZmM4NGQ=</pre>
+               <p>Request Body:</p>
+               <pre>grant_type=authorization_code&code={authorizationCode}</pre>
+               <p>If the request is successful, then the response will have the following structure:</p>
+               <pre>{<br>  <span class="json-key">"access_token"</span>: <span class="json-string-value">string</span>,<br>  <span class="json-key">"expires_in"</span>: <span class="json-number-value">7200</span>,<br>  <span class="json-key">"expires_at"</span>: <span class="json-string-value">string</span>,<br>  <span class="json-key">"token_type"</span>: <span class="json-string-value">"bearer"</span>,<br>  <span class="json-key">"refresh_token"</span>: <span class="json-string-value">string</span>,<br>  <span class="json-key">"refresh_expires"</span>: <span class="json-number-value">28800</span>,<br>  <span class="json-key">"refresh_expires_at"</span>: <span class="json-string-value">string</span>,<br>  <span class="json-key">"account_id"</span>: <span class="json-string-value">string</span>,<br>  <span class="json-key">"client_id"</span>: <span class="json-string-value">"ec684b8c687f479fadea3cb2ad83f5c6"</span>,<br>  <span class="json-key">"internal_client"</span>: <span class="json-boolean-value">true</span>,<br>  <span class="json-key">"client_service"</span>: <span class="json-string-value">"prod-fn"</span>,<br>  <span class="json-key">"scope"</span>: <span class="json-array-value">[</span><br>   <span class="json-string-value">"basic_profile"</span><br>  <span class="json-array-value">]</span>,<br>  <span class="json-key">"displayName"</span>: <span class="json-string-value">string</span>,<br>  <span class="json-key">"app"</span>: <span class="json-string-value">"prod-fn"</span>,<br>  <span class="json-key">"in_app_id"</span>: <span class="json-string-value">string</span>,<br>  <span class="json-key">"device_id"</span>: <span class="json-string-value">string</span>,<br>  <span class="json-key">"product_id"</span>: <span class="json-string-value">"prod-fn"</span>,<br>  <span class="json-key">"application_id"</span>: <span class="json-string-value">string</span>,<br>  <span class="json-key">"acr"</span>: <span class="json-string-value">"urn:epic:loa:aal2"</span>,<br>  <span class="json-key">"auth_time"</span>: <span class="json-string-value">string</span><br>}</pre>
+               <table class="key-description-table">
+                  <tr>
+                     <th>Key</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+                  <tr>
+                     <td><code>access_token</code></td>
+                     <td>String</td>
+                     <td>The OAuth 2.0 access token, which grants temporary access to the application's protected resources.</td>
+                  </tr>
+                  <tr>
+                     <td><code>expires_in</code></td>
+                     <td>Number</td>
+                     <td>The duration (in seconds) until the access token expires.</td>
+                  </tr>
+                  <tr>
+                     <td><code>expires_at</code></td>
+                     <td>String</td>
+                     <td>The expiration timestamp of the access token, formatted in ISO 8601.</td>
+                  </tr>
+                  <tr>
+                     <td><code>token_type</code></td>
+                     <td>String</td>
+                     <td>Indicates the type of token issued.</td>
+                  </tr>
+                  <tr>
+                     <td><code>refresh_token</code></td>
+                     <td>String</td>
+                     <td>The token that can be used to request a new access token after the current one expires.</td>
+                  </tr>
+                  <tr>
+                     <td><code>refresh_expires</code></td>
+                     <td>Number</td>
+                     <td>The duration (in seconds) before the token used to obtain a new access token expires.</td>
+                  </tr>
+                  <tr>
+                     <td><code>refresh_expires_at</code></td>
+                     <td>String</td>
+                     <td>The expiration timestamp of the refresh token, formatted in ISO 8601.</td>
+                  </tr>
+                  <tr>
+                     <td><code>account_id</code></td>
+                     <td>String</td>
+                     <td>The unique identifier for the user's account within Epic Games services.</td>
+                  </tr>
+                  <tr>
+                     <td><code>client_id</code></td>
+                     <td>String</td>
+                     <td>The unique identifier of the client making the request, typically representing the application.</td>
+                  </tr>
+                  <tr>
+                     <td><code>internal_client</code></td>
+                     <td>Boolean</td>
+                     <td>Indicates whether the client is part of Epic's internal systems.</td>
+                  </tr>
+                  <tr>
+                     <td><code>client_service</code></td>
+                     <td>String</td>
+                     <td>The service associated with the client.</td>
+                  </tr>
+                  <tr>
+                     <td><code>scope</code></td>
+                     <td>Array</td>
+                     <td>The permissions granted by the token, specifying the resources the client can access.</td>
+                  </tr>
+                  <tr>
+                     <td><code>displayName</code></td>
+                     <td>String</td>
+                     <td>The user's display name associated with the account.</td>
+                  </tr>
+                  <tr>
+                     <td><code>app</code></td>
+                     <td>String</td>
+                     <td>The application that is requesting the token.</td>
+                  </tr>
+                  <tr>
+                     <td><code>in_app_id</code></td>
+                     <td>String</td>
+                     <td>The unique ID assigned to the user within the application.</td>
+                  </tr>
+                  <tr>
+                     <td><code>device_id</code></td>
+                     <td>String</td>
+                     <td>The unique identifier of the device making the request.</td>
+                  </tr>
+                  <tr>
+                     <td><code>product_id</code></td>
+                     <td>String</td>
+                     <td>The unique identifier of the product linked to the token.</td>
+                  </tr>
+                  <tr>
+                     <td><code>application_id</code></td>
+                     <td>String</td>
+                     <td>The unique identifier of the application requesting the token. This may differ from <code>client_id</code> when multiple applications share the same client.</td>
+                  </tr>
+                  <tr>
+                     <td><code>acr</code></td>
+                     <td>String</td>
+                     <td>The level of security or strength of the authentication method used.</td>
+                  </tr>
+                  <tr>
+                     <td><code>auth_time</code></td>
+                     <td>String</td>
+                     <td>The timestamp, representing the moment when authentication took place, formatted in ISO 8601.</td>
+                  </tr>
+               </table>
+               <h4>Client Credentials Grant</h4>
+               <p>This grant allows clients to obtain an access token without user context. It is used for accessing client-specific resources rather than user-related data. You can learn about its flow <a href="https://datatracker.ietf.org/doc/html/rfc6749#section-4.4">here</a>.</p>
+               <h5>Method</h5>
+               <p>1. Identify the client for which you need to obtain an access token.</p>
+               <p>2. Send a <code>POST</code> request to <u>https://api.epicgames.dev/auth/v1/oauth/token</u>:</p>
+               <p>Request Headers:</p>
+               <pre>Content-Type: application/x-www-form-urlencoded<br>Authorization: Basic {client_id:client_secret}</pre>
+               <p>Note that the <code>client_id:client_secret</code> pair needs to be encoded in Base64.</p>
+               <p>Request Body:</p>
+               <pre>grant_type=client_credentials</pre>
+               <h5>Example: Authenticating to the Dead by Daylight Client</h5>
+               <p>You can retrieve the Dead by Daylight client's ID and secret by monitoring its network traffic when launching the game through the Epic Games Launcher. Specifically, the "Authorization" request header in any requests sent to <u>https://api.epicgames.dev/auth/v1/oauth/token</u> or <u>https://api.epicgames.dev/epic/oauth/v2/token</u> will contain the value <code>Basic eHl6YTc4OTFzSGQ4NDdVeEI0cG54WjMwT2hRRXFNZXQ6SXdYNEg4bmRDbmE0R1RpRDhMVFkyT3hqSDJncG5uYkt6cTRCaHFkL250RQ==</code>. You can use <a href="https://www.base64decode.org/">this</a> website to decode the Base64-encoded text. In this case, decoding <code>eHl6YTc4OTFzSGQ4NDdVeEI0cG54WjMwT2hRRXFNZXQ6SXdYNEg4bmRDbmE0R1RpRDhMVFkyT3hqSDJncG5uYkt6cTRCaHFkL250RQ==</code> reveals <code>xyza7891sHd847UxB4pnxZ30OhQEqMet:IwX4H8ndCna4GTiD8LTY2OxjH2gpnnbKzq4Bhqd/ntE</code>, where <code>xyza7891sHd847UxB4pnxZ30OhQEqMet</code> is the client ID and <code>IwX4H8ndCna4GTiD8LTY2OxjH2gpnnbKzq4Bhqd/ntE</code> is the client secret.</p>
+               <p>Request Headers:</p>
+               <pre>Content-Type: application/x-www-form-urlencoded<br>Authorization: Basic eHl6YTc4OTFzSGQ4NDdVeEI0cG54WjMwT2hRRXFNZXQ6SXdYNEg4bmRDbmE0R1RpRDhMVFkyT3hqSDJncG5uYkt6cTRCaHFkL250RQ==</pre>
+               <p>Request Body:</p>
+               <pre>grant_type=client_credentials</pre>
+               <p>If the request is successful, then the response will have the following structure:</p>
+               <pre>{<br>  <span class="json-key">"access_token"</span>: <span class="json-string-value">string</span>,<br>  <span class="json-key">"token_type"</span>: <span class="json-string-value">"bearer"</span>,<br>  <span class="json-key">"expires_at"</span>: <span class="json-string-value">string</span>,<br>  <span class="json-key">"features"</span>: <span class="json-array-value">[</span><br>    <span class="json-string-value">"Achievements"</span>,<br>    <span class="json-string-value">"AntiCheat"</span>,<br>    <span class="json-string-value">"Ecom"</span>,<br>    <span class="json-string-value">"Matchmaking"</span>,<br>    <span class="json-string-value">"Metrics"</span>,<br>    <span class="json-string-value">"Sanctions"</span>,<br>    <span class="json-string-value">"Stats"</span><br>  <span class="json-array-value">]</span>,<br>  <span class="json-key">"organization_id"</span>: <span class="json-string-value">"o-2ctdycbd3jxm6a26vpz5d4xv872smu"</span>,<br>  <span class="json-key">"product_id"</span>: <span class="json-string-value">"2b2299be8ae84d679d4dc57c55af1510"</span>,<br>  <span class="json-key">"expires_in"</span>: <span class="json-number-value">3599</span><br>}</pre>
+               <table class="key-description-table">
+                  <tr>
+                     <th>Key</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+                  <tr>
+                     <td><code>access_token</code></td>
+                     <td>String</td>
+                     <td>The OAuth 2.0 access token, which grants temporary access to the application's protected resources.</td>
+                  </tr>
+                  <tr>
+                     <td><code>token_type</code></td>
+                     <td>String</td>
+                     <td>Indicates the type of token issued.</td>
+                  </tr>
+                  <tr>
+                     <td><code>expires_at</code></td>
+                     <td>String</td>
+                     <td>The expiration timestamp of the access token, formatted in ISO 8601.</td>
+                  </tr>
+                  <tr>
+                     <td><code>features</code></td>
+                     <td>Array</td>
+                     <td>A list of features that are enabled for the access token.</td>
+                  </tr>
+                  <tr>
+                     <td><code>organization_id</code></td>
+                     <td>String</td>
+                     <td>A unique identifier for the organization linked to the token.</td>
+                  </tr>
+                  <tr>
+                     <td><code>product_id</code></td>
+                     <td>String</td>
+                     <td>The unique identifier of the product linked to the token.</td>
+                  </tr>
+                  <tr>
+                     <td><code>expires_in</code></td>
+                     <td>Number</td>
+                     <td>The duration (in seconds) until the access token expires.</td>
+                  </tr>
+               </table>
+               <h4>Exchange Code Grant</h4>
+               <p>This grant allows clients to exchange a short-lived authorization code for an access token. Since Epic has removed the endpoint that previously allowed obtaining an exchange code through a browser, the only way to acquire one now is by launching the selected game via the Epic Games Launcher. However, you can still retrieve the access token by capturing the game's network traffic as it launches. Specifically, by inspecting the request sent to <u>https://api.epicgames.dev/epic/oauth/v2/token</u> after launching the game, you will find a response structured as follows:</p>
+               <pre>{<br>  <span class="json-key">"scope"</span>: <span class="json-string-value">string</span>,<br>  <span class="json-key">"token_type"</span>: <span class="json-string-value">string</span>,<br>  <span class="json-key">"access_token"</span>: <span class="json-string-value">string</span>,<br>  <span class="json-key">"refresh_token"</span>: <span class="json-string-value">string</span>,<br>  <span class="json-key">"id_token"</span>: <span class="json-string-value">string</span>,<br>  <span class="json-key">"expires_in"</span>: <span class="json-number-value">number</span>,<br>  <span class="json-key">"expires_at"</span>: <span class="json-string-value">string</span>,<br>  <span class="json-key">"refresh_expires_in"</span>: <span class="json-number-value">number</span>,<br>  <span class="json-key">"refresh_expires_at"</span>: <span class="json-string-value">string</span>,<br>  <span class="json-key">"account_id"</span>: <span class="json-string-value">string</span>,<br>  <span class="json-key">"client_id"</span>: <span class="json-string-value">string</span>,<br>  <span class="json-key">"application_id"</span>: <span class="json-string-value">string</span>,<br>  <span class="json-key">"selected_account_id"</span>: <span class="json-string-value">string</span>,<br>  <span class="json-key">"merged_accounts"</span>: <span class="json-array-value">[]</span>,<br>  <span class="json-key">"acr"</span>: <span class="json-string-value">string</span>,<br>  <span class="json-key">"auth_time"</span>: <span class="json-string-value">string</span><br>}</pre>
+               <table class="key-description-table">
+                  <tr>
+                     <th>Key</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+                  <tr>
+                     <td><code>scope</code></td>
+                     <td>String</td>
+                     <td>The permissions granted by the token, specifying the resources the client can access.</td>
+                  </tr>
+                  <tr>
+                     <td><code>token_type</code></td>
+                     <td>String</td>
+                     <td>Indicates the type of token issued.</td>
+                  </tr>
+                  <tr>
+                     <td><code>access_token</code></td>
+                     <td>String</td>
+                     <td>The OAuth 2.0 access token, which grants temporary access to the application's protected resources.</td>
+                  </tr>
+                  <tr>
+                     <td><code>refresh_token</code></td>
+                     <td>String</td>
+                     <td>The token that can be used to request a new access token after the current one expires.</td>
+                  </tr>
+                  <tr>
+                     <td><code>id_token</code></td>
+                     <td>String</td>
+                     <td>A token that contains user-related information in the form of claims.</td>
+                  </tr>
+                  <tr>
+                     <td><code>expires_in</code></td>
+                     <td>Number</td>
+                     <td>The duration (in seconds) until the access token expires.</td>
+                  </tr>
+                  <tr>
+                     <td><code>expires_at</code></td>
+                     <td>String</td>
+                     <td>The expiration timestamp of the access token, formatted in ISO 8601.</td>
+                  </tr>
+                  <tr>
+                     <td><code>refresh_expires_in</code></td>
+                     <td>Number</td>
+                     <td>The duration (in seconds) before the token used to obtain a new access token expires.</td>
+                  </tr>
+                  <tr>
+                     <td><code>refresh_expires_at</code></td>
+                     <td>String</td>
+                     <td>The expiration timestamp of the refresh token, formatted in ISO 8601.</td>
+                  </tr>
+                  <tr>
+                     <td><code>account_id</code></td>
+                     <td>String</td>
+                     <td>The unique identifier for the user's account within Epic Games services.</td>
+                  </tr>
+                  <tr>
+                     <td><code>client_id</code></td>
+                     <td>String</td>
+                     <td>The unique identifier of the client making the request, typically representing the application.</td>
+                  </tr>
+                  <tr>
+                     <td><code>application_id</code></td>
+                     <td>String</td>
+                     <td>The unique identifier of the application requesting the token. This may differ from <code>client_id</code> when multiple applications share the same client.</td>
+                  </tr>
+                  <tr>
+                     <td><code>selected_account_id</code></td>
+                     <td>String</td>
+                     <td>The selected account ID when a user has multiple accounts linked to the service.</td>
+                  </tr>
+                  <tr>
+                     <td><code>merged_accounts</code></td>
+                     <td>Array</td>
+                     <td>An array of account IDs that have been merged into the primary account.</td>
+                  </tr>
+                  <tr>
+                     <td><code>acr</code></td>
+                     <td>String</td>
+                     <td>The level of security or strength of the authentication method used.</td>
+                  </tr>
+                  <tr>
+                     <td><code>auth_time</code></td>
+                     <td>String</td>
+                     <td>The timestamp, representing the moment when authentication took place, formatted in ISO 8601.</td>
+                  </tr>
+               </table>
+               <h5>Example: Authenticating to the Dead by Daylight Client</h5>
+               <p>Request Headers:</p>
+               <pre>Host: api.epicgames.dev<br>Accept-Encoding: identity<br>Content-Type: application/x-www-form-urlencoded<br>Accept: application/json<br>Authorization: Basic eHl6YTc4OTFzSGQ4NDdVeEI0cG54WjMwT2hRRXFNZXQ6SXdYNEg4bmRDbmE0R1RpRDhMVFkyT3hqSDJncG5uYkt6cTRCaHFkL250RQ==<br>X-Epic-Correlation-ID: {X-Epic-Correlation-ID}<br>User-Agent: EOS-SDK/{X-EOS-Version} ({os_name}/{os_version}.{os_build}.{architecture}) DeadByDaylight/{version}<br>X-EOS-Version: {sdk_version}-{build_number}<br>Content-Length: {Content-Length}</pre>
+               <p>, where <code>X-Epic-Correlation-ID</code> is a unique identifier for tracking requests across Epic's services, <code>X-EOS-Version</code> is the EOS SDK version followed by the build number, <code>os_name</code> is the operating system name, <code>os_version</code> is the operating system version, <code>os_build</code> is the specific build of the operating system, <code>architecture</code> is the system's architecture, <code>version</code> is the game's version, <code>sdk_version</code> is the EOS SDK version, <code>build_number</code> is the EOS SDK build number, and <code>Content-Length</code> is the size of the request body in bytes.</p>
+               <p>Request Body:</p>
+               <pre>grant_type=exchange_code&scope=basic_profile+friends_list+presence+openid&exchange_code={exchange_code}&deployment_id={deployment_id}</pre>
+               <p>, where <code>exchange_code</code> is the exchange code, and <code>deployment_id</code> is a unique identifier for a specific game deployment integrated with EOS.</p>
+               <pre>{<br>  <span class="json-key">"scope"</span>: <span class="json-string-value">"basic_profile friends_list openid presence"</span>,<br>  <span class="json-key">"token_type"</span>: <span class="json-string-value">"bearer"</span>,<br>  <span class="json-key">"access_token"</span>: <span class="json-string-value">string</span>,<br>  <span class="json-key">"refresh_token"</span>: <span class="json-string-value">string</span>,<br>  <span class="json-key">"id_token"</span>: <span class="json-string-value">string</span>,<br>  <span class="json-key">"expires_in"</span>: <span class="json-number-value">7200</span>,<br>  <span class="json-key">"expires_at"</span>: <span class="json-string-value">string</span>,<br>  <span class="json-key">"refresh_expires_in"</span>: <span class="json-number-value">28800</span>,<br>  <span class="json-key">"refresh_expires_at"</span>: <span class="json-string-value">string</span>,<br>  <span class="json-key">"account_id"</span>: <span class="json-string-value">string</span>,<br>  <span class="json-key">"client_id"</span>: <span class="json-string-value">"xyza7891sHd847UxB4pnxZ30OhQEqMet"</span>,<br>  <span class="json-key">"application_id"</span>: <span class="json-string-value">string</span>,<br>  <span class="json-key">"selected_account_id"</span>: <span class="json-string-value">string</span>,<br>  <span class="json-key">"merged_accounts"</span>: <span class="json-array-value">[]</span>,<br>  <span class="json-key">"acr"</span>: <span class="json-string-value">"AAL1"</span>,<br>  <span class="json-key">"auth_time"</span>: <span class="json-string-value">string</span><br>}</pre>
+               <h4>Refresh Token Grant</h4>
+               <p>This grant allows clients to exchange a refresh token for a new access token when the current one expires, enabling continuous access without requiring further user interaction. You can learn about its flow <a href="https://datatracker.ietf.org/doc/html/rfc6749#section-1.5">here</a>.</p>
+               <h5>Method for Authenticating to the Dead by Daylight Client</h5>
+               <p>1. Identify the client for which you need to obtain a refresh token.</p>
+               <p>2. Typically, a <code>refresh_token</code> is provided at the final step of the authorization code grant. However, since Dead by Daylight does not support authentication via this grant, you will instead receive a <code>refresh_token</code> at the final step of the exchange code grant. This token remains valid for 8 hours and allows the client to obtain a new access token without requiring the user's consent again.</p>
+               <p>3. Launch Dead by Daylight from the Epic Games Launcher while your network traffic capture application is running.</p>
+               <p>4. When you reach the title screen (where Dead by Daylight prompts you to "PRESS SPACE TO CONTINUE"), switch back to your network traffic capture application.</p>
+               <p>5. Locate the session that uses the <code>exchange_code</code> <code>grant_type</code>. This will be the request sent to <u>https://api.epicgames.dev/epic/oauth/v2/token</u>.</p>
+               <p>6. In the response body, locate the <code>refresh_token</code> key and its corresponding value. Right-click on the value and select "Copy".</p>
+               <p>7. Send a <code>POST</code> request to <u>https://account-public-service-prod.ol.epicgames.com/account/api/oauth/token</u>:</p>
+               <p>Request Headers:</p>
+               <pre>Content-Type: application/x-www-form-urlencoded<br>Authorization: Basic eHl6YTc4OTFzSGQ4NDdVeEI0cG54WjMwT2hRRXFNZXQ6SXdYNEg4bmRDbmE0R1RpRDhMVFkyT3hqSDJncG5uYkt6cTRCaHFkL250RQ==</pre>
+               <p>Request Body:</p>
+               <pre>grant_type=refresh_token&refresh_token={refresh_token}</pre>
+               <p>Note that <code>refresh_token</code> is obtained from the response in step 6.</p>
+               <p>8. If the request is successful, then you will receive a response with the following structure:</p>
+               <pre>{<br>  <span class="json-key">"access_token"</span>: <span class="json-string-value">string</span>,<br>  <span class="json-key">"expires_in"</span>: <span class="json-number-value">7200</span>,<br>  <span class="json-key">"expires_at"</span>: <span class="json-string-value">string</span>,<br>  <span class="json-key">"token_type"</span>: <span class="json-string-value">"bearer"</span>,<br>  <span class="json-key">"refresh_token"</span>: <span class="json-string-value">string</span>,<br>  <span class="json-key">"refresh_expires"</span>: <span class="json-number-value">28800</span>,<br>  <span class="json-key">"refresh_expires_at"</span>: <span class="json-string-value">string</span>,<br>  <span class="json-key">"account_id"</span>: <span class="json-string-value">string</span>,<br>  <span class="json-key">"client_id"</span>: <span class="json-string-value">"xyza7891sHd847UxB4pnxZ30OhQEqMet"</span>,<br>  <span class="json-key">"internal_client"</span>: <span class="json-boolean-value">false</span>,<br>  <span class="json-key">"client_service"</span>: <span class="json-string-value">"2b2299be8ae84d679d4dc57c55af1510"</span>,<br>  <span class="json-key">"scope"</span>: <span class="json-array-value">[</span><br>   <span class="json-string-value">"basic_profile"</span>,<br>   <span class="json-string-value">"friends_list"</span>,<br>   <span class="json-string-value">"openid"</span>,<br>   <span class="json-string-value">"presence"</span><br>  <span class="json-array-value">]</span>,<br>  <span class="json-key">"displayName"</span>: <span class="json-string-value">string</span>,<br>  <span class="json-key">"app"</span>: <span class="json-string-value">"2b2299be8ae84d679d4dc57c55af1510"</span>,<br>  <span class="json-key">"in_app_id"</span>: <span class="json-string-value">string</span>,<br>  <span class="json-key">"device_id"</span>: <span class="json-string-value">string</span>,<br>  <span class="json-key">"product_id"</span>: <span class="json-string-value">"2b2299be8ae84d679d4dc57c55af1510"</span>,<br>  <span class="json-key">"sandbox_id"</span>: <span class="json-string-value">"611482b8586142cda48a0786eb8a127c"</span>,<br>  <span class="json-key">"deployment_id"</span>: <span class="json-string-value">string</span>,<br>  <span class="json-key">"application_id"</span>: <span class="json-string-value">string</span>,<br>  <span class="json-key">"acr"</span>: <span class="json-string-value">"urn:epic:loa:aal1"</span>,<br>  <span class="json-key">"auth_time"</span>: <span class="json-string-value">string</span><br>}</pre>
+               <table class="key-description-table">
+                  <tr>
+                     <th>Key</th>
+                     <th>Type</th>
+                     <th>Description</th>
+                  </tr>
+                  <tr>
+                     <td><code>access_token</code></td>
+                     <td>String</td>
+                     <td>The OAuth 2.0 access token, which grants temporary access to the application's protected resources.</td>
+                  </tr>
+                  <tr>
+                     <td><code>expires_in</code></td>
+                     <td>Number</td>
+                     <td>The duration (in seconds) until the access token expires.</td>
+                  </tr>
+                  <tr>
+                     <td><code>expires_at</code></td>
+                     <td>String</td>
+                     <td>The expiration timestamp of the access token, formatted in ISO 8601.</td>
+                  </tr>
+                  <tr>
+                     <td><code>token_type</code></td>
+                     <td>String</td>
+                     <td>Indicates the type of token issued.</td>
+                  </tr>
+                  <tr>
+                     <td><code>refresh_token</code></td>
+                     <td>String</td>
+                     <td>The token that can be used to request a new access token after the current one expires.</td>
+                  </tr>
+                  <tr>
+                     <td><code>refresh_expires</code></td>
+                     <td>Number</td>
+                     <td>The duration (in seconds) before the token used to obtain a new access token expires.</td>
+                  </tr>
+                  <tr>
+                     <td><code>refresh_expires_at</code></td>
+                     <td>String</td>
+                     <td>The expiration timestamp of the refresh token, formatted in ISO 8601.</td>
+                  </tr>
+                  <tr>
+                     <td><code>account_id</code></td>
+                     <td>String</td>
+                     <td>The unique identifier for the user's account within Epic Games services.</td>
+                  </tr>
+                  <tr>
+                     <td><code>client_id</code></td>
+                     <td>String</td>
+                     <td>The unique identifier of the client making the request, typically representing the application.</td>
+                  </tr>
+                  <tr>
+                     <td><code>internal_client</code></td>
+                     <td>Boolean</td>
+                     <td>Indicates whether the client is part of Epic's internal systems.</td>
+                  </tr>
+                  <tr>
+                     <td><code>client_service</code></td>
+                     <td>String</td>
+                     <td>The service associated with the client.</td>
+                  </tr>
+                  <tr>
+                     <td><code>scope</code></td>
+                     <td>Array</td>
+                     <td>The permissions granted by the token, specifying the resources the client can access.</td>
+                  </tr>
+                  <tr>
+                     <td><code>displayName</code></td>
+                     <td>String</td>
+                     <td>The user's display name associated with the account.</td>
+                  </tr>
+                  <tr>
+                     <td><code>app</code></td>
+                     <td>String</td>
+                     <td>The application that is requesting the token.</td>
+                  </tr>
+                  <tr>
+                     <td><code>in_app_id</code></td>
+                     <td>String</td>
+                     <td>The unique ID assigned to the user within the application.</td>
+                  </tr>
+                  <tr>
+                     <td><code>device_id</code></td>
+                     <td>String</td>
+                     <td>The unique identifier of the device making the request.</td>
+                  </tr>
+                  <tr>
+                     <td><code>product_id</code></td>
+                     <td>String</td>
+                     <td>The unique identifier of the product linked to the token.</td>
+                  </tr>
+                  <tr>
+                     <td><code>sandbox_id</code></td>
+                     <td>String</td>
+                     <td>The environment to which the API requests and responses belong.</td>
+                  </tr>
+                  <tr>
+                     <td><code>deployment_id</code></td>
+                     <td>String</td>
+                     <td>A unique identifier for a specific game deployment integrated with EOS.</td>
+                  </tr>
+                  <tr>
+                     <td><code>application_id</code></td>
+                     <td>String</td>
+                     <td>The unique identifier of the application requesting the token. This may differ from <code>client_id</code> when multiple applications share the same client.</td>
+                  </tr>
+                  <tr>
+                     <td><code>acr</code></td>
+                     <td>String</td>
+                     <td>The level of security or strength of the authentication method used.</td>
+                  </tr>
+                  <tr>
+                     <td><code>auth_time</code></td>
+                     <td>String</td>
+                     <td>The timestamp, representing the moment when authentication took place, formatted in ISO 8601.</td>
+                  </tr>
+               </table>
+            </main>
+         </div>
+      </div>
+      <!-- Footer -->
+      <footer class="footer">
+         <p>
+            Copyright &copy;
+            <script type="text/javascript">
+               document.write(new Date().getFullYear());
+            </script>
+            Eigenvoid. All rights reserved.
+         </p>
+      </footer>
+      <!-- JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="../../js/jquery-3.7.1.min.js"></script>
+      <script src="../../js/popper.min.js"></script>
+      <script src="../../js/bootstrap.min.js"></script>
+      <!-- Custom JavaScript -->
+      <script src="../../js/main.js"></script>
+   </body>
+</html>

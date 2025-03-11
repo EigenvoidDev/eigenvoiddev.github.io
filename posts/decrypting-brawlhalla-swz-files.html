@@ -3,23 +3,22 @@
    <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="theme-color" content="#15171E">
       <title>Decrypting Brawlhalla SWZ Files - Eigenvoid</title>
-      <meta name="description" content="The following is a list of instructions required to decrypt Brawlhalla's SWZ files.">
+      <meta name="description" content="Learn how to decrypt Brawlhalla's SWZ files.">
       <!-- Canonical URL -->
       <link rel="canonical" href="https://www.eigenvoid.dev/posts/decrypting-brawlhalla-swz-files">
       <!-- Open Graph Meta Tags -->
       <meta property="og:url" content="https://www.eigenvoid.dev/posts/decrypting-brawlhalla-swz-files">
       <meta property="og:type" content="article">
       <meta property="og:title" content="Decrypting Brawlhalla SWZ Files - Eigenvoid">
-      <meta property="og:description" content="The following is a list of instructions required to decrypt Brawlhalla's SWZ files.">
+      <meta property="og:description" content="Learn how to decrypt Brawlhalla's SWZ files.">
       <meta property="og:image" content="https://www.eigenvoid.dev/img/og/favicon-1200x628.png">
       <meta property="og:site_name" content="Eigenvoid">
       <meta property="og:locale" content="en_US">
       <!-- Twitter Card Meta Tags -->
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="Decrypting Brawlhalla SWZ Files - Eigenvoid">
-      <meta name="twitter:description" content="The following is a list of instructions required to decrypt Brawlhalla's SWZ files.">
+      <meta name="twitter:description" content="Learn how to decrypt Brawlhalla's SWZ files.">
       <meta name="twitter:image" content="https://www.eigenvoid.dev/img/twitter/favicon-1200x670.png">
       <!-- Apple Touch Icon -->
       <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
@@ -29,13 +28,14 @@
       <!-- Bootstrap CSS -->
       <link rel="stylesheet" href="../css/bootstrap.min.css">
       <!-- Custom CSS -->
-      <link rel="stylesheet" href="../css/secondary.css">
-      <!-- Font -->
+      <link rel="stylesheet" href="../css/main.css">
+      <!-- Fonts -->
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
       <!-- Font Awesome CSS -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <!-- Google tag (gtag.js) -->
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-E7GC202X7V"></script>
       <script>
@@ -47,73 +47,94 @@
       </script>
    </head>
    <body>
-      <!-- Navbar Container -->
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top">
-         <div class="container-fluid">
-            <!-- Navbar Toggler Button -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <!-- Navbar Items -->
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-               <ul class="navbar-nav mx-auto">
-                  <a href="../">Home</a>
-                  <a href="../achievements">Achievements</a>
-                  <a href="../posts">Posts</a>
-                  <a href="../software-and-resources">Software & Resources</a>
-                  <a href="../media">Media</a>
-               </ul>
+      <div class="wrapper">
+         <!-- Navbar -->
+         <nav class="navbar navbar-expand-md navbar-dark">
+            <div class="container d-flex justify-content-between">
+               <!-- Brand Name -->
+               <a class="nav-link brand-name" href="../">Eigenvoid</a>
+               <!-- Navbar Toggler Button -->
+               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+               </button>
+               <!-- Navbar Items -->
+               <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav ms-auto">
+                     <li class="nav-item">
+                        <a class="nav-link" href="../achievements">Achievements</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="../posts">Posts</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="../projects">Projects</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="../media">Media</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="https://discord.com/users/1310056373136003102"><i class="fab fa-discord"></i></a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/EigenvoidDev"><i class="fab fa-github"></i></a>
+                     </li>
+                  </ul>
+               </div>
             </div>
+         </nav>
+         <!-- Main Content -->
+         <div class="container main-content">
+            <h4>Decrypting Brawlhalla SWZ Files</h4>
+            <div class="post-dates">
+               <p class="post-date">September 14, 2024</p>
+            </div>
+            <hr>
+            <h5>Disclaimer</h5>
+            <p>The information included in this post is for educational purposes only. Any material on this webpage may not be reproduced, retransmitted, or redisplayed other than for personal or educational use.</p>
+            <h5>Introduction</h5>
+            <p>SWZ files are Runtime Shared Libraries (RSLs) that contain data that have been digitally signed by <a href="https://www.adobe.com/">Adobe</a> (if the files were created by them) in the <a href="https://flex.apache.org/">Apache Flex, formerly Adobe Flex</a> framework. Prior to Apache Flex, SWZ files were stored in the Flash Player cache and could be accessed by any application, regardless of that application's originating domain. They only needed to be downloaded to the client once, and they were not cleared from the client's disk when the browser's cache was cleared.</p>
+            <h5>Brawlhalla SWZ File Format</h5>
+            <p>Brawlhalla SWZ files store string objects, all of which are <a href="https://en.wikipedia.org/wiki/Zlib">zlib-compressed</a> and encrypted. The file format uses a <a href="https://en.wikipedia.org/wiki/XOR_cipher">XOR cipher</a> that incorporates the <a href="https://en.wikipedia.org/wiki/Well_equidistributed_long-period_linear">WELL512</a> pseudo-random number generator to provide a random key for each operation. According to <a href="https://web.archive.org/web/20230819131405/http://wiki.xentax.com/index.php/Brawlhalla_SWZ">barncastle</a>, each file uses the below structure and reads StringEntries until compressedSize exceeds the end of the file:</p>
+            <pre class="decrypting-brawlhalla-swz-files-file-structure-pre">struct Header<br>{<br>uint32_BE Checksum;<br>uint32_BE Seed; // XOR with EncryptionKey<br>StringEntry Entries[x];<br>}<br><br>struct StringEntry<br>{<br>uint32_BE EncodedCompressedSize // XOR'd<br>uint32_BE EncodedDecompressedSize // XOR'd<br>uint32_BE Checksum;<br><br>// zlib compressed then XOR'd<br>byte EncodedZlibCompressedData[decodedCompressedSize];<br>}</pre>
+            <p>The checksum in the <code>Header</code> structure is used to verify that the correct secret key is being used for the selected file, whereas the checksum in the <code>StringEntry</code> structure is used to verify the integrity of the encoded and compressed data within each string entry.</p>
+            <h5>Encryption Process</h5>
+            <p>The encryption process is handled by "RawData.dll", an Adobe Native Extension that is invoked by "BrawlhallaAir.swf". This extension contains three methods:</p>
+            <ul>
+               <li>Boolean "RawData_Init(uint)": Defines the secret key.</li>
+               <li>Boolean "RawData_SetData(ByteArray)": Initializes and mixes the WELL512 pseudo-random number generator. The seed is (header.Seed ^ secretKey).</li>
+               <li>String "RawData_GetData()": Decrypts and decompresses a string object.</li>
+            </ul>
+            <h5>Instructions</h5>
+            <p>The following is a list of instructions required to decrypt Brawlhalla's SWZ files:</p>
+            <p>1. Visit <a href="https://gist.github.com/barncastle/a21b62df945445b38daf91ede021a3ec">this</a> URL and left-click on "View raw" below "BrawlhallaDumper.zip".</p>
+            <p>2. Head to the location of the completed download and extract the contents of the compressed (zipped) folder "BrawlhallaDumper" into the directory of your choice.</p>
+            <p>3. Head to where Brawlhalla is installed. Copy the "Dynamic.swz", "Engine.swz", "Game.swz", and "Init.swz" SWZ files from that directory and paste them into the directory where the "BrawlhallaDumper" application is located.</p>
+            <p>4. Drag and drop one or more of the SWZ files onto the "BrawlhallaDumper" application. Terminal will launch, and you will be prompted to enter a global encryption key. You will need <a href="https://github.com/jindrapetrik/jpexs-decompiler/releases">JPEXS Free Flash Decompiler</a> to find this key.</p>
+            <p>5. Once you have installed JPEXS Free Flash Decompiler, run it. In JPEXS Free Flash Decompiler, left-click on "Open" and head to where Brawlhalla is installed in the in-app file explorer. Then, left-click on "BrawlhallaAir.swf" and subsequently left-click on "Open" at the bottom-right corner of the in-app file explorer to open and read it.</p>
+            <p>6. Head to the menu bar and left-click on "Tools". Left-click on "Text search" and type "ANE_RawData.Init" into the "Search text:" text field. Ensure that "Scope" is set to "Current SWF" and that "Search in AS" is selected. Left-click on "OK".</p>
+            <p>7. JPEXS Free Flash Decompiler should return one search result with an obfuscated name. Left-click on this search result, and then left-click on "Go to".</p>
+            <p>8. You will now be focused on an obfuscated function within BrawlhallaAir.swf's ActionScript source. The secret key is displayed in parentheses on the first line of this function. In the case of Brawlhalla patch 8.13, the secret key is <code>865948130</code>. Copy this key.</p>
+            <p>9. Return to the BrawlhallaDumper application and paste the secret key into the "Enter the global encryption key" text field. Press the "Enter" key. The BrawlhallaDumper application will then create a folder named "Dump" in the same directory as the SWZ files and export the decrypted text files there.</p>
+            <h5>Sample Code</h5>
+            <h6>XOR Cipher and WELL512 Pseudo-random Number Generator Combined Approach</h6>
+            <p>The following C++ code simulates the encryption process handled by "RawData.dll". The header seed is sourced from <a href="https://github.com/itselectroz/brawlhalla-swz">this</a> URL. The initial input data is set to a string that reads "Hello, World!"</p>
+            <pre class="decrypting-brawlhalla-swz-files-xor-cipher-well512-prng-combined-approach-pre"><span class="cpp-preprocessor-directive">#include</span> <span class="cpp-library-header">&lt;cstdint&gt;</span>  <span class="cpp-comment">// Provide fixed-width integer types</span><br><span class="cpp-preprocessor-directive">#include</span> <span class="cpp-library-header">&lt;iostream&gt;</span> <span class="cpp-comment">// Provide input and output facilities</span><br><span class="cpp-preprocessor-directive">#include</span> <span class="cpp-library-header">&lt;vector&gt;</span>   <span class="cpp-comment">// Define the std::vector container for encapsulating dynamic arrays</span><br><br><span class="cpp-data-type">class</span> WELL512 {<br> <span class="cpp-keyword"> public</span>:<br><span class="cpp-comment">    // Initialize WELL512 pseudo-random number generator with 32-bit seed</span><br>    WELL512(uint32_t seed) {<br><span class="cpp-comment">      // Initialize first element of state array with seed</span><br>      state[<span class="cpp-value">0</span>] <span class="cpp-keyword">=</span> seed;<br><span class="cpp-comment">      // Fill the rest of state array with pseudo-random numbers based on seed</span><br>      <span class="cpp-keyword">for</span> (<span class="cpp-data-type">int</span> i <span class="cpp-keyword">=</span> <span class="cpp-value">1</span>; i <span class="cpp-keyword">&lt;</span> 16; <span class="cpp-keyword">++</span>i) {<br>        state[i] <span class="cpp-keyword">=</span> (<span class="cpp-value">1812433253U</span> <span class="cpp-keyword">*</span> (state[i <span class="cpp-keyword">-</span> <span class="cpp-value">1</span>] <span class="cpp-keyword">^</span> (state[i <span class="cpp-keyword">-</span> <span class="cpp-value">1</span>] <span class="cpp-keyword">&gt;&gt;</span> <span class="cpp-value">30</span>)) <span class="cpp-keyword">+</span> i);<br>      }<br>      index <span class="cpp-keyword">=</span> <span class="cpp-value">0</span>;<br>    }<br><br>    <span class="cpp-comment">// Generate next 32-bit pseudo-random number in WELL512 sequence</span><br>    uint32_t next() {<br>      uint32_t a <span class="cpp-keyword">=</span> state[index];<br>      uint32_t c <span class="cpp-keyword">=</span> state[(index <span class="cpp-keyword">+</span> <span class="cpp-value">13</span>) <span class="cpp-keyword">&</span> <span class="cpp-value">15</span>];<br>      uint32_t b <span class="cpp-keyword">=</span> a <span class="cpp-keyword">^</span> c <span class="cpp-keyword">^</span> (a <span class="cpp-keyword">&lt;&lt;</span> <span class="cpp-value">16</span>) <span class="cpp-keyword">^</span> (c <span class="cpp-keyword">&lt;&lt;</span> <span class="cpp-value">15</span>);<br>      c <span class="cpp-keyword">=</span> state[(index <span class="cpp-keyword">+</span> <span class="cpp-value">9</span>) <span class="cpp-keyword">&</span> <span class="cpp-value">15</span>];<br>      c <span class="cpp-keyword">^</span><span class="cpp-keyword">=</span> (c <span class="cpp-keyword">&gt;&gt;</span> <span class="cpp-value">11</span>);<br>      a <span class="cpp-keyword">=</span> state[index] <span class="cpp-keyword">=</span> b <span class="cpp-keyword">^</span> c;<br>      uint32_t d <span class="cpp-keyword">=</span> a <span class="cpp-keyword">^</span> ((a <span class="cpp-keyword">&lt;&lt;</span> <span class="cpp-value">5</span>) <span class="cpp-keyword">&</span> <span class="cpp-value">0xDA442D24</span>);<br>      index <span class="cpp-keyword">=</span> (index <span class="cpp-keyword">+</span> <span class="cpp-value">15</span>) <span class="cpp-keyword">&</span> <span class="cpp-value">15</span>;<br>      a <span class="cpp-keyword">=</span> state[index];<br>      state[index] <span class="cpp-keyword">=</span> a <span class="cpp-keyword">^</span> b <span class="cpp-keyword">^</span> d <span class="cpp-keyword">^</span> (a <span class="cpp-keyword">&lt;&lt;</span> <span class="cpp-value">2</span>) <span class="cpp-keyword">^</span> (b <span class="cpp-keyword">&lt;&lt;</span> <span class="cpp-value">18</span>) <span class="cpp-keyword">^</span> (c <span class="cpp-keyword">&lt;&lt;</span> <span class="cpp-value">28</span>);<br>      <span class="cpp-keyword">return</span> state[index];<br>    }<br><br>    <span class="cpp-comment">// Return lowest 8 bits (1 byte) of 32-bit pseudo-random number generated by next() function</span><br>    uint8_t nextByte() {<br>      <span class="cpp-keyword">return</span> <span class="cpp-keyword">static_cast</span><span class="cpp-keyword">&lt;</span>uint8_t<span class="cpp-keyword">&gt;</span>(next() <span class="cpp-keyword">&</span> <span class="cpp-value">0xFF</span>);<br>    }<br><br>  <span class="cpp-keyword">private</span>:<br>    uint32_t state[<span class="cpp-value">16</span>]; <span class="cpp-comment">// State array for WELL512</span><br>    <span class="cpp-data-type">int</span> index; <span class="cpp-comment">// Index for current state</span><br>};<br><br><span class="cpp-comment">// Encrypt input data using XOR cipher with WELL512-generated pseudo-random byte stream</span><br>std::vector<span class="cpp-keyword">&lt;</span>uint8_t<span class="cpp-keyword">&gt;</span> encrypt(<span class="cpp-keyword">const</span> std::vector<span class="cpp-keyword">&lt;</span>uint8_t<span class="cpp-keyword">&gt;</span><span class="cpp-keyword">&</span> data, uint32_t seed) {<br>    <span class="cpp-comment">// Initialize WELL512 instance with seed</span><br>    WELL512 prng(seed);<br>    <span class="cpp-comment">// Create std::vector to hold encrypted data that is same size as input data</span><br>    std::vector<span class="cpp-keyword">&lt;</span>uint8_t<span class="cpp-keyword">&gt;</span> encrypted(data.size());<br><br>    <span class="cpp-comment">// XOR each byte of data with pseudo-random byte generated by prng.nextByte() and store it in std::vector holding encrypted data</span><br>    <span class="cpp-keyword">for</span> (size_t i <span class="cpp-keyword">=</span> <span class="cpp-value">0</span>; i <span class="cpp-keyword">&lt;</span> data.size(); <span class="cpp-keyword">++</span>i) {<br>        encrypted[i] <span class="cpp-keyword">=</span> data[i] <span class="cpp-keyword">^</span> prng.nextByte();<br>    }<br><br>    <span class="cpp-keyword">return</span> encrypted;<br>}<br><br><span class="cpp-comment">// Decrypt input data using same process as encryption since XOR is a symmetric operation</span><br>std::vector<span class="cpp-keyword">&lt;</span>uint8_t<span class="cpp-keyword">&gt;</span> decrypt(<span class="cpp-keyword">const</span> std::vector<span class="cpp-keyword">&lt;</span>uint8_t<span class="cpp-keyword">&gt;</span><span class="cpp-keyword">&</span> data, uint32_t seed) {<br>    <span class="cpp-keyword">return</span> encrypt(data, seed);<br>}<br><br><span class="cpp-comment">// Display contents of std::vector&lt;uint8_t&gt; as characters</span><br><span class="cpp-data-type">void</span> printData(<span class="cpp-keyword">const</span> std::vector<span class="cpp-keyword">&lt;</span>uint8_t<span class="cpp-keyword">&gt;</span><span class="cpp-keyword">&</span> data) {<br>    <span class="cpp-comment">// Cast each uint8_t to a char and print it</span><br>    <span class="cpp-keyword">for</span> (uint8_t byte : data) {<br>      std::cout <span class="cpp-keyword">&lt;&lt;</span> <span class="cpp-keyword">static_cast</span><span class="cpp-keyword">&lt;</span><span class="cpp-data-type">char</span><span class="cpp-keyword">&gt;</span>(byte);<br>    }<br>    <span class="cpp-comment">// Display newline after printing all bytes</span><br>    std::cout <span class="cpp-keyword">&lt;&lt;</span> <span class="cpp-string">"</span><span class="cpp-value">\n</span><span class="cpp-string">"</span>;<br>}<br><br><span class="cpp-data-type">int</span> main() {<br>    std::string plaintext <span class="cpp-keyword">=</span> <span class="cpp-string">"Hello, World!"</span>;<br><br>    <span class="cpp-comment">// Given values</span><br>    uint32_t headerSeed <span class="cpp-keyword">=</span> <span class="cpp-value">731341442</span>;<br>    uint32_t secretKey <span class="cpp-keyword">=</span> <span class="cpp-value">865948130</span>;<br><br>    <span class="cpp-comment">// XOR header seed and secret key to derive actual seed</span><br>    uint32_t seed <span class="cpp-keyword">=</span> headerSeed <span class="cpp-keyword">^</span> secretKey;<br><br>    <span class="cpp-comment">// Convert string to vector of bytes</span><br>    std::vector<span class="cpp-keyword">&lt;</span>uint8_t<span class="cpp-keyword">&gt;</span> plaintextBytes(plaintext.begin(), plaintext.end());<br><br>    <span class="cpp-comment">// Encrypt plaintext</span><br>    std::vector<span class="cpp-keyword">&lt;</span>uint8_t<span class="cpp-keyword">&gt;</span> encryptedText <span class="cpp-keyword">=</span> encrypt(plaintextBytes, seed);<br><br>    <span class="cpp-comment">// Decrypt ciphertext</span><br>    std::vector<span class="cpp-keyword">&lt;</span>uint8_t<span class="cpp-keyword">&gt;</span> decryptedText <span class="cpp-keyword">=</span> decrypt(encryptedText, seed);<br><br>    std::cout <span class="cpp-keyword">&lt;&lt;</span> <span class="cpp-string">"Plaintext: "</span> <span class="cpp-keyword">&lt;&lt;</span> plaintext <span class="cpp-keyword">&lt;&lt;</span> <span class="cpp-string">"</span><span class="cpp-value">\n\n</span><span class="cpp-string">"</span>;<br>    std::cout <span class="cpp-keyword">&lt;&lt;</span> <span class="cpp-string">"Encrypted: "</span>;<br>    printData(encryptedText);<br>    std::cout <span class="cpp-keyword">&lt;&lt;</span> <span class="cpp-string">"Decrypted: "</span>;<br>    printData(decryptedText);<br><br>    <span class="cpp-keyword">return</span> <span class="cpp-value">0</span>;<br>}</pre>
          </div>
-      </nav>
-      <!-- Main Content -->
-      <div class="container post-container">
-         <h2 class="post-title">Decrypting Brawlhalla SWZ Files</h2>
-         <h6 class="post-date">September 14, 2024</h6>
-         <hr>
-         <h5>Disclaimer</h5>
-         <p>The information included in this post is for educational purposes only. Any material on this webpage may not be reproduced, retransmitted, or redisplayed other than for personal or educational use.</p>
-         <h5>Introduction</h5>
-         <p>SWZ files are Runtime Shared Libraries (RSLs) that contain data that have been digitally signed by <a href="https://www.adobe.com/">Adobe</a> (if the files were created by them) in the <a href="https://flex.apache.org/">Apache Flex, formerly Adobe Flex</a> framework. Prior to Apache Flex, SWZ files were stored in the Flash Player cache and could be accessed by any application, regardless of that application's originating domain. They only needed to be downloaded to the client once, and they were not cleared from the client's disk when the browser's cache was cleared.</p>
-         <h5>Brawlhalla SWZ File Format</h5>
-         <p>Brawlhalla SWZ files store string objects, all of which are <a href="https://en.wikipedia.org/wiki/Zlib">zlib-compressed</a> and encrypted. The file format uses a <a href="https://en.wikipedia.org/wiki/XOR_cipher">XOR cipher</a> that incorporates the <a href="https://en.wikipedia.org/wiki/Well_equidistributed_long-period_linear">WELL512</a> pseudo-random number generator to provide a random key for each operation. According to <a href="https://web.archive.org/web/20230819131405/http://wiki.xentax.com/index.php/Brawlhalla_SWZ">barncastle</a>, each file uses the below structure and reads StringEntries until compressedSize exceeds the end of the file:</p>
-         <pre class="decrypting-brawlhalla-swz-files-file-structure-pre">struct Header<br>{<br>uint32_BE Checksum;<br>uint32_BE Seed; // XOR with EncryptionKey<br>StringEntry Entries[x];<br>}<br><br>struct StringEntry<br>{<br>uint32_BE EncodedCompressedSize // XOR'd<br>uint32_BE EncodedDecompressedSize // XOR'd<br>uint32_BE Checksum;<br><br>// zlib compressed then XOR'd<br>byte EncodedZlibCompressedData[decodedCompressedSize];<br>}</pre>
-         <p>The checksum in the <code>Header</code> structure is used to verify that the correct secret key is being used for the selected file, whereas the checksum in the <code>StringEntry</code> structure is used to verify the integrity of the encoded and compressed data within each string entry.</p>
-         <h5>Encryption Process</h5>
-         <p>The encryption process is handled by "RawData.dll", an Adobe Native Extension that is invoked by "BrawlhallaAir.swf". This extension contains three methods:</p>
-         <p>• Boolean "RawData_Init(uint)": Defines the secret key.</p>
-         <p>• Boolean "RawData_SetData(ByteArray)": Initializes and mixes the WELL512 pseudo-random number generator. The seed is (header.Seed ^ secretKey).</p>
-         <p>• String "RawData_GetData()": Decrypts and decompresses a string object.</p>
-         <h5>Instructions</h5>
-         <p>The following is a list of instructions required to decrypt Brawlhalla's SWZ files:</p>
-         <p>1. Visit <a href="https://gist.github.com/barncastle/a21b62df945445b38daf91ede021a3ec">this</a> URL and left-click on "View raw" below "BrawlhallaDumper.zip".</p>
-         <p>2. Head to the location of the completed download and extract the contents of the compressed (zipped) folder "BrawlhallaDumper" into the directory of your choice.</p>
-         <p>3. Head to where Brawlhalla is installed. Copy the "Dynamic.swz", "Engine.swz", "Game.swz", and "Init.swz" SWZ files from that directory and paste them into the directory where the "BrawlhallaDumper" application is located.</p>
-         <p>4. Drag and drop one or more of the SWZ files onto the "BrawlhallaDumper" application. Terminal will launch, and you will be prompted to enter a global encryption key. You will need <a href="https://github.com/jindrapetrik/jpexs-decompiler/releases">JPEXS Free Flash Decompiler</a> to find this key.</p>
-         <p>5. Once you have installed JPEXS Free Flash Decompiler, run it. In JPEXS Free Flash Decompiler, left-click on "Open" and head to where Brawlhalla is installed in the in-app file explorer. Then, left-click on "BrawlhallaAir.swf" and subsequently left-click on "Open" at the bottom-right corner of the in-app file explorer to open and read it.</p>
-         <p>6. Head to the menu bar and left-click on "Tools". Left-click on "Text search" and type "ANE_RawData.Init" into the "Search text:" text field. Ensure that "Scope" is set to "Current SWF" and that "Search in AS" is selected. Left-click on "OK".</p>
-         <p>7. JPEXS Free Flash Decompiler should return one search result with an obfuscated name. Left-click on this search result, and then left-click on "Go to".</p>
-         <p>8. You will now be focused on an obfuscated function within BrawlhallaAir.swf's ActionScript source. The secret key is displayed in parentheses on the first line of this function. In the case of Brawlhalla patch 8.13, the secret key is <code>865948130</code>. Copy this key.</p>
-         <p>9. Return to the BrawlhallaDumper application and paste the secret key into the "Enter the global encryption key" text field. Press the "Enter" key. The BrawlhallaDumper application will then create a folder named "Dump" in the same directory as the SWZ files and export the decrypted text files there.</p>
-         <h5>Sample Code</h5>
-         <h6>XOR Cipher and WELL512 Pseudo-random Number Generator Combined Approach</h6>
-         <p>The following C++ code simulates the encryption process handled by "RawData.dll". The header seed is sourced from <a href="https://github.com/itselectroz/brawlhalla-swz">this</a> URL. The initial input data is set to a string that reads "Hello, World!"</p>
-         <pre class="decrypting-brawlhalla-swz-files-xor-cipher-well512-prng-combined-approach-pre"><span class="cpp-preprocessor-directive">#include</span> <span class="cpp-library-header">&lt;cstdint&gt;</span>  <span class="cpp-comment">// Provide fixed-width integer types</span><br><span class="cpp-preprocessor-directive">#include</span> <span class="cpp-library-header">&lt;iostream&gt;</span> <span class="cpp-comment">// Provide input and output facilities</span><br><span class="cpp-preprocessor-directive">#include</span> <span class="cpp-library-header">&lt;vector&gt;</span>   <span class="cpp-comment">// Define the std::vector container for encapsulating dynamic arrays</span><br><br><span class="cpp-data-type">class</span> WELL512 {<br> <span class="cpp-keyword"> public</span>:<br><span class="cpp-comment">    // Initialize WELL512 pseudo-random number generator with 32-bit seed</span><br>    WELL512(uint32_t seed) {<br><span class="cpp-comment">      // Initialize first element of state array with seed</span><br>      state[<span class="cpp-value">0</span>] <span class="cpp-keyword">=</span> seed;<br><span class="cpp-comment">      // Fill the rest of state array with pseudo-random numbers based on seed</span><br>      <span class="cpp-keyword">for</span> (<span class="cpp-data-type">int</span> i <span class="cpp-keyword">=</span> <span class="cpp-value">1</span>; i <span class="cpp-keyword">&lt;</span> 16; <span class="cpp-keyword">++</span>i) {<br>        state[i] <span class="cpp-keyword">=</span> (<span class="cpp-value">1812433253U</span> <span class="cpp-keyword">*</span> (state[i <span class="cpp-keyword">-</span> <span class="cpp-value">1</span>] <span class="cpp-keyword">^</span> (state[i <span class="cpp-keyword">-</span> <span class="cpp-value">1</span>] <span class="cpp-keyword">&gt;&gt;</span> <span class="cpp-value">30</span>)) <span class="cpp-keyword">+</span> i);<br>      }<br>      index <span class="cpp-keyword">=</span> <span class="cpp-value">0</span>;<br>    }<br><br>    <span class="cpp-comment">// Generate next 32-bit pseudo-random number in WELL512 sequence</span><br>    uint32_t next() {<br>      uint32_t a <span class="cpp-keyword">=</span> state[index];<br>      uint32_t c <span class="cpp-keyword">=</span> state[(index <span class="cpp-keyword">+</span> <span class="cpp-value">13</span>) <span class="cpp-keyword">&</span> <span class="cpp-value">15</span>];<br>      uint32_t b <span class="cpp-keyword">=</span> a <span class="cpp-keyword">^</span> c <span class="cpp-keyword">^</span> (a <span class="cpp-keyword">&lt;&lt;</span> <span class="cpp-value">16</span>) <span class="cpp-keyword">^</span> (c <span class="cpp-keyword">&lt;&lt;</span> <span class="cpp-value">15</span>);<br>      c <span class="cpp-keyword">=</span> state[(index <span class="cpp-keyword">+</span> <span class="cpp-value">9</span>) <span class="cpp-keyword">&</span> <span class="cpp-value">15</span>];<br>      c <span class="cpp-keyword">^</span><span class="cpp-keyword">=</span> (c <span class="cpp-keyword">&gt;&gt;</span> <span class="cpp-value">11</span>);<br>      a <span class="cpp-keyword">=</span> state[index] <span class="cpp-keyword">=</span> b <span class="cpp-keyword">^</span> c;<br>      uint32_t d <span class="cpp-keyword">=</span> a <span class="cpp-keyword">^</span> ((a <span class="cpp-keyword">&lt;&lt;</span> <span class="cpp-value">5</span>) <span class="cpp-keyword">&</span> <span class="cpp-value">0xDA442D24</span>);<br>      index <span class="cpp-keyword">=</span> (index <span class="cpp-keyword">+</span> <span class="cpp-value">15</span>) <span class="cpp-keyword">&</span> <span class="cpp-value">15</span>;<br>      a <span class="cpp-keyword">=</span> state[index];<br>      state[index] <span class="cpp-keyword">=</span> a <span class="cpp-keyword">^</span> b <span class="cpp-keyword">^</span> d <span class="cpp-keyword">^</span> (a <span class="cpp-keyword">&lt;&lt;</span> <span class="cpp-value">2</span>) <span class="cpp-keyword">^</span> (b <span class="cpp-keyword">&lt;&lt;</span> <span class="cpp-value">18</span>) <span class="cpp-keyword">^</span> (c <span class="cpp-keyword">&lt;&lt;</span> <span class="cpp-value">28</span>);<br>      <span class="cpp-keyword">return</span> state[index];<br>    }<br><br>    <span class="cpp-comment">// Return lowest 8 bits (1 byte) of 32-bit pseudo-random number generated by next() function</span><br>    uint8_t nextByte() {<br>      <span class="cpp-keyword">return</span> <span class="cpp-keyword">static_cast</span><span class="cpp-keyword">&lt;</span>uint8_t<span class="cpp-keyword">&gt;</span>(next() <span class="cpp-keyword">&</span> <span class="cpp-value">0xFF</span>);<br>    }<br><br>  <span class="cpp-keyword">private</span>:<br>    uint32_t state[<span class="cpp-value">16</span>]; <span class="cpp-comment">// State array for WELL512</span><br>    <span class="cpp-data-type">int</span> index; <span class="cpp-comment">// Index for current state</span><br>};<br><br><span class="cpp-comment">// Encrypt input data using XOR cipher with WELL512-generated pseudo-random byte stream</span><br>std::vector<span class="cpp-keyword">&lt;</span>uint8_t<span class="cpp-keyword">&gt;</span> encrypt(<span class="cpp-keyword">const</span> std::vector<span class="cpp-keyword">&lt;</span>uint8_t<span class="cpp-keyword">&gt;</span><span class="cpp-keyword">&</span> data, uint32_t seed) {<br>    <span class="cpp-comment">// Initialize WELL512 instance with seed</span><br>    WELL512 prng(seed);<br>    <span class="cpp-comment">// Create std::vector to hold encrypted data that is same size as input data</span><br>    std::vector<span class="cpp-keyword">&lt;</span>uint8_t<span class="cpp-keyword">&gt;</span> encrypted(data.size());<br><br>    <span class="cpp-comment">// XOR each byte of data with pseudo-random byte generated by prng.nextByte() and store it in std::vector holding encrypted data</span><br>    <span class="cpp-keyword">for</span> (size_t i <span class="cpp-keyword">=</span> <span class="cpp-value">0</span>; i <span class="cpp-keyword">&lt;</span> data.size(); <span class="cpp-keyword">++</span>i) {<br>        encrypted[i] <span class="cpp-keyword">=</span> data[i] <span class="cpp-keyword">^</span> prng.nextByte();<br>    }<br><br>    <span class="cpp-keyword">return</span> encrypted;<br>}<br><br><span class="cpp-comment">// Decrypt input data using same process as encryption since XOR is a symmetric operation</span><br>std::vector<span class="cpp-keyword">&lt;</span>uint8_t<span class="cpp-keyword">&gt;</span> decrypt(<span class="cpp-keyword">const</span> std::vector<span class="cpp-keyword">&lt;</span>uint8_t<span class="cpp-keyword">&gt;</span><span class="cpp-keyword">&</span> data, uint32_t seed) {<br>    <span class="cpp-keyword">return</span> encrypt(data, seed);<br>}<br><br><span class="cpp-comment">// Display contents of std::vector&lt;uint8_t&gt; as characters</span><br><span class="cpp-data-type">void</span> printData(<span class="cpp-keyword">const</span> std::vector<span class="cpp-keyword">&lt;</span>uint8_t<span class="cpp-keyword">&gt;</span><span class="cpp-keyword">&</span> data) {<br>    <span class="cpp-comment">// Cast each uint8_t to a char and print it</span><br>    <span class="cpp-keyword">for</span> (uint8_t byte : data) {<br>      std::cout <span class="cpp-keyword">&lt;&lt;</span> <span class="cpp-keyword">static_cast</span><span class="cpp-keyword">&lt;</span><span class="cpp-data-type">char</span><span class="cpp-keyword">&gt;</span>(byte);<br>    }<br>    <span class="cpp-comment">// Display newline after printing all bytes</span><br>    std::cout <span class="cpp-keyword">&lt;&lt;</span> <span class="cpp-string">"</span><span class="cpp-value">\n</span><span class="cpp-string">"</span>;<br>}<br><br><span class="cpp-data-type">int</span> main() {<br>    std::string plaintext <span class="cpp-keyword">=</span> <span class="cpp-string">"Hello, World!"</span>;<br><br>    <span class="cpp-comment">// Given values</span><br>    uint32_t headerSeed <span class="cpp-keyword">=</span> <span class="cpp-value">731341442</span>;<br>    uint32_t secretKey <span class="cpp-keyword">=</span> <span class="cpp-value">865948130</span>;<br><br>    <span class="cpp-comment">// XOR header seed and secret key to derive actual seed</span><br>    uint32_t seed <span class="cpp-keyword">=</span> headerSeed <span class="cpp-keyword">^</span> secretKey;<br><br>    <span class="cpp-comment">// Convert string to vector of bytes</span><br>    std::vector<span class="cpp-keyword">&lt;</span>uint8_t<span class="cpp-keyword">&gt;</span> plaintextBytes(plaintext.begin(), plaintext.end());<br><br>    <span class="cpp-comment">// Encrypt plaintext</span><br>    std::vector<span class="cpp-keyword">&lt;</span>uint8_t<span class="cpp-keyword">&gt;</span> encryptedText <span class="cpp-keyword">=</span> encrypt(plaintextBytes, seed);<br><br>    <span class="cpp-comment">// Decrypt ciphertext</span><br>    std::vector<span class="cpp-keyword">&lt;</span>uint8_t<span class="cpp-keyword">&gt;</span> decryptedText <span class="cpp-keyword">=</span> decrypt(encryptedText, seed);<br><br>    std::cout <span class="cpp-keyword">&lt;&lt;</span> <span class="cpp-string">"Plaintext: "</span> <span class="cpp-keyword">&lt;&lt;</span> plaintext <span class="cpp-keyword">&lt;&lt;</span> <span class="cpp-string">"</span><span class="cpp-value">\n\n</span><span class="cpp-string">"</span>;<br>    std::cout <span class="cpp-keyword">&lt;&lt;</span> <span class="cpp-string">"Encrypted: "</span>;<br>    printData(encryptedText);<br>    std::cout <span class="cpp-keyword">&lt;&lt;</span> <span class="cpp-string">"Decrypted: "</span>;<br>    printData(decryptedText);<br><br>    <span class="cpp-keyword">return</span> <span class="cpp-value">0</span>;<br>}</pre>
-         <!-- Footer -->
-         <footer class="footer">
-            <p>
-               Copyright &copy;
-               <script type="text/javascript">
-                  document.write(new Date().getFullYear());
-               </script>
-               Eigenvoid. All rights reserved.
-            </p>
-         </footer>
       </div>
+      <!-- Footer -->
+      <footer class="footer">
+         <p>
+            Copyright &copy;
+            <script type="text/javascript">
+               document.write(new Date().getFullYear());
+            </script>
+            Eigenvoid. All rights reserved.
+         </p>
+      </footer>
       <!-- JavaScript -->
       <!-- jQuery first, then Popper.js, then Bootstrap JS -->
       <script src="../js/jquery-3.7.1.min.js"></script>
       <script src="../js/popper.min.js"></script>
-      <script src="../js/bootstrap.min.js"></script>     
+      <script src="../js/bootstrap.min.js"></script>
    </body>
 </html>
