@@ -87,7 +87,7 @@
             <h4>Generating Mapping File for Dead by Daylight</h4>
             <div class="post-dates">
                <p class="post-date">August 10, 2024</p>
-               <p class="post-modified">Last Modified: August 11, 2024</p>
+               <p class="post-modified">Last Modified: May 8, 2025</p>
             </div>
             <hr>
             <h5>Disclaimer</h5>
@@ -102,16 +102,15 @@
             <p>4. Extract the contents of the compressed (zipped) folder "Dumper-7-main" into the directory of your choice.</p>
             <p>5. Open the "Dumper-7-main" directory and open the Dumper-7 Visual Studio Solution file in Visual Studio 2022. A "Review Solution Actions" prompt will appear, and you should left-click on "OK". The project will then be loaded.</p>
             <p>6. Once the project has loaded, head to the drop-down that reads "Debug" and change it to "Release". Head to the menu bar and left-click on "Build". Left-click on "Build Solution". Wait for your output to indicate that the build has completed. After the build has completed, close Visual Studio 2022.</p>
-            <p>7. Return to the "Dumper-7-main" directory, left-click on its "x64" subdirectory, and then left-click on its "Release" subdirectory. You should now see that you have a Dumper-7 dynamic-link library (DLL). To inject it, you will need <a href="https://processhacker.sourceforge.io/">Process Hacker</a>.</p>
-            <p>8. Visit <a href="https://processhacker.sourceforge.io/downloads.php">this</a> URL and, under both "Windows 7 and Windows 8" and "Setup", left-click on "processhacker-2.39-setup.exe".</p>
-            <p>9. Head to the location of the completed download and run Process Hacker Setup. Install Process Hacker.</p>
-            <p>10. Head to where Dead by Daylight is installed. Left-click on its "DeadByDaylight" subdirectory, then left-click on its "Binaries" subdirectory, and then left-click on its "Win64" subdirectory.</p>
-            <p>11. Right-click on the "DeadByDaylight-Win64-Shipping" application and create a shortcut for it within that directory. Right-click on the shortcut and left-click on "Properties". At the end of the "Target" text field, press the space bar key and write "-eac-nop-loaded" such that your "Target" text field includes both the file path for the "DeadByDaylight-Win64-Shipping" application and the launch option that you just wrote. Left-click on "Apply", and then left-click on "OK".</p>
-            <p>12. Open Process Hacker and search "Dead" in the "Search Processes (Ctrl+K)" text field to filter your list of processes to only include Dead by Daylight. Initially, nothing should appear as you have not yet launched Dead by Daylight.</p>
-            <p>13. Double-click on the shortcut that you created to launch Dead by Daylight without Easy Anti-Cheat. Ensure that Steam is running before double-clicking on the shortcut.</p>
-            <p>14. Load to the title screen (where Dead by Daylight prompts you to "PRESS SPACE TO CONTINUE") but do not click anything.</p>
-            <p>15. Return to Process Hacker and you should now see Dead by Daylight listed as a running process. Right-click on it, then hover over "Miscellaneous", and then left-click on "Inject DLL". Your file explorer will open so that you can select a DLL to inject. Return to the directory that contains your Dumper-7 DLL and double-click it.</p>
-            <p>16. The Dumper-7 DLL will now run. After the output reads "Generating SDK took (<i>x</i>ms)", head to your C drive (C:), then left-click on its "Dumper-7" directory, then left-click on its subdirectory that is named after the particular game version of Dead by Daylight that you dumped the mapping file for, and then left-click on its "Mappings" subdirectory. The file in that subdirectory is your mapping file. You can now close Dead by Daylight.</p>
+            <p>7. Return to the "Dumper-7-main" directory, left-click on its "x64" subdirectory, and then left-click on its "Release" subdirectory. You should now see that you have a Dumper-7 dynamic-link library (DLL). You will need to download <a href="https://sourceforge.net/projects/processhacker/">Process Hacker</a> in order to inject it.</p>
+            <p>8. After you finish downloading Process Hacker, head to the location of the completed download and run Process Hacker Setup. Install Process Hacker.</p>
+            <p>9. Head to where Dead by Daylight is installed. Left-click on its "DeadByDaylight" subdirectory, then left-click on its "Binaries" subdirectory, and then left-click on its "Win64" subdirectory.</p>
+            <p>10. Right-click on the "DeadByDaylight-Win64-Shipping" application and create a shortcut for it within that directory. Right-click on the shortcut and left-click on "Properties". At the end of the "Target" text field, press the space bar key and write "-eac-nop-loaded" such that your "Target" text field includes both the file path for the "DeadByDaylight-Win64-Shipping" application and the launch option that you just wrote. Left-click on "Apply", and then left-click on "OK".</p>
+            <p>11. Open Process Hacker and search "Dead" in the "Search Processes (Ctrl+K)" text field to filter your list of processes to only include Dead by Daylight. Initially, nothing should appear as you have not yet launched Dead by Daylight.</p>
+            <p>12. Double-click on the shortcut that you created to launch Dead by Daylight without Easy Anti-Cheat. Ensure that Steam is running before double-clicking on the shortcut.</p>
+            <p>13. Load to the title screen (where Dead by Daylight prompts you to "PRESS SPACE TO CONTINUE") but do not click anything.</p>
+            <p>14. Return to Process Hacker and you should now see Dead by Daylight listed as a running process. Right-click on it, then hover over "Miscellaneous", and then left-click on "Inject DLL". Your file explorer will open so that you can select a DLL to inject. Return to the directory that contains your Dumper-7 DLL and double-click it.</p>
+            <p>15. The Dumper-7 DLL will now run. After the output reads "Generating SDK took (<i>x</i>ms)", head to your C drive (C:), then left-click on its "Dumper-7" directory, then left-click on its subdirectory that is named after the particular game version of Dead by Daylight that you dumped the mapping file for, and then left-click on its "Mappings" subdirectory. The file in that subdirectory is your mapping file. You can now close Dead by Daylight.</p>
          </div>
       </div>
       <!-- Footer -->
