@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Understanding Skill-Based Matchmaking in Dead by Daylight - Eigenvoid</title>
+      <meta name="description" content="Learn how skill-based matchmaking in Dead by Daylight works.">
+      <!-- Canonical URL -->
+      <link rel="canonical" href="https://www.eigenvoid.dev/posts/understanding-skill-based-matchmaking-in-dead-by-daylight">
+      <!-- Open Graph Meta Tags -->
+      <meta property="og:url" content="https://www.eigenvoid.dev/posts/understanding-skill-based-matchmaking-in-dead-by-daylight">
+      <meta property="og:type" content="article">
+      <meta property="og:title" content="Understanding Skill-Based Matchmaking in Dead by Daylight - Eigenvoid">
+      <meta property="og:description" content="Learn how skill-based matchmaking in Dead by Daylight works.">
+      <meta property="og:image" content="https://www.eigenvoid.dev/img/og/favicon-1200x628.png">
+      <meta property="og:site_name" content="Eigenvoid">
+      <meta property="og:locale" content="en_US">
+      <!-- Twitter Card Meta Tags -->
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Understanding Skill-Based Matchmaking in Dead by Daylight - Eigenvoid">
+      <meta name="twitter:description" content="Learn how skill-based matchmaking in Dead by Daylight works.">
+      <meta name="twitter:image" content="https://www.eigenvoid.dev/img/twitter/favicon-1200x670.png">
+      <!-- Apple Touch Icon -->
+      <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
+      <!-- Favicons -->
+      <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="../css/bootstrap.min.css">
+      <!-- Custom CSS -->
+      <link rel="stylesheet" href="../css/main.css">
+      <!-- Fonts -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+      <!-- Font Awesome CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-E7GC202X7V"></script>
+      <script>
+         window.dataLayer = window.dataLayer || [];
+         function gtag(){dataLayer.push(arguments);}
+         gtag('js', new Date());
+         
+         gtag('config', 'G-E7GC202X7V');
+      </script>
+   </head>
+   <body>
+      <div class="wrapper">
+         <!-- Navbar -->
+         <nav class="navbar navbar-expand-md navbar-dark">
+            <div class="container d-flex justify-content-between">
+               <!-- Brand Name -->
+               <a class="nav-link brand-name" href="../">Eigenvoid</a>
+               <!-- Navbar Toggler Button -->
+               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+               </button>
+               <!-- Navbar Items -->
+               <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav ms-auto">
+                     <li class="nav-item">
+                        <a class="nav-link" href="../achievements">Achievements</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="../posts">Posts</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="../projects">Projects</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="../media">Media</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="https://discord.com/users/1310056373136003102"><i class="fab fa-discord"></i></a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/EigenvoidDev"><i class="fab fa-github"></i></a>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </nav>
+         <!-- Main Content -->
+         <div class="container main-content">
+            <h4>Understanding Skill-Based Matchmaking in Dead by Daylight</h4>
+            <div class="post-dates">
+               <p class="post-date">July 2, 2025</p>
+            </div>
+            <hr>
+            <h5>Disclaimer</h5>
+            <p>The information included in this post is for educational purposes only. Any material on this webpage may not be reproduced, retransmitted, or redisplayed other than for personal or educational use.</p>
+            <h5>Introduction</h5>
+            <p>Skill-based matchmaking (SBMM) is a form of matchmaking that pairs players in online multiplayer games based on their skill levels. To evaluate player skill, many games use a metric called matchmaking rating (MMR), a numerical value that adjusts dynamically in response to in-game performance. In Dead by Daylight, MMR is hidden, meaning that players cannot normally view their rating or track how it changes after each match. However, players can use <a href="https://www.telerik.com/fiddler/fiddler-classic">Fiddler Classic</a> to capture the game's network traffic and observe their MMR values manually.</p>
+            <h5>Rating System</h5>
+            <p>Dead by Daylight uses a customized ranking system based on the <a href="https://glicko.net/glicko/glicko2.pdf">Glicko-2</a> rating system. Every player in the Glicko-2 system has a rating, <i>r</i>, a rating deviation, RD, and a rating volatility <i>σ</i>. The rating measure indicates the player's estimated skill level. The higher the player's rating, the better that they are assumed to be. The rating deviation measure indicates the uncertainty in the player's rating. A high RD indicates that the player has either competed infrequently or has played only a few matches, making it difficult to accurately assess their skill. In contrast, a low RD suggests that the player competes regularly, allowing the system to estimate their skill level with greater confidence. The volatility measure indicates the degree of expected fluctuation in the player's rating. For example, a player's rating volatility would be low when they performed at a consistent level, but it would increase if they had exceptionally strong results after that period of consistency. Notably, the system maintains both a primary rating value and an additional parameter referred to as <code>realRating</code>. Unlike <code>rating</code>, which fluctuates slightly over time even without new matches, <code>realRating</code> remains fixed until a match is played. This suggests that <code>realRating</code> represents the player's last confirmed MMR, while <code>rating</code> serves as a live, continuously adjusted estimate.</p>
+            <p>It is often more informative to summarize a player's skill as an interval rather than as a single rating value, since the rating is always accompanied by both an associated RD and a volatility. Together, these parameters define a range that more accurately reflects the system's confidence in the player's true skill. One common method is to report a 95% confidence interval, which provides a range in which the player's true skill is likely to fall. This interval is calculated as the player's rating plus or minus twice the RD. For example, if a player has a rating of 1400 with an RD of 50, then the 95% confidence interval would range from 1300 to 1500. This means that we are 95% confident that the player's true skill falls within that interval. A lower RD would result in a narrower interval, indicating greater confidence in the rating's accuracy. Importantly, the volatility measure does not factor into the confidence interval calculation.</p>
+            <h5>Default Parameter Values</h5>
+            <p>In Dead by Daylight, players start with a <code>rating</code> of approximately 650, an <code>RD</code> of 347.4356, a <code>realRating</code> of exactly 650, and a <code>volatility</code> of 0.06.</p>
+            <h5>Calculation</h5>
+            <h6>Rating</h6>
+            <p>Both <code>rating</code> and <code>realRating</code> increase after a win, decrease after a loss, and remain unchanged in the event of a draw. Though, the extent of actual updates depends on each player's <code>RD</code> and on how "surprising" the outcome is to the system. For example, unbalanced matches yield only minor rating adjustments when the favorite wins, but yield significant updates when the favorite loses.</p>
+            <h6>Rating Deviation</h6>
+            <p><code>RD</code> changes both in response to match outcomes and during periods of inactivity. Match outcomes always decrease a player's <code>RD</code>, while inactivity causes it to increase. This reflects the system's confidence: the more matches a player completes, the more precisely their skill can be estimated, resulting in a lower <code>RD</code>. Conversely, as time passes without new data, uncertainty grows, and <code>RD</code> increases to reflect that reduced confidence. Notably, <code>RD</code> for killers drops more significantly after each match than for survivors. This may be due to the asymmetrical structure of the game. Since killers play solo against four survivors, the system can more quickly isolate and assess their individual performance. However, survivor outcomes are influenced by greater team-based variability.</p>
+            <h6>Rating Volatility</h6>
+            <p>The <code>volatility</code> parameter remains nearly constant, centered around its default value of 0.06. Observed data shows that it floats within a narrow range—approximately between 0.059 and 0.061. While the Glicko-2 system allows volatility to adjust more dynamically in response to inconsistent performance, Dead by Daylight's implementation appears to keep it tightly constrained.</p>
+            <h5>MMR Segmentation Between Survivors and Killers</h5>
+            <p>Dead by Daylight's ranking system uses a shared MMR for all survivors, but assigns a separate MMR for each killer. This distinction explains why survivors can switch characters after being matched, whereas killers are locked into the specific killer that they selected.</p>
+            <h5>Matchmaking Process</h5>
+            <p>When a player enters the matchmaking queue, the system initially searches within a narrow MMR range centered on the player's own MMR. If the player is in a party, then the system calculates the average MMR of all group members and uses that value in the search. If no suitable match is found within a short time frame, then the search range gradually expands to include a broader pool of MMR values until a match is formed. Dead by Daylight uses a unidirectional matchmaking approach, meaning that once a player has waited long enough, the system prioritizes forming a match for that player by pulling in others with a compatible MMR—even if those players have been in the queue for less time. As long as all participants fall within the system's maximum allowable MMR range, a match will eventually be created.</p>
+            <h6>Soft Cap</h6>
+            <p>Dead by Daylight employs a soft cap on MMR to manage matchmaking at the highest skill levels. Above this threshold, a player's MMR may continue to increase internally, but the matchmaking system treats all values beyond the soft cap as functionally equivalent, grouping those players into a broad matchmaking pool. This prevents players from climbing so high that finding viable opponents becomes difficult while still prioritizing matchups with closer MMR values when possible.</p>
+            <p>Match data indicates that the matchmaking pool starts broadening around 1900 MMR, where players often face higher-rated opponents more frequently. In this range, even players with modest performance (for example, 1 kill) can still see positive MMR gains, suggesting a relatively forgiving progression and a shift in matchmaking pools rather than a hard limit on rating growth.</p>
+            <p>The true MMR soft cap appears around 2100 MMR, where gains from wins shrink significantly and losses become more punishing. Here, even strong match performances yield minimal rating increases, indicating that the system is compressing rating differences. Players must achieve consistently high performance against similarly skilled or stronger opponents to maintain progression. This design ensures balanced matchmaking among the top tier of players by slowing MMR growth and effectively "flattening" the rating scale beyond this point.</p>
+            <h5>Ranked Trial Mechanics</h5>
+            <p>During ranked trials, the system evaluates the match as a set of individual interactions between the killer and each survivor. In effect, every survivor is engaged in a mini-trial against the killer, and vice versa, where outcomes such as wins, losses, and draws are determined independently. The system tracks each of these outcomes, aggregates them, and adjusts the player's MMR accordingly.</p>
+            <h6>Modifiers</h6>
+            <i>Opponent Ratings and Uncertainty</i>
+            <p>The amount of MMR a player gains or loses also depends on their opponents' ratings and how confident the system is in those ratings:</p>
+            <ul>
+               <li>Players gain more MMR by defeating higher-rated opponents with low RDs.</li>
+               <li>Players lose more MMR when defeated by lower-rated opponents with low RDs.</li>
+               <li>If the player's own RD is high, then their MMR will change more significantly after each match.</li>
+               <li>If the player's opponents have high RDs, then their own MMR will change less significantly after the match.</li>
+            </ul>
+            <i>Team-Based Ratings</i>
+            <p>If survivors queue as a group, then each player's MMR change is partially influenced by the outcomes of the other group members:</p>
+            <ul>
+               <li>For each group member that escapes:</li>
+               <li class="nested-white-bullet">Increased MMR gain upon escaping.</li>
+               <li class="nested-white-bullet">Reduced MMR loss upon dying.</li>
+               <li>For each group member that dies:</li>
+               <li class="nested-white-bullet">Reduced MMR gain upon escaping.</li>
+               <li class="nested-white-bullet">Increased MMR loss upon dying.</li>
+            </ul>
+            <h6>Match Outcome Conditions</h6>
+            <i>Survivors</i>
+            <p>Survivors gain MMR by escaping from ranked trials and lose MMR when they die:</p>
+            <ul>
+               <li>Dying in the trial is considered a loss and results in an MMR decrease.</li>
+               <li>Escaping through the hatch is considered a draw and does not affect MMR.</li>
+               <li>Escaping through the exit gate is considered a win and results in an MMR increase.</li>
+            </ul>
+            <i>Killers</i>
+            <p>Killers gain MMR by killing survivors in ranked trials and lose MMR if survivors escape:</p>
+            <ul>
+               <li>Killing 0 or 1 survivor(s) is considered a loss and results in an MMR decrease.</li>
+               <li>Killing 2 survivors is considered a draw. However, it may still result in a slight increase or decrease in MMR depending on the ratings of the players involved.</li>
+               <li>Killing 3 or 4 survivors is considered a win and results in an MMR increase.</li>
+            </ul>
+            <i>Notes</i>
+            <ul>
+               <li>The system ignores survivors' individual contributions during the match. MMR changes are based solely on whether they escape through the exit gate.</li>
+               <li>The system considers only whether survivors die or escape. How a survivor dies (sacrificed, mori'd, or bled out) is irrelevant to MMR calculations.</li>
+               <li>While killer MMR outcomes generally follow the 0/1 kill(s) = loss, 2 kills = draw, and 3/4 kills = win structure, exceptions exist. For example, a killer may still gain MMR from a match in which they only killed 1 survivor if the survivors that they faced had significantly higher ratings.</li>
+               <li>If the killer disconnects during a match, then survivors will not receive an MMR increase—even if they are still alive when the disconnection occurs.</li>
+            </ul>
+            <h5>Cross-Character MMR Scaling Mechanism</h5>
+            <p>Despite each killer having a separate MMR, Dead by Daylight employs a cross-character MMR scaling mechanism. This mechanism makes it so that the killer with the highest MMR on a player's account influences the starting MMR of their other killers. The goal is to prevent experienced players from being matched against lower-skilled survivors simply because they chose a killer that they don't use frequently.</p>
+            <p>The scaling is non-linear and follows a pattern of diminishing returns: as a player's top killer MMR increases, the starting MMR of their other killers increases as well, but at a gradually decreasing rate. Interestingly, there are also points where the scaling ratio briefly increases instead of continuing to decline, suggesting that the system may apply soft thresholds or adjustments at certain MMR ranges. To better understand how Dead by Daylight's cross-character MMR scaling mechanism works in practice, I recorded MMR values from my own account. The table below shows a sample of that data, highlighting the relationship between the MMR of my highest-rated killer and the MMR assigned to other killers.</p>
+            <table class="understanding-skill-based-matchmaking-in-dead-by-daylight-cross-character-mmr-scaling-mechanism-table">
+               <tr>
+                  <th>Top Killer MMR</th>
+                  <th>Scaled MMR</th>
+                  <th>Scaling Ratio</th>
+               </tr>
+               <tr>
+                  <td>1245</td>
+                  <td>960</td>
+                  <td>0.7710843373</td>
+               </tr>
+               <tr>
+                  <td>1256</td>
+                  <td>969</td>
+                  <td>0.7714968153</td>
+               </tr>
+               <tr>
+                  <td>1300</td>
+                  <td>996</td>
+                  <td>0.7661538462</td>
+               </tr>
+               <tr>
+                  <td>1379</td>
+                  <td>1051</td>
+                  <td>0.762146483</td>
+               </tr>
+               <tr>
+                  <td>1461</td>
+                  <td>1114</td>
+                  <td>0.7624914442</td>
+               </tr>
+               <tr>
+                  <td>1521</td>
+                  <td>1157</td>
+                  <td>0.7606837607</td>
+               </tr>
+               <tr>
+                  <td>1558</td>
+                  <td>1181</td>
+                  <td>0.7580231065</td>
+               </tr>
+               <tr>
+                  <td>1607</td>
+                  <td>1213</td>
+                  <td>0.7548226509</td>
+               </tr>
+               <tr>
+                  <td>1667</td>
+                  <td>1251</td>
+                  <td>0.75044991</td>
+               </tr>
+               <tr>
+                  <td>1701</td>
+                  <td>1267</td>
+                  <td>0.7448559671</td>
+               </tr>
+               <tr>
+                  <td>1794</td>
+                  <td>1325</td>
+                  <td>0.7385730212</td>
+               </tr>
+               <tr>
+                  <td>1853</td>
+                  <td>1358</td>
+                  <td>0.7328656233</td>
+               </tr>
+               <tr>
+                  <td>1900</td>
+                  <td>1345</td>
+                  <td>0.7078947368</td>
+               </tr>
+               <tr>
+                  <td>2042</td>
+                  <td>1447</td>
+                  <td>0.708619001</td>
+               </tr>
+               <tr>
+                  <td>2152</td>
+                  <td>1530</td>
+                  <td>0.7109665428</td>
+               </tr>
+               <tr>
+                  <td>2212</td>
+                  <td>1523</td>
+                  <td>0.688517179</td>
+               </tr>
+            </table>
+            <p>Unfortunately, I was unable to determine exactly where the cross-character MMR scaling mechanism begins to take effect. However, it likely starts activating even before the first recorded point in the table.</p>
+            <h5>Rating Quantiles</h5>
+            <p>As a reminder, MMR is a numerical value that represents a player's skill level within the matchmaking system. A quantile is a statistical measure that divides a set of data into equal-sized portions. Each quantile represents a point in a ranked distribution where a specific percentage of data falls below that value. For example, the 0.75 quantile indicates the rating below which 75% of players fall. In the context of Dead by Daylight, rating quantiles tell us how player skill is distributed across the population. Importantly, rating quantiles for survivors are calculated globally, since all survivors share the same MMR pool. For killers, while each killer has a separate MMR, the quantiles are still drawn from the same overall killer population. This means that the same quantile thresholds apply regardless of which killer you're using, even though their individual MMRs are tracked separately.</p>
+            <h6>Survivors</h6>
+            <p>The quantile data in this section is derived from personal match data collected on North American servers between May 17 and May 31, 2025. The values reflect MMR observations gathered through participation in ranked trials.</p>
+            <p><i>Cumulative Distribution Function Plot</i></p>
+            <p><img src="../img/posts/understanding-skill-based-matchmaking-in-dead-by-daylight/cdf-survivor-mmrs.png" alt="CDF of Survivor MMRs" class="understanding-skill-based-matchmaking-in-dead-by-daylight-img-cdf-mmrs"></p>
+            <p>You can reproduce the CDF shown above using the following R code:</p>
+            <pre class="understanding-skill-based-matchmaking-in-dead-by-daylight-survivors-pre"><span class="r-comment"># Survivor data</span><br>survivor_mmrs &lt;- <span class="r-vector">c</span>(<span class="r-number">650</span>, <span class="r-number">847</span>, <span class="r-number">934</span>, <span class="r-number">970</span>, <span class="r-number">1021</span>, <span class="r-number">1056</span>, <span class="r-number">1111</span>, <span class="r-number">1137</span>, <span class="r-number">1175</span>, <span class="r-number">1213</span>, <span class="r-number">1220</span>, <span class="r-number">1228</span>, <span class="r-number">1233</span>, <span class="r-number">1247</span>, <span class="r-number">1266</span>, <span class="r-number">1296</span>, <span class="r-number">1303</span>, <span class="r-number">1319</span>, <span class="r-number">1329</span>, <span class="r-number">1342</span>, <span class="r-number">1366</span>, <span class="r-number">1400</span>, <span class="r-number">1424</span>, <span class="r-number">1488</span>, <span class="r-number">1491</span>, <span class="r-number">1511</span>, <span class="r-number">1519</span>, <span class="r-number">1549</span>, <span class="r-number">1567</span>, <span class="r-number">1650</span>, <span class="r-number">1658</span>, <span class="r-number">1662</span>, <span class="r-number">1674</span>, <span class="r-number">1691</span>, <span class="r-number">1710</span>, <span class="r-number">1719</span>, <span class="r-number">1747</span>, <span class="r-number">1758</span>, <span class="r-number">1813</span>, <span class="r-number">1839</span>, <span class="r-number">1890</span>, <span class="r-number">1896</span>, <span class="r-number">1923</span>, <span class="r-number">1929</span>, <span class="r-number">1947</span>, <span class="r-number">1994</span>, <span class="r-number">2061</span>, <span class="r-number">2083</span>, <span class="r-number">2102</span>)<br><br>survivor_quantiles &lt;- <span class="r-vector">c</span>(<span class="r-number">0.09</span>, <span class="r-number">0.23</span>, <span class="r-number">0.27</span>, <span class="r-number">0.32</span>, <span class="r-number">0.37</span>, <span class="r-number">0.39</span>, <span class="r-number">0.45</span>, <span class="r-number">0.47</span>, <span class="r-number">0.48</span>, <span class="r-number">0.51</span>, <span class="r-number">0.52</span>, <span class="r-number">0.53</span>, <span class="r-number">0.54</span>, <span class="r-number">0.55</span>, <span class="r-number">0.56</span>, <span class="r-number">0.57</span>, <span class="r-number">0.58</span>, <span class="r-number">0.59</span>, <span class="r-number">0.60</span>, <span class="r-number">0.62</span>, <span class="r-number">0.63</span>, <span class="r-number">0.64</span>, <span class="r-number">0.65</span>, <span class="r-number">0.69</span>, <span class="r-number">0.70</span>, <span class="r-number">0.71</span>, <span class="r-number">0.72</span>, <span class="r-number">0.74</span>, <span class="r-number">0.75</span>, <span class="r-number">0.76</span>, <span class="r-number">0.77</span>, <span class="r-number">0.78</span>, <span class="r-number">0.79</span>, <span class="r-number">0.80</span>, <span class="r-number">0.81</span>, <span class="r-number">0.82</span>, <span class="r-number">0.83</span>, <span class="r-number">0.84</span>, <span class="r-number">0.85</span>, <span class="r-number">0.86</span>, <span class="r-number">0.87</span>, <span class="r-number">0.88</span>, <span class="r-number">0.89</span>, <span class="r-number">0.90</span>, <span class="r-number">0.91</span>, <span class="r-number">0.92</span>, <span class="r-number">0.93</span>, <span class="r-number">0.94</span>, <span class="r-number">0.95</span>)<br><br><span class="r-comment"># Plot Survivor CDF</span><br>plot(survivor_mmrs, survivor_quantiles, type = <span class="r-string">"l"</span>,<br>      main = <span class="r-string">"CDF of Survivor MMRs"</span>,<br>      xlab = <span class="r-string">"MMR"</span>,<br>      ylab = <span class="r-string">"Cumulative Probability"</span>,<br>      col = <span class="r-string">"blue"</span>, lwd = <span class="r-number">2</span>,<br>      ylim = <span class="r-vector">c</span>(<span class="r-number">0</span>, <span class="r-number">1</span>))<br>grid()</pre>
+            <p><i>Quantile Table</i></p>
+            <table class="understanding-skill-based-matchmaking-in-dead-by-daylight-survivors-quantile-table">
+               <tr>
+                  <th>MMR</th>
+                  <th>Quantile</th>
+               </tr>
+               <tr>
+                  <td>650</td>
+                  <td>0.09</td>
+               </tr>
+               <tr>
+                  <td>847</td>
+                  <td>0.23</td>
+               </tr>
+               <tr>
+                  <td>934</td>
+                  <td>0.27</td>
+               </tr>
+               <tr>
+                  <td>970</td>
+                  <td>0.32</td>
+               </tr>
+               <tr>
+                  <td>1021</td>
+                  <td>0.37</td>
+               </tr>
+               <tr>
+                  <td>1056</td>
+                  <td>0.39</td>
+               </tr>
+               <tr>
+                  <td>1111</td>
+                  <td>0.45</td>
+               </tr>
+               <tr>
+                  <td>1137</td>
+                  <td>0.47</td>
+               </tr>
+               <tr>
+                  <td>1175</td>
+                  <td>0.48</td>
+               </tr>
+               <tr>
+                  <td>1213</td>
+                  <td>0.51</td>
+               </tr>
+               <tr>
+                  <td>1220</td>
+                  <td>0.52</td>
+               </tr>
+               <tr>
+                  <td>1228</td>
+                  <td>0.53</td>
+               </tr>
+               <tr>
+                  <td>1233</td>
+                  <td>0.54</td>
+               </tr>
+               <tr>
+                  <td>1247</td>
+                  <td>0.55</td>
+               </tr>
+               <tr>
+                  <td>1329</td>
+                  <td>0.60</td>
+               </tr>
+               <tr>
+                  <td>1424</td>
+                  <td>0.65</td>
+               </tr>
+               <tr>
+                  <td>1491</td>
+                  <td>0.70</td>
+               </tr>
+               <tr>
+                  <td>1567</td>
+                  <td>0.75</td>
+               </tr>
+               <tr>
+                  <td>1691</td>
+                  <td>0.80</td>
+               </tr>
+               <tr>
+                  <td>1813</td>
+                  <td>0.85</td>
+               </tr>
+               <tr>
+                  <td>1929</td>
+                  <td>0.90</td>
+               </tr>
+               <tr>
+                  <td>2102</td>
+                  <td>0.95</td>
+               </tr>
+            </table>
+            <h6>Killers</h6>
+            <p>The quantile data in this section is derived from personal match data collected on North American servers between June 1 and June 10, 2025. The values reflect MMR observations gathered through participation in ranked trials.</p>
+            <p><i>Cumulative Distribution Function Plot</i></p>
+            <p><img src="../img/posts/understanding-skill-based-matchmaking-in-dead-by-daylight/cdf-killer-mmrs.png" alt="CDF of Killer MMRs" class="understanding-skill-based-matchmaking-in-dead-by-daylight-img-cdf-mmrs"></p>
+            <p>You can reproduce the CDF shown above using the following R code:</p>
+            <pre class="understanding-skill-based-matchmaking-in-dead-by-daylight-killers-pre"><span class="r-comment"># Killer data</span><br>killer_mmrs &lt;- <span class="r-vector">c</span>(<span class="r-number">650</span>, <span class="r-number">846</span>, <span class="r-number">918</span>, <span class="r-number">982</span>, <span class="r-number">1031</span>, <span class="r-number">1072</span>, <span class="r-number">1115</span>, <span class="r-number">1150</span>, <span class="r-number">1179</span>, <span class="r-number">1208</span>, <span class="r-number">1257</span>, <span class="r-number">1301</span>, <span class="r-number">1325</span>, <span class="r-number">1343</span>, <span class="r-number">1359</span>, <span class="r-number">1379</span>, <span class="r-number">1399</span>, <span class="r-number">1415</span>, <span class="r-number">1461</span>, <span class="r-number">1508</span>, <span class="r-number">1549</span>, <span class="r-number">1558</span>, <span class="r-number">1573</span>, <span class="r-number">1593</span>, <span class="r-number">1608</span>, <span class="r-number">1630</span>, <span class="r-number">1649</span>, <span class="r-number">1691</span>, <span class="r-number">1710</span>, <span class="r-number">1794</span>, <span class="r-number">1854</span>, <span class="r-number">1900</span>, <span class="r-number">1950</span>, <span class="r-number">2021</span>, <span class="r-number">2070</span>, <span class="r-number">2168</span>)<br><br>killer_quantiles &lt;- <span class="r-vector">c</span>(<span class="r-number">0.13</span>, <span class="r-number">0.33</span>, <span class="r-number">0.38</span>, <span class="r-number">0.43</span>, <span class="r-number">0.45</span>, <span class="r-number">0.49</span>, <span class="r-number">0.52</span>, <span class="r-number">0.54</span>, <span class="r-number">0.57</span>, <span class="r-number">0.59</span>, <span class="r-number">0.61</span>, <span class="r-number">0.63</span>, <span class="r-number">0.65</span>, <span class="r-number">0.66</span>, <span class="r-number">0.67</span>, <span class="r-number">0.69</span>, <span class="r-number">0.70</span>, <span class="r-number">0.71</span>, <span class="r-number">0.72</span>, <span class="r-number">0.74</span>, <span class="r-number">0.75</span>, <span class="r-number">0.79</span>, <span class="r-number">0.80</span>, <span class="r-number">0.81</span>, <span class="r-number">0.82</span>, <span class="r-number">0.83</span>, <span class="r-number">0.84</span>, <span class="r-number">0.86</span>, <span class="r-number">0.87</span>, <span class="r-number">0.91</span>, <span class="r-number">0.92</span>, <span class="r-number">0.93</span>, <span class="r-number">0.94</span>, <span class="r-number">0.95</span>, <span class="r-number">0.96</span>, <span class="r-number">0.97</span>)<br><br><span class="r-comment"># Plot Killer CDF</span><br>plot(killer_mmrs, killer_quantiles, type = <span class="r-string">"l"</span>,<br>      main = <span class="r-string">"CDF of Killer MMRs"</span>,<br>      xlab = <span class="r-string">"MMR"</span>,<br>      ylab = <span class="r-string">"Cumulative Probability"</span>,<br>      col = <span class="r-string">"blue"</span>, lwd = <span class="r-number">2</span>,<br>      ylim = <span class="r-vector">c</span>(<span class="r-number">0</span>, <span class="r-number">1</span>))<br>grid()</pre>
+            <p><i>Quantile Table</i></p>
+            <table class="understanding-skill-based-matchmaking-in-dead-by-daylight-killers-quantile-table">
+               <tr>
+                  <th>MMR</th>
+                  <th>Quantile</th>
+               </tr>
+               <tr>
+                  <td>650</td>
+                  <td>0.13</td>
+               </tr>
+               <tr>
+                  <td>846</td>
+                  <td>0.33</td>
+               </tr>
+               <tr>
+                  <td>918</td>
+                  <td>0.38</td>
+               </tr>
+               <tr>
+                  <td>982</td>
+                  <td>0.43</td>
+               </tr>
+               <tr>
+                  <td>1031</td>
+                  <td>0.45</td>
+               </tr>
+               <tr>
+                  <td>1072</td>
+                  <td>0.49</td>
+               </tr>
+               <tr>
+                  <td>1115</td>
+                  <td>0.52</td>
+               </tr>
+               <tr>
+                  <td>1150</td>
+                  <td>0.54</td>
+               </tr>
+               <tr>
+                  <td>1179</td>
+                  <td>0.57</td>
+               </tr>
+               <tr>
+                  <td>1208</td>
+                  <td>0.59</td>
+               </tr>
+               <tr>
+                  <td>1257</td>
+                  <td>0.61</td>
+               </tr>
+               <tr>
+                  <td>1301</td>
+                  <td>0.63</td>
+               </tr>
+               <tr>
+                  <td>1325</td>
+                  <td>0.65</td>
+               </tr>
+               <tr>
+                  <td>1399</td>
+                  <td>0.70</td>
+               </tr>
+               <tr>
+                  <td>1549</td>
+                  <td>0.75</td>
+               </tr>
+               <tr>
+                  <td>1573</td>
+                  <td>0.80</td>
+               </tr>
+               <tr>
+                  <td>1649–1691</td>
+                  <td>0.84–0.86</td>
+               </tr>
+               <tr>
+                  <td>1710–1794</td>
+                  <td>0.87–0.91</td>
+               </tr>
+               <tr>
+                  <td>2021</td>
+                  <td>0.95</td>
+               </tr>
+               <tr>
+                  <td>2070</td>
+                  <td>0.96</td>
+               </tr>
+               <tr>
+                  <td>2168</td>
+                  <td>0.97</td>
+               </tr>
+            </table>
+         </div>
+      </div>
+      <!-- Footer -->
+      <footer class="footer">
+         <p>
+            Copyright &copy;
+            <script type="text/javascript">
+               document.write(new Date().getFullYear());
+            </script>
+            Eigenvoid. All rights reserved.
+         </p>
+      </footer>
+      <!-- JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="../js/jquery-3.7.1.min.js"></script>
+      <script src="../js/popper.min.js"></script>
+      <script src="../js/bootstrap.min.js"></script>
+   </body>
+</html>

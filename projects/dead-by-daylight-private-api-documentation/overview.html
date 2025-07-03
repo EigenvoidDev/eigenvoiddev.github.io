@@ -150,6 +150,7 @@
                      <span class="dropdown-arrow">▶</span>
                   </div>
                   <ul class="dropdown-menu">
+                     <li><a href="changelog#9.0.1">9.0.1</a></li>
                      <li><a href="changelog#8.7.0">8.7.0</a></li>
                      <li><a href="changelog#8.6.0">8.6.0</a></li>
                      <li><a href="changelog#8.5.2">8.5.2</a></li>
@@ -214,6 +215,11 @@
                      <td>Conflict</td>
                      <td>This response is sent when a request conflicts with the current state of the server.</td>
                   </tr>
+                  <tr>
+                     <td>429</td>
+                     <td>Too Many Requests</td>
+                     <td>The user has sent too many requests in a given amount of time.</td>
+                  </tr>
                </table>
                <h4>Error Messages</h4>
                <p>Error responses contain a JSON object, with its structure varying based on the specific error that occurred. Below are some examples.</p>
@@ -225,6 +231,8 @@
                <pre>{<br>  <span class="json-key">"type"</span>: <span class="json-string-value">"DataNotFoundException"</span>,<br>  <span class="json-key">"localizationCode"</span>: <span class="json-string-value">"notFound"</span>,<br>  <span class="json-key">"message"</span>: <span class="json-string-value">"Unable to find requested data in [RedeemableCodeModelV2] RedeemableCode"</span><br>}</pre>
                <h5>409 Conflict</h5>
                <pre>{<br>  <span class="json-key">"type"</span>: <span class="json-string-value">"DataConflictException"</span>,<br>  <span class="json-key">"localizationCode"</span>: <span class="json-string-value">"redeemableCodeExpired"</span>,<br>  <span class="json-key">"message"</span>: <span class="json-string-value">"Conflict: [RedeemableCodeV2] Redeemable code has expired"</span><br>}</pre>
+               <h5>429 Too Many Requests</h5>
+               <pre>{<br>  <span class="json-key">"type"</span>: <span class="json-string-value">"TooManyRequestsException"</span>,<br>  <span class="json-key">"localizationCode"</span>: <span class="json-string-value">"unknown"</span>,<br>  <span class="json-key">"message"</span>: <span class="json-string-value">"TooManyRequestsException: [bloodwebUpdate] Too many requests for this user"</span><br>}</pre>
             </main>
          </div>
       </div>

@@ -34,6 +34,21 @@ ul li {
 	/* Add vertical space between list items */
 }
 
+.nested-white-bullet {
+	list-style: none;
+	padding-left: 28.8px;
+	/* Indent text associated with nested white bullet */
+	position: relative;
+}
+
+.nested-white-bullet::before {
+	content: "◦";
+	left: 0;
+	padding-left: 12.8px;
+	/* Indent nested white bullet */
+	position: absolute;
+}
+
 /* Wrapper for navbar and main content */
 .wrapper {
 	flex-grow: 1;
@@ -403,6 +418,79 @@ code {
 	font-size: 16px;
 	margin-top: 10px;
 	/* Add vertical space between post dates and post description */
+}
+
+.understanding-skill-based-matchmaking-in-dead-by-daylight-cross-character-mmr-scaling-mechanism-table {
+	border-collapse: collapse;
+	margin: 0 auto;
+	/* Center horizontally */
+	margin-bottom: 15px;
+	/* Add vertical space between table and content below it */
+	text-align: center;
+	width: 100%;
+}
+
+.understanding-skill-based-matchmaking-in-dead-by-daylight-cross-character-mmr-scaling-mechanism-table th {
+	background-color: #181C24;
+}
+
+.understanding-skill-based-matchmaking-in-dead-by-daylight-cross-character-mmr-scaling-mechanism-table th,
+.understanding-skill-based-matchmaking-in-dead-by-daylight-cross-character-mmr-scaling-mechanism-table td {
+	border: 0.5px solid #ddd;
+	padding: 5px;
+}
+
+.understanding-skill-based-matchmaking-in-dead-by-daylight-img-cdf-mmrs {
+	height: 33%;
+	width: 33%;
+}
+
+.understanding-skill-based-matchmaking-in-dead-by-daylight-survivors-pre {
+	background-color: #1E1E1E;
+}
+
+.understanding-skill-based-matchmaking-in-dead-by-daylight-survivors-quantile-table {
+	border-collapse: collapse;
+	margin: 0 auto;
+	/* Center horizontally */
+	margin-bottom: 15px;
+	/* Add vertical space between table and content below it */
+	text-align: center;
+	width: 100%;
+}
+
+.understanding-skill-based-matchmaking-in-dead-by-daylight-survivors-quantile-table th {
+	background-color: #181C24;
+}
+
+.understanding-skill-based-matchmaking-in-dead-by-daylight-survivors-quantile-table th,
+.understanding-skill-based-matchmaking-in-dead-by-daylight-survivors-quantile-table td {
+	border: 0.5px solid #ddd;
+	padding: 5px;
+}
+
+.understanding-skill-based-matchmaking-in-dead-by-daylight-killers-pre {
+	background-color: #1E1E1E;
+}
+
+.understanding-skill-based-matchmaking-in-dead-by-daylight-killers-quantile-table {
+	border-collapse: collapse;
+	margin: 0 auto;
+	/* Center horizontally */
+	margin-bottom: 15px;
+	/* Add vertical space between table and content below it */
+	text-align: center;
+	width: 100%;
+}
+
+.understanding-skill-based-matchmaking-in-dead-by-daylight-killers-quantile-table th {
+	background-color: #181C24;
+}
+
+.understanding-skill-based-matchmaking-in-dead-by-daylight-killers-quantile-table th,
+.understanding-skill-based-matchmaking-in-dead-by-daylight-killers-quantile-table td {
+	border: 0.5px solid #ddd;
+	padding: 5px;
 }
 
 .decrypting-brawlhalla-swz-files-xor-cipher-well512-prng-combined-approach-pre {
@@ -928,6 +1016,24 @@ code {
 	color: #A984DE;
 }
 
+/* R syntax highlighting styles */
+.r-comment {
+	color: #75715E;
+	font-style: italic;
+}
+
+.r-number {
+	color: #AE81FF;
+}
+
+.r-string {
+	color: #A6E22E;
+}
+
+.r-vector {
+	color: #66D9EF;
+}
+
 /* Footer styles */
 .footer {
 	font-size: 14px;
@@ -939,6 +1045,11 @@ code {
 /* Media queries */
 /* Extra small device styles */
 @media screen and (max-width: 575.98px) {
+	.understanding-skill-based-matchmaking-in-dead-by-daylight-img-cdf-mmrs {
+		height: 100%;
+		width: 100%;
+	}
+
 	.decrypting-brawlhalla-swz-files-file-structure-pre {
 		font-size: 10px;
 	}
@@ -1054,6 +1165,11 @@ code {
 		display: none;
 	}
 
+	.understanding-skill-based-matchmaking-in-dead-by-daylight-img-cdf-mmrs {
+		height: 100%;
+		width: 50%;
+	}
+
 	.brawlhalla-speed-table {
 		font-size: 11px;
 	}
@@ -1063,6 +1179,11 @@ code {
 @media screen and (min-width: 768px) and (max-width: 991.98px) {
 	.has-tooltip::after {
 		display: none;
+	}
+
+	.understanding-skill-based-matchmaking-in-dead-by-daylight-img-cdf-mmrs {
+		height: 100%;
+		width: 50%;
 	}
 
 	.brawlhalla-speed-table {
@@ -1079,6 +1200,11 @@ code {
 		display: none;
 	}
 
+	.understanding-skill-based-matchmaking-in-dead-by-daylight-img-cdf-mmrs {
+		height: 100%;
+		width: 50%;
+	}
+
 	.dead-by-daylight-character-and-map-data-character-grid {
 		grid-template-columns: repeat(2, 1fr);
 	}
@@ -1089,11 +1215,21 @@ code {
 	.has-tooltip::after {
 		display: none;
 	}
+
+	.understanding-skill-based-matchmaking-in-dead-by-daylight-img-cdf-mmrs {
+		height: 100%;
+		width: 50%;
+	}
 }
 
 /* Extra large device styles */
 @media screen and (min-width: 1200px) and (max-width: 1399.98px) {
 	.has-tooltip::after {
 		display: none;
+	}
+
+	.understanding-skill-based-matchmaking-in-dead-by-daylight-img-cdf-mmrs {
+		height: 100%;
+		width: 50%;
 	}
 }
