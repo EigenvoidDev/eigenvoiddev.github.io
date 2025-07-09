@@ -9,157 +9,142 @@
 
 <url>
   <loc>https://eigenvoid.dev/</loc>
-  <lastmod>2025-07-03T17:20:34+00:00</lastmod>
+  <lastmod>2025-07-09T23:34:03+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://eigenvoid.dev/achievements</loc>
-  <lastmod>2025-07-03T17:20:34+00:00</lastmod>
+  <lastmod>2025-07-09T23:34:03+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://eigenvoid.dev/posts</loc>
-  <lastmod>2025-07-03T17:20:34+00:00</lastmod>
+  <lastmod>2025-07-09T23:34:03+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://eigenvoid.dev/projects</loc>
-  <lastmod>2025-07-03T17:20:34+00:00</lastmod>
+  <lastmod>2025-07-09T23:34:03+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://eigenvoid.dev/media</loc>
-  <lastmod>2025-07-03T17:20:34+00:00</lastmod>
+  <lastmod>2025-07-09T23:34:03+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://eigenvoid.dev/achievements/brawlhalla-power-rankings</loc>
-  <lastmod>2025-07-03T17:20:34+00:00</lastmod>
+  <lastmod>2025-07-09T23:34:03+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://eigenvoid.dev/posts/decrypting-dead-by-daylight-asset-and-profile-data</loc>
+  <lastmod>2025-07-09T23:34:03+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://eigenvoid.dev/posts/understanding-skill-based-matchmaking-in-dead-by-daylight</loc>
-  <lastmod>2025-07-03T17:20:34+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://eigenvoid.dev/posts/decrypting-dead-by-daylight-cdn-content</loc>
-  <lastmod>2025-07-03T17:20:34+00:00</lastmod>
+  <lastmod>2025-07-09T23:34:03+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://eigenvoid.dev/posts/dumping-process-memory-using-scylla</loc>
-  <lastmod>2025-07-03T17:20:34+00:00</lastmod>
+  <lastmod>2025-07-09T23:34:03+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://eigenvoid.dev/posts/decrypting-brawlhalla-swz-files</loc>
-  <lastmod>2025-07-03T17:20:34+00:00</lastmod>
+  <lastmod>2025-07-09T23:34:03+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://eigenvoid.dev/posts/modding-castle-crashers-remastered-using-cheat-engine</loc>
-  <lastmod>2025-07-03T17:20:34+00:00</lastmod>
+  <lastmod>2025-07-09T23:34:03+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://eigenvoid.dev/posts/unpacking-castle-crashers-remastered-game-files</loc>
-  <lastmod>2025-07-03T17:20:34+00:00</lastmod>
+  <lastmod>2025-07-09T23:34:03+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://eigenvoid.dev/posts/patching-sublime-text-4-build-4180</loc>
-  <lastmod>2025-07-03T17:20:34+00:00</lastmod>
+  <lastmod>2025-07-09T23:34:03+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://eigenvoid.dev/posts/patching-010-editor-version-150</loc>
-  <lastmod>2025-07-03T17:20:34+00:00</lastmod>
+  <lastmod>2025-07-09T23:34:03+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://eigenvoid.dev/posts/extracting-aes-key-for-dead-by-daylight</loc>
-  <lastmod>2025-07-03T17:20:34+00:00</lastmod>
+  <lastmod>2025-07-09T23:34:03+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://eigenvoid.dev/posts/generating-mapping-file-for-dead-by-daylight</loc>
-  <lastmod>2025-07-03T17:20:34+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://eigenvoid.dev/posts/patching-sublime-text-4-build-4169</loc>
-  <lastmod>2025-07-03T17:20:34+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://eigenvoid.dev/posts/patching-010-editor-version-1401</loc>
-  <lastmod>2025-07-03T17:20:34+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://eigenvoid.dev/posts/void-relics-in-warframe</loc>
-  <lastmod>2025-07-03T17:20:34+00:00</lastmod>
+  <lastmod>2025-07-09T23:34:03+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://eigenvoid.dev/posts/random-number-generation-in-warframe</loc>
-  <lastmod>2025-07-03T17:20:34+00:00</lastmod>
+  <lastmod>2025-07-09T23:34:03+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://eigenvoid.dev/projects/brawlhalla-level-data</loc>
-  <lastmod>2025-07-03T17:20:34+00:00</lastmod>
+  <lastmod>2025-07-09T23:34:03+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://eigenvoid.dev/projects/brawlhalla-stat-data</loc>
-  <lastmod>2025-07-03T17:20:34+00:00</lastmod>
+  <lastmod>2025-07-09T23:34:03+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://eigenvoid.dev/projects/castle-crashers-remastered-character-weapon-and-animal-orb-data</loc>
-  <lastmod>2025-07-03T17:20:34+00:00</lastmod>
+  <lastmod>2025-07-09T23:34:03+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://eigenvoid.dev/projects/dead-by-daylight-bloodweb-data</loc>
-  <lastmod>2025-07-03T17:20:34+00:00</lastmod>
+  <lastmod>2025-07-09T23:34:03+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://eigenvoid.dev/projects/dead-by-daylight-character-and-map-data</loc>
-  <lastmod>2025-07-03T17:20:34+00:00</lastmod>
+  <lastmod>2025-07-09T23:34:03+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://eigenvoid.dev/projects/dead-by-daylight-private-api-documentation/overview</loc>
-  <lastmod>2025-07-03T17:20:34+00:00</lastmod>
+  <lastmod>2025-07-09T23:34:03+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://eigenvoid.dev/projects/secret-hitler-probability-tables</loc>
-  <lastmod>2025-07-03T17:20:34+00:00</lastmod>
+  <lastmod>2025-07-09T23:34:03+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://eigenvoid.dev/projects/dead-by-daylight-private-api-documentation/api-reference</loc>
-  <lastmod>2025-07-03T17:20:34+00:00</lastmod>
+  <lastmod>2025-07-09T23:34:03+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>https://eigenvoid.dev/index</loc>
-  <lastmod>2025-07-03T17:20:34+00:00</lastmod>
+  <lastmod>2025-07-09T23:34:03+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>https://eigenvoid.dev/projects/dead-by-daylight-private-api-documentation/authorization</loc>
-  <lastmod>2025-07-03T17:20:34+00:00</lastmod>
+  <lastmod>2025-07-09T23:34:03+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
   <loc>https://eigenvoid.dev/projects/dead-by-daylight-private-api-documentation/changelog</loc>
-  <lastmod>2025-07-03T17:20:34+00:00</lastmod>
+  <lastmod>2025-07-09T23:34:03+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 
