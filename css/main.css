@@ -537,36 +537,6 @@ code {
 	padding: 5px;
 }
 
-.void-relic-rarity-weights-table {
-	border-collapse: collapse;
-	margin: 0 auto;
-	/* Center horizontally */
-	margin-bottom: 15px;
-	/* Add vertical space between table and content below it */
-	text-align: center;
-	width: 100%;
-}
-
-.void-relic-rarity-weights-table th {
-	background-color: #181C24;
-}
-
-.void-relic-rarity-weights-table th,
-.void-relic-rarity-weights-table td {
-	border: 0.5px solid #ddd;
-	padding: 5px;
-}
-
-.void-relic-rarity-weights-table-exceptional-data-cell {
-	max-width: 87.5px;
-	overflow: hidden;
-}
-
-.void-relic-rarity-weights-table-flawless-data-cell {
-	max-width: 89px;
-	overflow: hidden;
-}
-
 .rng-warframe-rarity-weights-table {
 	border-collapse: collapse;
 	margin: 0 auto;
@@ -1056,18 +1026,6 @@ code {
 
 	.decrypting-brawlhalla-swz-files-xor-cipher-well512-prng-combined-approach-pre {
 		font-size: 6px;
-	}
-
-	.void-relic-rarity-weights-table {
-		font-size: 12px;
-	}
-
-	.void-relic-rarity-weights-table-exceptional-data-cell {
-		font-size: 8px;
-	}
-
-	.void-relic-rarity-weights-table-flawless-data-cell {
-		font-size: 11px;
 	}
 
 	.rng-warframe-item-drop-chance-formula-exercise-1-pre {

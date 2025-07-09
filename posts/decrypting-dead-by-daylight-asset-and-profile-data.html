@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Decrypting Dead by Daylight Asset and Profile Data - Eigenvoid</title>
+      <meta name="description" content="Learn how to decrypt both asset and profile data from the Dead by Daylight private API.">
+      <!-- Canonical URL -->
+      <link rel="canonical" href="https://www.eigenvoid.dev/posts/decrypting-dead-by-daylight-asset-and-profile-data">
+      <!-- Open Graph Meta Tags -->
+      <meta property="og:url" content="https://www.eigenvoid.dev/posts/decrypting-dead-by-daylight-asset-and-profile-data">
+      <meta property="og:type" content="article">
+      <meta property="og:title" content="Decrypting Dead by Daylight Asset and Profile Data - Eigenvoid">
+      <meta property="og:description" content="Learn how to decrypt both asset and profile data from the Dead by Daylight private API.">
+      <meta property="og:image" content="https://www.eigenvoid.dev/img/og/favicon-1200x628.png">
+      <meta property="og:site_name" content="Eigenvoid">
+      <meta property="og:locale" content="en_US">
+      <!-- Twitter Card Meta Tags -->
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Decrypting Dead by Daylight Asset and Profile Data - Eigenvoid">
+      <meta name="twitter:description" content="Learn how to decrypt both asset and profile data from the Dead by Daylight private API.">
+      <meta name="twitter:image" content="https://www.eigenvoid.dev/img/twitter/favicon-1200x670.png">
+      <!-- Apple Touch Icon -->
+      <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
+      <!-- Favicons -->
+      <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="../css/bootstrap.min.css">
+      <!-- Custom CSS -->
+      <link rel="stylesheet" href="../css/main.css">
+      <!-- Fonts -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+      <!-- Font Awesome CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-E7GC202X7V"></script>
+      <script>
+         window.dataLayer = window.dataLayer || [];
+         function gtag(){dataLayer.push(arguments);}
+         gtag('js', new Date());
+         
+         gtag('config', 'G-E7GC202X7V');
+      </script>
+   </head>
+   <body>
+      <div class="wrapper">
+         <!-- Navbar -->
+         <nav class="navbar navbar-expand-md navbar-dark">
+            <div class="container d-flex justify-content-between">
+               <!-- Brand Name -->
+               <a class="nav-link brand-name" href="../">Eigenvoid</a>
+               <!-- Navbar Toggler Button -->
+               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+               </button>
+               <!-- Navbar Items -->
+               <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav ms-auto">
+                     <li class="nav-item">
+                        <a class="nav-link" href="../achievements">Achievements</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="../posts">Posts</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="../projects">Projects</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="../media">Media</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="https://discord.com/users/1310056373136003102"><i class="fab fa-discord"></i></a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/EigenvoidDev"><i class="fab fa-github"></i></a>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </nav>
+         <!-- Main Content -->
+         <div class="container main-content">
+            <h4>Decrypting Dead by Daylight Asset and Profile Data</h4>
+            <div class="post-dates">
+               <p class="post-date">July 9, 2025</p>
+            </div>
+            <hr>
+            <h5>Disclaimer</h5>
+            <p>The information included in this post is for educational purposes only. Any material on this webpage may not be reproduced, retransmitted, or redisplayed other than for personal or educational use.</p>
+            <h5>Introduction</h5>
+            <p>Dead by Daylight serves <a href="../projects/dead-by-daylight-private-api-documentation/api-reference#client-data">client data</a> from its <a href="../projects/dead-by-daylight-private-api-documentation/overview">private API</a>, distributed via its content delivery network (CDN). It also serves profile data from the same API. While both types of data can be intercepted by capturing network traffic and passing the title screen, the responses are obfuscated using a modified Base64 encoding scheme.</p>
+            <h5>Dead by Daylight Data Encoding Formats</h5>
+            <p>The Dead by Daylight client communicates with the game server using a <a href="https://en.wikipedia.org/wiki/REST">REST</a> API, with different endpoints employing distinct encoding schemes. Responses containing asset data are prefixed with "DbdDAwAC", whereas responses containing profile data are prefixed with "DbdDAgAC". A third prefix, "DbdDAQEB", indicates that the data is <a href="https://en.wikipedia.org/wiki/Zlib">zlib-compressed</a>.</p>
+            <h5>Instructions</h5>
+            <p>The following is a list of instructions required to decrypt both asset and profile data from the Dead by Daylight private API:</p>
+            <p>1. Visit <a href="https://www.python.org/downloads/">https://www.python.org/downloads/</a> and left-click on the appropriate download link.</p>
+            <p>2. Head to the location of the completed download and run the Python Setup for whichever version of Python you downloaded. Ensure that you have "Add python.exe to PATH" checked. Left-click on "Install Now".</p>
+            <p>3. Once you have installed Python, open Windows PowerShell. Type the following into the terminal:</p>
+            <pre>pip install pycryptodome</pre>
+            <p>This will install the PyCryptodome Python package to your machine. You can verify that you have successfully installed it by typing the following into the terminal:</p>
+            <pre>pip list</pre>
+            <p>If you successfully followed the instructions, then you will see the "pycryptodome" package and the version of it that you installed in the list.</p>
+            <p>4. Visit <a href="https://github.com/EigenvoidDev/DBDCrypter">this</a> URL, left-click on "Code", and then left-click on "Download ZIP". Save the compressed (zipped) folder of "DBDCrypter-main" into the directory of your choice.</p>
+            <p>5. Extract the contents of the compressed (zipped) folder "DBDCrypter-main" into the directory of your choice.</p>
+            <p>6. Open the "DBDCrypter-main" directory, right-click inside the directory, and left-click on "Open in Terminal".</p>
+            <p>7. After Windows PowerShell launches, type the following into the terminal:</p>
+            <pre>python main.py</pre>
+            <p>8. For decryption, you can either manually enter the encrypted data or load it from a file. Once provided, you will be prompted to select a branch by entering its corresponding key. For encryption, you will be prompted to select a file containing decrypted data and then enter its corresponding versioned branch.</p>
+            <p>9. For example, to decrypt "contentSchedule.json" from <a href="https://cdn.live.bhvrdbd.com/clientData/4fabea45-bce0-4461-8950-162659636437/content/9.0.2_2533385live/contentSchedule.json">this</a> URL using the first input method, you would do the following in the terminal, pressing the "Enter" key after each step:</p>
+            <pre>python main.py<br>Select mode:<br>1: Decrypt<br>2: Encrypt<br><br>1<br><br>Select an input method:<br>1: Enter encrypted data manually<br>2: Load encrypted data from a file<br><br>1<br><br>Enter the encrypted data: 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<br>Select a branch (q: QA, s: Stage, c: Cert, p: PTB, l: live): l</pre>
+            <p>10. After you do this, DBDCrypter will return the decrypted data to your terminal.</p>
+         </div>
+      </div>
+      <!-- Footer -->
+      <footer class="footer">
+         <p>
+            Copyright &copy;
+            <script type="text/javascript">
+               document.write(new Date().getFullYear());
+            </script>
+            Eigenvoid. All rights reserved.
+         </p>
+      </footer>
+      <!-- JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="../js/jquery-3.7.1.min.js"></script>
+      <script src="../js/popper.min.js"></script>
+      <script src="../js/bootstrap.min.js"></script>
+   </body>
+</html>
