@@ -59,8 +59,8 @@ ul li {
 .container {
 	margin: 0 auto;
 	/* Center horizontally */
-	max-width: 1000px;
-	/* Ensure that container will never be wider than 1000 pixels */
+	max-width: 950px;
+	/* Ensure that container will never be wider than 950 pixels */
 }
 
 .container.main-content {
@@ -97,165 +97,6 @@ ul li {
 
 .navbar ul li {
 	margin-bottom: 0;
-}
-
-/* Grid styles */
-.grid {
-	display: grid;
-	gap: 20px;
-	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-}
-
-.grid h5 {
-	text-align: center;
-}
-
-.grid-item {
-	background-color: #181C24;
-	border: 0.5px solid #2A2D3A;
-	border-radius: 8px;
-	overflow: auto;
-	padding: 15px;
-	position: relative;
-	word-wrap: break-word;
-	white-space: normal;
-}
-
-.probability-high {
-	border: 1px solid #2E8B57;
-}
-
-.probability-medium-high {
-	border: 1px solid #A3D900;
-}
-
-.probability-medium-low {
-	border: 1px solid #FFA500;
-}
-
-.probability-low {
-	border: 1px solid #FF6347;
-}
-
-.brawlhalla-level-data-image-container {
-	background-position: center;
-	background-size: cover;
-	height: 150px;
-	margin-bottom: 10px;
-	/* Add vertical space between image container and info container */
-}
-
-.dead-by-daylight-character-and-map-data-character-image-container {
-	background-position: center;
-	background-size: cover;
-	height: 150px;
-	margin: 0 auto;
-	/* Center horizontally */
-	margin-bottom: 10px;
-	/* Add vertical space between image container and info container */
-	width: 150px;
-}
-
-.dead-by-daylight-character-and-map-data-map-grid {
-	grid-template-columns: repeat(1, 1fr);
-}
-
-.dead-by-daylight-character-and-map-data-map-image-container {
-	background-position: center;
-	background-size: cover;
-	height: 150px;
-	margin: 0 auto;
-	/* Center horizontally */
-	margin-bottom: 10px;
-	/* Add vertical space between image container and info container */
-	width: 225px;
-}
-
-.info-container {
-	font-size: 14px;
-	text-align: center;
-}
-
-/* Code block styles */
-pre,
-code {
-	font-family: 'JetBrains Mono', monospace;
-}
-
-pre {
-	background-color: #181C24;
-	border: 1px solid #636363;
-	border-radius: 8px;
-	color: #fff;
-	font-size: 14px;
-	margin: 10px 0;
-	overflow-x: auto;
-	padding: 10px;
-	white-space: pre-wrap;
-	/* Ensure that long lines wrap */
-}
-
-code {
-	border: 1px solid #636363;
-	padding: 2px 2px;
-}
-
-.codebox-1 {
-	border: 1px solid #4DA8DA;
-	color: #D63384;
-	font-family: 'JetBrains Mono', monospace;
-	font-size: 87.5%;
-	padding: 2px 2px;
-}
-
-.codebox-2 {
-	border: 1px solid #FF7F50;
-	color: #D63384;
-	font-family: 'JetBrains Mono', monospace;
-	font-size: 87.5%;
-	padding: 2px 2px;
-}
-
-/* Notes button styles */
-.notes-container {
-	align-items: center;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	text-align: center;
-}
-
-.notes-btn {
-	background-color: #181C24;
-	border: 1px solid #2A2D3A;
-	color: #fff;
-	cursor: pointer;
-	display: block;
-	font-weight: 500;
-	font-size: 16px;
-	margin: 0 auto;
-	/* Center horizontally */
-	margin-bottom: 10px;
-	/* Add vertical space between notes button and content below it */
-	padding: 5px 10px;
-	transition: background-color 0.3s;
-}
-
-.notes-btn:hover {
-	background-color: #20262E;
-}
-
-.notes-btn.active {
-	background-color: #1C212F;
-}
-
-.notes-text {
-	border: 1px solid #2A2D3A;
-	display: none;
-	font-size: 16px;
-	margin-bottom: 10px;
-	/* Add vertical space between notes text and content below it */
-	padding: 10px;
 }
 
 /* Tab styles */
@@ -302,6 +143,125 @@ code {
 	display: block;
 }
 
+/* Notes button styles */
+.notes-container {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+}
+
+.notes-btn {
+	background-color: #181C24;
+	border: 1px solid #2A2D3A;
+	color: #fff;
+	cursor: pointer;
+	display: block;
+	font-weight: 500;
+	font-size: 16px;
+	margin: 0 auto;
+	/* Center horizontally */
+	margin-bottom: 10px;
+	/* Add vertical space between notes button and content below it */
+	padding: 5px 10px;
+	transition: background-color 0.3s;
+}
+
+.notes-btn:hover {
+	background-color: #20262E;
+}
+
+.notes-btn.active {
+	background-color: #1C212F;
+}
+
+.notes-text {
+	border: 1px solid #2A2D3A;
+	display: none;
+	font-size: 16px;
+	margin-bottom: 10px;
+	/* Add vertical space between notes text and content below it */
+	padding: 10px;
+}
+
+/* Grid styles */
+.grid {
+	display: grid;
+	gap: 20px;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.grid h5 {
+	text-align: center;
+}
+
+.grid-item {
+	background-color: #181C24;
+	border: 0.5px solid #2A2D3A;
+	border-radius: 8px;
+	overflow: auto;
+	padding: 15px;
+	position: relative;
+	word-wrap: break-word;
+	white-space: normal;
+}
+
+.info-container {
+	font-size: 14px;
+	text-align: center;
+}
+
+.probability-high {
+	border: 1px solid #2E8B57;
+}
+
+.probability-medium-high {
+	border: 1px solid #A3D900;
+}
+
+.probability-medium-low {
+	border: 1px solid #FFA500;
+}
+
+.probability-low {
+	border: 1px solid #FF6347;
+}
+
+.brawlhalla-level-data-image-container {
+	background-position: center;
+	background-size: cover;
+	height: 150px;
+	margin-bottom: 10px;
+	/* Add vertical space between image container and info container */
+}
+
+.dead-by-daylight-character-and-map-data-character-image-container {
+	background-position: center;
+	background-size: cover;
+	height: 150px;
+	margin: 0 auto;
+	/* Center horizontally */
+	margin-bottom: 10px;
+	/* Add vertical spacee between image container and info container */
+	width: 150px;
+}
+
+.dead-by-daylight-character-and-map-data-map-grid {
+	grid-template-columns: repeat(2, 1fr);
+}
+
+.dead-by-daylight-character-and-map-data-map-image-container {
+	background-position: center;
+	background-size: cover;
+	height: 150px;
+	margin: 0 auto;
+	/* Center horizontally */
+	margin-bottom: 10px;
+	/* Add vertical spacee between image container and info container */
+	width: 225px;
+}
+
 /* Tooltip styles */
 .has-tooltip {
 	position: relative;
@@ -318,72 +278,47 @@ code {
 	content: "☑️";
 }
 
-/* Specific styles */
-/* Achievements webpage and subpages */
-.achievements-heading {
-	text-align: center;
+/* Code block styles */
+pre,
+code {
+	font-family: 'JetBrains Mono', monospace;
 }
 
-.team-history-heading {
-	margin-top: 10px;
-	/* Add vertical space between achievements grid and team history heading */
-	text-align: center;
-}
-
-.team-history-table {
-	border-collapse: collapse;
-	text-align: center;
-	width: 100%;
-}
-
-.team-history-table th {
+pre {
 	background-color: #181C24;
+	border: 1px solid #636363;
+	border-radius: 8px;
+	color: #fff;
+	font-size: 14px;
+	margin: 10px 0;
+	overflow-x: auto;
+	padding: 10px;
+	white-space: pre-wrap;
+	/* Ensure that long lines wrap */
 }
 
-.team-history-table th,
-.team-history-table td {
-	border: 0.5px solid #ddd;
-	padding: 5px;
+code {
+	border: 1px solid #636363;
+	padding: 2px 2px;
 }
 
-.team-history-table img {
-	display: block;
-	margin: 0 auto;
-	/* Center horizontally */
-	padding: 5px;
+.codebox-1 {
+	border: 1px solid #4DA8DA;
+	color: #D63384;
+	font-family: 'JetBrains Mono', monospace;
+	font-size: 87.5%;
+	padding: 2px 2px;
 }
 
-.team-logo {
-	height: 85px;
-	width: 85px;
+.codebox-2 {
+	border: 1px solid #FF7F50;
+	color: #D63384;
+	font-family: 'JetBrains Mono', monospace;
+	font-size: 87.5%;
+	padding: 2px 2px;
 }
 
-.brawlhalla-power-rankings-heading {
-	text-align: center;
-}
-
-.brawlhalla-power-rankings-table {
-	border-collapse: collapse;
-	margin: 0 auto;
-	/* Center horizontally */
-	text-align: center;
-}
-
-.brawlhalla-power-rankings-table th {
-	background-color: #181C24;
-}
-
-.brawlhalla-power-rankings-table th,
-.brawlhalla-power-rankings-table td {
-	border: 0.5px solid #ddd;
-	padding: 5px;
-}
-
-/* Posts webpage and subpages */
-.posts-heading {
-	text-align: center;
-}
-
+/* Index webpage and posts subpages */
 .post-block {
 	background-color: #181C24;
 	border: 1px solid #2A2D3A;
@@ -537,7 +472,7 @@ code {
 	padding: 5px;
 }
 
-.rng-warframe-rarity-weights-table {
+.random-number-generation-in-warframe-rarity-weights-table {
 	border-collapse: collapse;
 	margin: 0 auto;
 	/* Center horizontally */
@@ -547,17 +482,17 @@ code {
 	width: 100%;
 }
 
-.rng-warframe-rarity-weights-table th {
+.random-number-generation-in-warframe-rarity-weights-table th {
 	background-color: #181C24;
 }
 
-.rng-warframe-rarity-weights-table th,
-.rng-warframe-rarity-weights-table td {
+.random-number-generation-in-warframe-rarity-weights-table th,
+.random-number-generation-in-warframe-rarity-weights-table td {
 	border: 0.5px solid #ddd;
 	padding: 5px;
 }
 
-.rng-warframe-bias-specter-table {
+.random-number-generation-in-warframe-bias-specter-table {
 	border-collapse: collapse;
 	margin: 0 auto;
 	/* Center horizontally */
@@ -567,29 +502,25 @@ code {
 	width: 100%;
 }
 
-.rng-warframe-bias-specter-table th {
+.random-number-generation-in-warframe-bias-specter-table th {
 	background-color: #181C24;
 }
 
-.rng-warframe-bias-specter-table th,
-.rng-warframe-bias-specter-table td {
+.random-number-generation-in-warframe-bias-specter-table th,
+.random-number-generation-in-warframe-bias-specter-table td {
 	border: 0.5px solid #ddd;
 	padding: 5px;
 }
 
-.rng-warframe-reward-seed-generator-pre {
+.random-number-generation-in-warframe-reward-seed-generator-pre {
 	background-color: #1E1E1E;
 }
 
-.rng-warframe-weighted-random-number-generator-pre {
+.random-number-generation-in-warframe-weighted-random-number-generator-pre {
 	background-color: #1E1E1E;
 }
 
 /* Projects webpage and subpages */
-.projects-heading {
-	text-align: center;
-}
-
 .project-block {
 	background-color: #181C24;
 	border: 1px solid #2A2D3A;
@@ -603,7 +534,7 @@ code {
 	color: #fff;
 }
 
-.project-title h5 {
+.project-title h6 {
 	margin-bottom: 5px;
 	/* Add vertical space between project title and content below it */
 }
@@ -643,7 +574,6 @@ code {
 	border: 0.5px solid #ddd;
 	padding: 10px;
 }
-
 
 .brawlhalla-strength-table {
 	border-collapse: collapse;
@@ -740,7 +670,7 @@ code {
 	padding: 10px;
 }
 
-.character-portrait {
+.castle-crashers-remastered-character-portrait {
 	height: 67%;
 	width: 67%;
 }
@@ -881,6 +811,7 @@ code {
 
 .dead-by-daylight-character-and-map-data-character-grid-table {
 	border-collapse: collapse;
+	font-size: 13px;
 	margin: 0 auto;
 	/* Center horizontally */
 	text-align: center;
@@ -899,6 +830,7 @@ code {
 
 .dead-by-daylight-character-and-map-data-map-grid-table {
 	border-collapse: collapse;
+	font-size: 11.5px;
 	margin: 0 auto;
 	/* Center horizontally */
 	text-align: center;
@@ -913,47 +845,6 @@ code {
 .dead-by-daylight-character-and-map-data-map-grid-table td {
 	border: 0.5px solid #ddd;
 	padding: 10px;
-}
-
-.secret-hitler-role-probabilities-table {
-	border-collapse: collapse;
-	text-align: center;
-	width: 100%;
-}
-
-.secret-hitler-role-probabilities-table th {
-	background-color: #181C24;
-	position: sticky;
-	top: 0;
-}
-
-.secret-hitler-role-probabilities-table th,
-.secret-hitler-role-probabilities-table td {
-	border: 0.5px solid #ddd;
-	padding: 5px;
-}
-
-.secret-hitler-policy-card-draw-probabilities-table {
-	border-collapse: collapse;
-	text-align: center;
-	width: 100%;
-}
-
-.secret-hitler-policy-card-draw-probabilities-table th {
-	background-color: #181C24;
-	position: sticky;
-	top: 0;
-}
-
-.secret-hitler-policy-card-draw-probabilities-table th,
-.secret-hitler-policy-card-draw-probabilities-table td {
-	border: 0.5px solid #ddd;
-	padding: 5px;
-}
-
-/* Media webpage */
-.media-heading {
-	text-align: center;
 }
 
 /* C++ syntax highlighting styles */
@@ -1013,8 +904,16 @@ code {
 }
 
 /* Media queries */
-/* Extra small device styles */
+/* Extra small device styless */
 @media screen and (max-width: 575.98px) {
+	.tabs {
+		font-size: 11px;
+	}
+
+	.has-tooltip::after {
+		display: none;
+	}
+
 	.understanding-skill-based-matchmaking-in-dead-by-daylight-img-cdf-mmrs {
 		height: 100%;
 		width: 100%;
@@ -1028,32 +927,24 @@ code {
 		font-size: 6px;
 	}
 
-	.rng-warframe-item-drop-chance-formula-exercise-1-pre {
+	.random-number-generation-in-warframe-item-drop-chance-formula-exercise-1-pre {
 		font-size: 10.5px;
 	}
 
-	.rng-warframe-normalization-exercise-1-pre {
+	.random-number-generation-in-warframe-normalization-exercise-1-pre {
 		font-size: 8px;
 	}
 
-	.rng-warframe-reward-seed-generator-pre {
+	.random-number-generation-in-warframe-reward-seed-generator-pre {
 		font-size: 5px;
 	}
 
-	.rng-warframe-weighted-random-number-generator-pre {
+	.random-number-generation-in-warframe-weighted-random-number-generator-pre {
 		font-size: 4.5px;
 	}
 
-	.rng-warframe-bias-specter-table {
+	.random-number-generation-in-warframe-bias-specter-table {
 		font-size: 9px;
-	}
-
-	.tabs {
-		font-size: 11px;
-	}
-
-	.has-tooltip::after {
-		display: none;
 	}
 
 	.brawlhalla-dexterity-table {
@@ -1068,7 +959,7 @@ code {
 		font-size: 11.5px;
 	}
 
-	.weapon-image {
+	.castle-crashers-remastered-weapon-image {
 		height: 30%;
 		width: 30%;
 	}
@@ -1077,7 +968,7 @@ code {
 		font-size: 8.5px;
 	}
 
-	.animal-orb-image {
+	.castle-crashers-remastered-animal-orb-image {
 		height: 70%;
 		width: 70%;
 	}
@@ -1098,15 +989,11 @@ code {
 		font-size: 10px;
 	}
 
+	.dead-by-daylight-character-and-map-data-map-grid {
+		grid-template-columns: repeat(1, 1fr);
+	}
+
 	.dead-by-daylight-character-and-map-data-map-grid-table {
-		font-size: 6px;
-	}
-
-	.secret-hitler-role-probabilities-table {
-		font-size: 7px;
-	}
-
-	.secret-hitler-policy-card-draw-probabilities-table {
 		font-size: 6px;
 	}
 }
@@ -1131,6 +1018,10 @@ code {
 	.brawlhalla-speed-table {
 		font-size: 11px;
 	}
+
+	.dead-by-daylight-character-and-map-data-map-grid {
+		grid-template-columns: repeat(1, 1fr);
+	}
 }
 
 /* Medium device styles */
@@ -1151,6 +1042,10 @@ code {
 	.dead-by-daylight-character-and-map-data-character-grid {
 		grid-template-columns: repeat(2, 1fr);
 	}
+
+	.dead-by-daylight-character-and-map-data-map-grid {
+		grid-template-columns: repeat(1, 1fr);
+	}
 }
 
 @media screen and (min-width: 768px) and (max-width: 991.98px) and (orientation: landscape) {
@@ -1166,6 +1061,10 @@ code {
 	.dead-by-daylight-character-and-map-data-character-grid {
 		grid-template-columns: repeat(2, 1fr);
 	}
+
+	.dead-by-daylight-character-and-map-data-map-grid {
+		grid-template-columns: repeat(1, 1fr);
+	}
 }
 
 /* Large device styles */
@@ -1178,6 +1077,14 @@ code {
 		height: 100%;
 		width: 50%;
 	}
+
+	.dead-by-daylight-character-and-map-data-character-grid-table {
+		font-size: 12px;
+	}
+
+	.dead-by-daylight-character-and-map-data-map-grid {
+		grid-template-columns: repeat(1, 1fr);
+	}
 }
 
 /* Extra large device styles */
@@ -1189,5 +1096,9 @@ code {
 	.understanding-skill-based-matchmaking-in-dead-by-daylight-img-cdf-mmrs {
 		height: 100%;
 		width: 50%;
+	}
+
+	.dead-by-daylight-character-and-map-data-map-grid {
+		grid-template-columns: repeat(1, 1fr);
 	}
 }

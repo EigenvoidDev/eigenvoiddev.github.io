@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
+      <!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-E7GC202X7V"></script>
+      <script>
+         window.dataLayer = window.dataLayer || [];
+         function gtag(){dataLayer.push(arguments);}
+         gtag('js', new Date());
+         
+         gtag('config', 'G-E7GC202X7V');
+      </script>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Understanding Skill-Based Matchmaking in Dead by Daylight - Eigenvoid</title>
@@ -8,17 +17,17 @@
       <!-- Canonical URL -->
       <link rel="canonical" href="https://www.eigenvoid.dev/posts/understanding-skill-based-matchmaking-in-dead-by-daylight">
       <!-- Open Graph Meta Tags -->
-      <meta property="og:url" content="https://www.eigenvoid.dev/posts/understanding-skill-based-matchmaking-in-dead-by-daylight">
-      <meta property="og:type" content="article">
       <meta property="og:title" content="Understanding Skill-Based Matchmaking in Dead by Daylight - Eigenvoid">
+      <meta property="og:type" content="article">
+      <meta property="og:image" content="https://www.eigenvoid.dev/img/og/favicon-1200x630.png">
+      <meta property="og:url" content="https://www.eigenvoid.dev/posts/understanding-skill-based-matchmaking-in-dead-by-daylight">
       <meta property="og:description" content="Learn how skill-based matchmaking works in Dead by Daylight.">
-      <meta property="og:image" content="https://www.eigenvoid.dev/img/og/favicon-1200x628.png">
-      <meta property="og:site_name" content="Eigenvoid">
       <meta property="og:locale" content="en_US">
+      <meta property="og:site_name" content="Eigenvoid">
       <!-- Twitter Card Meta Tags -->
       <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="Understanding Skill-Based Matchmaking in Dead by Daylight - Eigenvoid">
       <meta name="twitter:description" content="Learn how skill-based matchmaking works in Dead by Daylight.">
+      <meta name="twitter:title" content="Understanding Skill-Based Matchmaking in Dead by Daylight - Eigenvoid">
       <meta name="twitter:image" content="https://www.eigenvoid.dev/img/twitter/favicon-1200x670.png">
       <!-- Apple Touch Icon -->
       <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
@@ -29,22 +38,12 @@
       <link rel="stylesheet" href="../css/bootstrap.min.css">
       <!-- Custom CSS -->
       <link rel="stylesheet" href="../css/main.css">
-      <!-- Fonts -->
+      <!-- Google Fonts -->
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
       <!-- Font Awesome CSS -->
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <!-- Google tag (gtag.js) -->
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-E7GC202X7V"></script>
-      <script>
-         window.dataLayer = window.dataLayer || [];
-         function gtag(){dataLayer.push(arguments);}
-         gtag('js', new Date());
-         
-         gtag('config', 'G-E7GC202X7V');
-      </script>
    </head>
    <body>
       <div class="wrapper">
@@ -54,23 +53,17 @@
                <!-- Brand Name -->
                <a class="nav-link brand-name" href="../">Eigenvoid</a>
                <!-- Navbar Toggler Button -->
-               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                <span class="navbar-toggler-icon"></span>
                </button>
                <!-- Navbar Items -->
                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav ms-auto">
                      <li class="nav-item">
-                        <a class="nav-link" href="../achievements">Achievements</a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="../posts">Posts</a>
+                        <a class="nav-link" href="../">Posts</a>
                      </li>
                      <li class="nav-item">
                         <a class="nav-link" href="../projects">Projects</a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="../media">Media</a>
                      </li>
                      <li class="nav-item">
                         <a class="nav-link" href="https://discord.com/users/1310056373136003102"><i class="fab fa-discord"></i></a>
