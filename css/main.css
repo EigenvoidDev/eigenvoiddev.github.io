@@ -99,6 +99,48 @@ ul li {
 	margin-bottom: 0;
 }
 
+/* Filter styles */
+.filter-button {
+	background-color: #1E202A;
+	border: 1px solid #3A3D4D;
+	border-radius: 6px;
+	color: #C3C6D1;
+	cursor: pointer;
+	font-size: 13px;
+	font-weight: 600;
+	margin-bottom: 8px;
+	margin-right: 8px;
+	padding: 6px 14px;
+	text-transform: uppercase;
+	transition: background-color 0.2 ease, color 0.2 ease;
+}
+
+.filter-button:hover {
+	background-color: #2F3344;
+	color: #fff;
+}
+
+.filter-button.active {
+	background-color: #2F3344;
+	color: #fff;
+}
+
+/* Tag badge styles */
+.tag-badge {
+	background-color: #1E202A;
+	border: 1px solid #3A3D4D;
+	border-radius: 6px;
+	color: #C3C6D1;
+	display: inline-block;
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: 0.5px;
+	margin-bottom: 3px;
+	margin-right: 5px;
+	padding: 4px 10px;
+	text-transform: uppercase;
+}
+
 /* Tab styles */
 .tabs {
 	font-size: 14px;
@@ -319,6 +361,14 @@ code {
 }
 
 /* Index webpage and posts subpages */
+.post-filter {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-bottom: 10px;
+	/* Add vertical space between post filter and posts */
+}
+
 .post-block {
 	background-color: #181C24;
 	border: 1px solid #2A2D3A;
@@ -906,12 +956,24 @@ code {
 /* Media queries */
 /* Extra small device styless */
 @media screen and (max-width: 575.98px) {
+	.filter-button {
+		flex: 0 0 auto;
+		scroll-snap-align: start;
+	}
+
 	.tabs {
 		font-size: 11px;
 	}
 
 	.has-tooltip::after {
 		display: none;
+	}
+
+	.post-filter {
+		flex-direction: row;
+		justify-content: start;
+		overflow-x: auto;
+		scroll-snap-type: x mandatory;
 	}
 
 	.understanding-skill-based-matchmaking-in-dead-by-daylight-img-cdf-mmrs {

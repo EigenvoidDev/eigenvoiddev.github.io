@@ -80,7 +80,15 @@
             <p>I'm a data miner, programmer, and reverse engineer with a passion for understanding how video games function behind the scenes. Over the past decade, I've explored a wide range of titles, including <i>Brawlhalla</i>, the <i>Call of Duty</i> series, <i>Castle Crashers</i>, <i>Dead by Daylight</i>, <i>New World</i>, <i>Star Wars Battlefront</i>, and <i>Warframe</i>.</p>
             <p>My work involves data extraction, reverse engineering, custom scripting, and building tools that reveal the hidden systems behind games. I aim to promote transparency in game design and help players better understand the mechanics driving their favorite titles.</p>
             <hr>
-            <div class="post-block">
+            <!-- Filters -->
+            <div class="post-filter">
+               <button data-tag="all" class="filter-button active">All</button>
+               <button data-tag="brawlhalla" class="filter-button">Brawlhalla</button>
+               <button data-tag="castle-crashers" class="filter-button">Castle Crashers</button>
+               <button data-tag="dead-by-daylight" class="filter-button">Dead by Daylight</button>
+               <button data-tag="warframe" class="filter-button">Warframe</button>
+            </div>
+            <div class="post-block" data-tags="dead-by-daylight">
                <div class="post-content">
                   <a href="posts/decrypting-dead-by-daylight-asset-and-profile-data" class="post-title">
                      <h5>Decrypting Dead by Daylight Asset and Profile Data</h5>
@@ -88,12 +96,13 @@
                   <div class="post-dates">
                      <p class="post-date">July 9, 2025</p>
                   </div>
+                  <div class="post-tags"></div>
                </div>
                <p class="post-description">
                   Learn how to decrypt both asset and profile data from the Dead by Daylight private API.
                </p>
             </div>
-            <div class="post-block">
+            <div class="post-block" data-tags="dead-by-daylight">
                <div class="post-content">
                   <a href="posts/understanding-skill-based-matchmaking-in-dead-by-daylight" class="post-title">
                      <h5>Understanding Skill-Based Matchmaking in Dead by Daylight</h5>
@@ -101,6 +110,7 @@
                   <div class="post-dates">
                      <p class="post-date">July 2, 2025</p>
                   </div>
+                  <div class="post-tags"></div>
                </div>
                <p class="post-description">
                   Learn how skill-based matchmaking works in Dead by Daylight.
@@ -114,12 +124,13 @@
                   <div class="post-dates">
                      <p class="post-date">September 26, 2024</p>
                   </div>
+                  <div class="post-tags"></div>
                </div>
                <p class="post-description">
                   Learn how to dump the memory of a process using Scylla.
                </p>
             </div>
-            <div class="post-block">
+            <div class="post-block" data-tags="brawlhalla">
                <div class="post-content">
                   <a href="posts/decrypting-brawlhalla-swz-files" class="post-title">
                      <h5>Decrypting Brawlhalla SWZ Files</h5>
@@ -127,12 +138,13 @@
                   <div class="post-dates">
                      <p class="post-date">September 14, 2024</p>
                   </div>
+                  <div class="post-tags"></div>
                </div>
                <p class="post-description">
                   Learn how to decrypt Brawlhalla's SWZ files.
                </p>
             </div>
-            <div class="post-block">
+            <div class="post-block" data-tags="castle-crashers">
                <div class="post-content">
                   <a href="posts/modding-castle-crashers-remastered-using-cheat-engine" class="post-title">
                      <h5>Modding Castle Crashers Remastered Using Cheat Engine</h5>
@@ -140,12 +152,13 @@
                   <div class="post-dates">
                      <p class="post-date">September 6, 2024</p>
                   </div>
+                  <div class="post-tags"></div>
                </div>
                <p class="post-description">
                   Learn how to modify Castle Crashers Remastered using Cheat Engine.
                </p>
             </div>
-            <div class="post-block">
+            <div class="post-block" data-tags="castle-crashers">
                <div class="post-content">
                   <a href="posts/unpacking-castle-crashers-remastered-game-files" class="post-title">
                      <h5>Unpacking Castle Crashers Remastered Game Files</h5>
@@ -153,6 +166,7 @@
                   <div class="post-dates">
                      <p class="post-date">September 1, 2024</p>
                   </div>
+                  <div class="post-tags"></div>
                </div>
                <p class="post-description">
                   Learn how to unpack Castle Crashers Remastered's game files.
@@ -166,6 +180,7 @@
                   <div class="post-dates">
                      <p class="post-date">August 10, 2024</p>
                   </div>
+                  <div class="post-tags"></div>
                </div>
                <p class="post-description">
                   Learn how to patch Sublime Text 4 Build 4180 on the 64-bit version of Windows.
@@ -179,12 +194,13 @@
                   <div class="post-dates">
                      <p class="post-date">August 10, 2024</p>
                   </div>
+                  <div class="post-tags"></div>
                </div>
                <p class="post-description">
                   Learn how to patch 010 Editor Version 15.0 on the 64-bit version of Windows.
                </p>
             </div>
-            <div class="post-block">
+            <div class="post-block" data-tags="dead-by-daylight">
                <div class="post-content">
                   <a href="posts/extracting-aes-key-for-dead-by-daylight" class="post-title">
                      <h5>Extracting AES Key for Dead by Daylight</h5>
@@ -192,12 +208,13 @@
                   <div class="post-dates">
                      <p class="post-date">August 10, 2024</p>
                   </div>
+                  <div class="post-tags"></div>
                </div>
                <p class="post-description">
                   Learn how to extract the AES key for Dead by Daylight.
                </p>
             </div>
-            <div class="post-block">
+            <div class="post-block" data-tags="dead-by-daylight">
                <div class="post-content">
                   <a href="posts/generating-mapping-file-for-dead-by-daylight" class="post-title">
                      <h5>Generating Mapping File for Dead by Daylight</h5>
@@ -206,12 +223,13 @@
                      <p class="post-date">August 10, 2024</p>
                      <p class="post-modified">Last Modified: May 8, 2025</p>
                   </div>
+                  <div class="post-tags"></div>
                </div>
                <p class="post-description">
                   Learn how to generate a mapping file for Dead by Daylight.
                </p>
             </div>
-            <div class="post-block">
+            <div class="post-block" data-tags="warframe">
                <div class="post-content">
                   <a href="posts/random-number-generation-in-warframe" class="post-title">
                      <h5>Random Number Generation in Warframe</h5>
@@ -220,6 +238,7 @@
                      <p class="post-date">April 17, 2016</p>
                      <p class="post-modified">Last Modified: September 1, 2024</p>
                   </div>
+                  <div class="post-tags"></div>
                </div>
                <p class="post-description">
                   Learn how random number generation works in Warframe.
@@ -242,5 +261,7 @@
       <script src="js/jquery-3.7.1.min.js"></script>
       <script src="js/popper.min.js"></script>
       <script src="js/bootstrap.min.js"></script>
+      <!-- Custom JavaScript -->
+      <script src="js/main.js"></script>
    </body>
 </html>
