@@ -278,6 +278,17 @@ ul li {
 	/* Add vertical space between image container and info container */
 }
 
+.castle-crashers-remastered-character-weapon-and-animal-orb-data-character-image-container {
+	background-position: center;
+	background-size: cover;
+	height: 270px;
+	margin: 0 auto;
+	/* Center horizontally */
+	margin-bottom: 10px;
+	/* Add vertical spacee between image container and info container */
+	width: 112.5px;
+}
+
 .dead-by-daylight-character-and-map-data-character-image-container {
 	background-position: center;
 	background-size: cover;
@@ -701,28 +712,23 @@ code {
 	padding: 5px;
 }
 
-.castle-crashers-remastered-characters-table {
+.castle-crashers-remastered-character-weapon-and-animal-orb-data-character-grid-table {
 	border-collapse: collapse;
+	font-size: 11px;
 	margin: 0 auto;
 	/* Center horizontally */
 	text-align: center;
 }
 
-.castle-crashers-remastered-characters-table th {
+.castle-crashers-remastered-character-weapon-and-animal-orb-data-character-grid-table th {
 	background-color: #181C24;
-	position: sticky;
 	top: 0;
 }
 
-.castle-crashers-remastered-characters-table th,
-.castle-crashers-remastered-characters-table td {
+.castle-crashers-remastered-character-weapon-and-animal-orb-data-character-grid-table th,
+.castle-crashers-remastered-character-weapon-and-animal-orb-data-character-grid-table td {
 	border: 0.5px solid #ddd;
 	padding: 10px;
-}
-
-.castle-crashers-remastered-character-portrait {
-	height: 67%;
-	width: 67%;
 }
 
 .castle-crashers-remastered-weapons-table {
@@ -1101,6 +1107,10 @@ code {
 		font-size: 13px;
 	}
 
+	.castle-crashers-remastered-character-weapon-and-animal-orb-data-character-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
 	.dead-by-daylight-character-and-map-data-character-grid {
 		grid-template-columns: repeat(2, 1fr);
 	}
@@ -1118,6 +1128,10 @@ code {
 	.understanding-skill-based-matchmaking-in-dead-by-daylight-img-cdf-mmrs {
 		height: 100%;
 		width: 50%;
+	}
+
+	.castle-crashers-remastered-character-weapon-and-animal-orb-data-character-grid {
+		grid-template-columns: repeat(2, 1fr);
 	}
 
 	.dead-by-daylight-character-and-map-data-character-grid {
