@@ -262,6 +262,10 @@ ul li {
 	border: 1px solid #A3D900;
 }
 
+.probability-medium {
+	border: 1px solid #FFD700;
+}
+
 .probability-medium-low {
 	border: 1px solid #FFA500;
 }
